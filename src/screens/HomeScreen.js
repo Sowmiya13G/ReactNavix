@@ -6,33 +6,65 @@ import {
   Image,
   FlatList,
   ActivityIndicator,
+  RefreshControl,
 } from 'react-native';
 
-const HomeScreen = () => {
-  const [newsData, setNewsData] = useState('');
-  const [loading, setLoading] = useState('');
+import {useSelector, useDispatch} from 'react-redux';
+import {setNewsData, setLoading} from '../redux/actions/NewsAction';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-  useEffect(() => {
+const HomeScreen = () => {
+  const newsData = useSelector(state => state.value.newsData);
+  const loading = useSelector(state => state.value.loading);
+  const dispatch = useDispatch();
+  const [isRefreshing, setIsRefreshing] = useState(false);
+
+  //Fetch data
+  const fetchData = async () => {
     const apiURl =
       'https://newsapi.org/v2/everything?q=tesla&from=2023-08-22&sortBy=publishedAt&apiKey=9beb24de34a14c59a90266af79eb09d6';
 
-    //Fetch data
-    fetch(apiURl)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Newtork response was not ok');
+    try {
+      const response = await fetch(apiURl);
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      dispatch(setNewsData(data.articles));
+
+      //Store news data in AsyncStorage
+      await AsyncStorage.setItem('newData', JSON.stringify(data.articles));
+    } catch (error) {
+      console.log('Error fetching data:', error);
+    } finally {
+      dispatch(setLoading(false));
+      setIsRefreshing(false);
+    }
+  };
+
+  const handleRefresh = async () => {
+    setIsRefreshing(true);
+    await fetchData();
+  };
+
+  useEffect(() => {
+    setLoading(true);
+    // Check if news data is available in AsyncStorage
+    AsyncStorage.getItem('newsData')
+      .then(storeData => {
+        if (storeData) {
+          dispatch(setNewsData(JSON.parse(storeData)));
         }
-        return response.json();
-      })
-      .then(data => {
-        setNewsData(data.articles);
-        setLoading(false);
       })
       .catch(error => {
-        console.log('Error fetching data:', error);
-        setLoading(false);
+        console.log('Error reading data from AsyncStorage:', error);
+      })
+      .finally(() => {
+        fetchData(); // Always fetch fresh data to update even if stored data is available
       });
-  }, []);
+  }, [dispatch]);
+
   if (loading) {
     return (
       <View style={styles.indicator}>
@@ -58,6 +90,9 @@ const HomeScreen = () => {
             <Text style={styles.text}>{item.description}</Text>
           </View>
         )}
+        refreshControl={
+          <RefreshControl refreshing={isRefreshing} onRefresh={handleRefresh} />
+        }
       />
     </View>
   );
@@ -107,3 +142,34 @@ const styles = StyleSheet.create({
 });
 
 export default HomeScreen;
+
+// useEffect(() => {
+//   // Check if news data is available in AsyncStorage
+//   AsyncStorage.getItem('newsData')
+//     .then(storeData => {
+//       if (storeData) {
+//         dispatch(setNewsData(JSON.parse(storeData)));
+//         dispatch(setLoading(false));
+//       } else {
+//         fetch(apiURl)
+//           .then(response => {
+//             if (!response.ok) {
+//               throw new Error('Newtork response was not ok');
+//             }
+//             return response.json();
+//           })
+//           .then(data => {
+//             dispatch(setNewsData(data.articles));
+//             dispatch(setLoading(false));
+
+//             AsyncStorage.setItem('newData', JSON.stringify(data.articles));
+//           })
+//           .catch(error => {
+//             console.log('Error fetching data:', error);
+//             dispatch(setLoading(false));
+//           });
+//       }
+//     })
+//     .catch(error => {
+//       console.log('Error reading data from AsyncStorage:', error);
+//     });

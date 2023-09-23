@@ -3,7 +3,7 @@ import {View, Text, FlatList, StyleSheet} from 'react-native';
 import {useSelector} from 'react-redux';
 
 export default function ProfileScreen() {
-  const data = useSelector(state => state.store.value);
+  const data = useSelector(state => state.value.value);
   console.log(data);
   // Define a function to render each item in the FlatList
   const renderItem = ({item}) => (
@@ -17,7 +17,7 @@ export default function ProfileScreen() {
     <View>
       <Text>ProfileScreen</Text>
       <FlatList
-        data={[data]}
+        data={data}
         renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}
         ListEmptyComponent={<Text>No data available</Text>}
