@@ -6,64 +6,34 @@ import {
   Image,
   FlatList,
   ActivityIndicator,
-  RefreshControl,
 } from 'react-native';
 
 import {useSelector, useDispatch} from 'react-redux';
 import {setNewsData, setLoading} from '../redux/actions/NewsAction';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import {globalStyles} from '../components/styles/styles';
 const HomeScreen = () => {
   const newsData = useSelector(state => state.value.newsData);
   const loading = useSelector(state => state.value.loading);
   const dispatch = useDispatch();
-  const [isRefreshing, setIsRefreshing] = useState(false);
-
-  //Fetch data
-  const fetchData = async () => {
-    const apiURl =
-      'https://newsapi.org/v2/everything?q=tesla&from=2023-08-22&sortBy=publishedAt&apiKey=9beb24de34a14c59a90266af79eb09d6';
-
-    try {
-      const response = await fetch(apiURl);
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      dispatch(setNewsData(data.articles));
-
-      //Store news data in AsyncStorage
-      await AsyncStorage.setItem('newData', JSON.stringify(data.articles));
-    } catch (error) {
-      console.log('Error fetching data:', error);
-    } finally {
-      dispatch(setLoading(false));
-      setIsRefreshing(false);
-    }
-  };
-
-  const handleRefresh = async () => {
-    setIsRefreshing(true);
-    await fetchData();
-  };
 
   useEffect(() => {
     setLoading(true);
-    // Check if news data is available in AsyncStorage
-    AsyncStorage.getItem('newsData')
-      .then(storeData => {
-        if (storeData) {
-          dispatch(setNewsData(JSON.parse(storeData)));
-        }
-      })
-      .catch(error => {
-        console.log('Error reading data from AsyncStorage:', error);
-      })
-      .finally(() => {
-        fetchData(); // Always fetch fresh data to update even if stored data is available
-      });
+    fetchNewsData();
   }, [dispatch]);
+  //Fetch data
+  const fetchNewsData = async () => {
+    try {
+      const response = await fetch(
+        'https://newsdata.io/api/1/news?apikey=pub_299706fc754d2787e5d5e28874e6f6f377ecd&country=in&language=en&category=business,environment,health,science,technology',
+      );
+      const data = await response.json();
+      dispatch(setNewsData(data.articles)); // Assuming the articles are in an "articles" array
+    } catch (error) {
+      console.error('Error fetching news data:', error);
+    } finally {
+      dispatch(setLoading(false));
+    }
+  };
 
   if (loading) {
     return (
@@ -73,7 +43,7 @@ const HomeScreen = () => {
     );
   }
   return (
-    <View style={styles.container}>
+    <View style={(styles.container, globalStyles)}>
       <View style={styles.head}>
         <Text style={styles.heading}>Hey User,</Text>
         <Text style={styles.heading}>Here The Daily Updates</Text>
@@ -90,9 +60,6 @@ const HomeScreen = () => {
             <Text style={styles.text}>{item.description}</Text>
           </View>
         )}
-        refreshControl={
-          <RefreshControl refreshing={isRefreshing} onRefresh={handleRefresh} />
-        }
       />
     </View>
   );
@@ -109,14 +76,14 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 24,
-    color: '#000',
+    color: '#fff',
     fontWeight: 'bold',
     textTransform: 'uppercase',
   },
   body: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: 'black',
+    color: '#fff',
     padding: 16,
   },
   newsImage: {
@@ -125,13 +92,13 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   title: {
-    color: 'black',
+    color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
   },
   text: {
     fontSize: 14,
-    color: 'black',
+    color: '#fff',
     marginBottom: 10,
   },
   indicator: {
@@ -151,7 +118,7 @@ export default HomeScreen;
 //         dispatch(setNewsData(JSON.parse(storeData)));
 //         dispatch(setLoading(false));
 //       } else {
-//         fetch(apiURl)
+//         fetch(apiURL)
 //           .then(response => {
 //             if (!response.ok) {
 //               throw new Error('Newtork response was not ok');

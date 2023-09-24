@@ -1,6 +1,7 @@
 //SignupScreen.js
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, Button, TextInput} from 'react-native';
+import {globalStyles} from '../components/styles/styles';
 import {useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 import CustomButton from '../components/CustomButton/CustomButton';
@@ -20,7 +21,7 @@ const SignupScreen = () => {
     navigation.navigate('HomeScreen'); // Navigate to the HomeScreen
   };
   return (
-    <View style={styles.container}>
+    <View style={(styles.container, globalStyles)}>
       <View style={styles.head}>
         <Text style={styles.signup}>Sign Up</Text>
       </View>
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   signup: {
-    color: '#000',
+    color: '#fff',
     fontSize: 30,
     fontWeight: 'bold',
   },
@@ -75,17 +76,11 @@ const styles = StyleSheet.create({
     color: 'red',
     marginBottom: 10,
   },
-  profilePicture: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    marginVertical: 10,
-  },
   title: {
     fontSize: 15,
     marginBottom: 15,
     left: 0,
-    color: '#000000',
+    color: '#fff',
   },
 });
 

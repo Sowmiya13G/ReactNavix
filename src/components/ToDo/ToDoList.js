@@ -34,7 +34,7 @@ const TodoList = () => {
               style={{
                 textDecorationLine: item.completed ? 'line-through' : 'none',
                 fontSize: 20,
-                color: '#000',
+                color: '#fff',
                 fontWeight: 'bold',
               }}>
               {item.text}
@@ -67,23 +67,24 @@ const TodoList = () => {
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: 'black',
     width: '100%',
+    backgroundColor: '#000',
   },
   item: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: 15,
-    backgroundColor: '#fff',
-    // borderBottomWidth: 1,
-    // borderBottomColor: 'green',
+    backgroundColor: '#000',
+    width: '100%',
+    borderColor: '#fff',
+    borderWidth: 2,
   },
   checkboxContainer: {
     width: 24,
     height: 24,
     borderWidth: 1,
-    borderColor: '#000',
+    borderColor: '#fff',
     borderRadius: 4,
     justifyContent: 'center',
     alignItems: 'center',

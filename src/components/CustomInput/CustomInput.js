@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#000',
+    borderColor: 'grey',
     borderRadius: 10,
     paddingHorizontal: 10,
     marginBottom: 10,
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     height: 40,
-    color: 'black',
+    color: '#fff',
   },
 });
 

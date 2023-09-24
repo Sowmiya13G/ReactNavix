@@ -1,5 +1,3 @@
-import {act} from 'react-test-renderer';
-
 const initialState = {
   newsData: [],
   loading: true,

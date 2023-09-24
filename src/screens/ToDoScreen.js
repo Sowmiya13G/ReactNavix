@@ -21,18 +21,22 @@ export default function ToDoScreen() {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
+    backgroundColor: '#000',
+    width: '100%',
   },
   title: {
     top: 20,
-    color: '#000',
+    color: '#fff',
     fontSize: 30,
   },
   todo: {
     marginTop: 30,
     marginBottom: 30,
+    backgroundColor: '#000',
   },
   list: {
-    // backgroundColor: '#000',
-    width: '100%',
+    backgroundColor: '#000',
+    height: '100%',
+    margin: 10,
   },
 });

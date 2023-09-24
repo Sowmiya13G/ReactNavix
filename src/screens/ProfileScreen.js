@@ -1,21 +1,22 @@
 import React from 'react';
 import {View, Text, FlatList, StyleSheet} from 'react-native';
 import {useSelector} from 'react-redux';
+import {globalStyles} from '../components/styles/styles';
 
 export default function ProfileScreen() {
   const data = useSelector(state => state.value.value);
   console.log(data);
   // Define a function to render each item in the FlatList
   const renderItem = ({item}) => (
-    <View style={styles.item}>
-      <Text>Email: {item.email}</Text>
-      <Text>Password: {item.password}</Text>
-      <Text>Username: {item.username}</Text>
+    <View>
+      <Text style={styles.title}>Email: {item.email}</Text>
+      <Text style={styles.title}>Password: {item.password}</Text>
+      <Text style={styles.title}>Username: {item.username}</Text>
     </View>
   );
   return (
-    <View>
-      <Text>ProfileScreen</Text>
+    <View style={(styles.container, globalStyles)}>
+      <Text style={styles.head}>ProfileScreen</Text>
       <FlatList
         data={data}
         renderItem={renderItem}
@@ -35,16 +36,11 @@ const styles = StyleSheet.create({
   head: {
     fontSize: 30,
     fontWeight: 'bold',
-    color: 'black',
-  },
-  item: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    padding: 10,
-    margin: 10,
-    backgroundColor: 'green',
+    color: '#fff',
   },
   title: {
-    color: 'black',
+    fontSize: 20,
+    color: '#fff',
+    margin: 10,
   },
 });

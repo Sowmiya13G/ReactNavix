@@ -48,20 +48,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#000',
+    borderColor: '#fff',
     borderRadius: 10,
     width: '80%',
-    // margin: 10,
   },
   input: {
     flex: 1,
     height: 40,
-    color: 'black',
+    color: '#fff',
     width: 20,
   },
   button: {
     tintColor: '#fff',
-    backgroundColor: '#000',
+    backgroundColor: '#fff',
     height: 40,
     width: 40,
     borderRadius: 20,
@@ -71,7 +70,7 @@ const styles = StyleSheet.create({
   add: {
     fontSize: 30,
     textAlign: 'center',
-    color: '#fff',
+    color: '#000',
     // alignContent: 'center',
   },
 });
