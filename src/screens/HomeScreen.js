@@ -1,46 +1,16 @@
-import React, {useState, useEffect} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  FlatList,
-  ActivityIndicator,
-} from 'react-native';
-
-import {useSelector, useDispatch} from 'react-redux';
-import {setNewsData, setLoading} from '../redux/actions/NewsAction';
+import React, {useEffect} from 'react';
+import {View, Text, StyleSheet, Image, FlatList} from 'react-native';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {fetchNewsRequest} from '../redux/actions/NewsAction';
 import {globalStyles} from '../components/styles/styles';
-const HomeScreen = () => {
-  const newsData = useSelector(state => state.value.newsData);
-  const loading = useSelector(state => state.value.loading);
-  const dispatch = useDispatch();
-
+const HomeScreen = ({news, loading, fetchNews}) => {
   useEffect(() => {
-    setLoading(true);
-    fetchNewsData();
-  }, [dispatch]);
-  //Fetch data
-  const fetchNewsData = async () => {
-    try {
-      const response = await fetch(
-        'https://newsdata.io/api/1/news?apikey=pub_299706fc754d2787e5d5e28874e6f6f377ecd&country=in&language=en&category=business,environment,health,science,technology',
-      );
-      const data = await response.json();
-      dispatch(setNewsData(data.articles)); // Assuming the articles are in an "articles" array
-    } catch (error) {
-      console.error('Error fetching news data:', error);
-    } finally {
-      dispatch(setLoading(false));
-    }
-  };
+    fetchNews();
+  }, []);
 
   if (loading) {
-    return (
-      <View style={styles.indicator}>
-        <ActivityIndicator size="large" />
-      </View>
-    );
+    return <Text>Loading...</Text>;
   }
   return (
     <View style={(styles.container, globalStyles)}>
@@ -49,21 +19,36 @@ const HomeScreen = () => {
         <Text style={styles.heading}>Here The Daily Updates</Text>
       </View>
       <FlatList
-        data={newsData}
-        keyExtractor={item => item.title}
+        data={news}
+        keyExtractor={item => item.id.toString()}
         renderItem={({item}) => (
-          <View style={styles.body}>
-            {item.urlToImage && (
-              <Image source={{uri: item.urlToImage}} style={styles.newsImage} />
-            )}
-            <Text style={styles.title}>{item.title}</Text>
-            <Text style={styles.text}>{item.description}</Text>
+          <View>
+            <Image
+              source={{uri: item.image_url}}
+              style={{width: 100, height: 100}}
+            />
+            <Text>{item.title}</Text>
           </View>
         )}
       />
     </View>
   );
 };
+const mapStateToProps = state => ({
+  news: state.news.news,
+  loading: state.news.loading,
+});
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {
+      fetchNews: fetchNewsRequest,
+    },
+    dispatch,
+  );
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
 
 const styles = StyleSheet.create({
   container: {
@@ -107,8 +92,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-
-export default HomeScreen;
 
 // useEffect(() => {
 //   // Check if news data is available in AsyncStorage

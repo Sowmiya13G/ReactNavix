@@ -1,21 +1,29 @@
 const initialState = {
-  newsData: [],
-  loading: true,
+  loading: false,
+  news: [],
+  error: '',
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_NEWS_DATA':
+    case 'FETCH_NEWS_REQUEST':
       return {
         ...state,
-        newsData: action.payload,
-        loading: false,
+        loading: true,
       };
-    case 'SET_LOADING':
+    case 'FETCH_NEWS_SUCCESS':
       return {
         ...state,
-        loading: action.payload,
-        loading: action.payload,
+        loading: false,
+        news: action.payload,
+        error: '',
+      };
+    case 'FETCH_NEWS_FAILURE':
+      return {
+        ...state,
+        loading: false,
+        news: [],
+        error: action.payload,
       };
     default:
       return state;

@@ -7,7 +7,7 @@ import BotReducer from '../reducers/BotReducer';
 const rootReducer = combineReducers({
   value: Reducer,
   todos: ToDoReducer,
-  newData: NewsReducer,
+  newS: NewsReducer,
   loading: NewsReducer,
   chat: BotReducer,
 });
