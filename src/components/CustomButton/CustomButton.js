@@ -39,8 +39,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 10,
     borderRadius: 20,
-    backgroundColor: '#000000',
-    borderColor: '#000000',
+    borderColor: '#FFF',
     borderWidth: 2,
     marginBottom: 20,
   },
@@ -49,15 +48,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 10,
     borderRadius: 20,
-    borderColor: 'black',
+    borderColor: '#fff',
     borderWidth: 2,
-    backgroundColor: 'white',
   },
   logInButtonText: {
     color: '#fff',
   },
   signUpButtonText: {
-    color: '#000000',
+    color: '#fff',
   },
 });
 

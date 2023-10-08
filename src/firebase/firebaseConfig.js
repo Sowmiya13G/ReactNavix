@@ -4,16 +4,17 @@ import 'firebase/database';
 import 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAVHadJ95JBjR2Bszh7dxQqNPKPbvbn3Gw',
+  apiKey: 'AIzaSyBmXABeCAS1RdL3bUVjwD_5htABOK6wat0',
   authDomain: 'YOUR_AUTH_DOMAIN',
-  projectId: 'reactywings',
-  storageBucket: 'reactywings.appspot.com',
+  projectId: 'reactnavix',
+  storageBucket: 'reactnavix.appspot.com',
   messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
-  appId: '1:434635601461:android:312cdf09ab4fb88769e37c',
+  appId: '1:59641266798:android:92ed8f64c682881ef5dc7f',
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+const app = firebase.initializeApp(firebaseConfig);
 
-export {firebase, db};
+export const auth = app.auth();
+export const database = app.database();
+export const firestore = firebase.firestore();

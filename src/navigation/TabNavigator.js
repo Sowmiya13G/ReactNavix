@@ -1,53 +1,69 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/HomeScreen';
-import ToDoScreen from '../screens/ToDoScreen';
-import ProfileScreen from '../screens/ProfileScreen';
-import BotScreen from '../screens/BotScreen';
+import Animated from 'react-native-reanimated';
+import HomeScreen from '../screens/BottomTabScreens/HomeScreen/HomeScreen';
+import PriceScreen from '../screens/BottomTabScreens/PriceScreen/PriceScreen';
 const Tab = createBottomTabNavigator();
 
-const MainTabNavigator = () => {
+const TabNavigator = () => {
+  const translateX = Animated.Value(0);
+  const scale = Animated.Value(0.8);
+
+  const onTabPress = route => {
+    Animated.spring(translateX, {
+      toValue: route.name === 'HomeTab' ? 0 : 1,
+    }).start();
+    Animated.spring(scale, {
+      toValue: 1,
+    }).start();
+  };
+
   return (
-    <Tab.Navigator
-      screenOptions={{
-        tabBarStyle: {
-          backgroundColor: '#000',
-        },
-      }}>
+    <Tab.Navigator>
       <Tab.Screen
-        name="HomeScreen"
+        name="HomeTab"
         component={HomeScreen}
         options={{
           tabBarLabel: 'Home',
           headerShown: false,
-        }}
-      />
+        }}>
+        <Animated.View
+          style={{
+            transform: [
+              {
+                translateX,
+              },
+              {
+                scaleY: scale,
+              },
+            ],
+          }}>
+          <HomeScreen />
+        </Animated.View>
+      </Tab.Screen>
       <Tab.Screen
-        name="ToDoScreen"
-        component={ToDoScreen}
+        name="PriceTab"
+        component={PriceScreen}
         options={{
-          tabBarLabel: 'ToDo',
+          tabBarLabel: 'Price',
           headerShown: false,
-        }}
-      />
-      <Tab.Screen
-        name="BotScreen"
-        component={BotScreen}
-        options={{
-          tabBarLabel: 'ChatBot',
-          headerShown: false,
-        }}
-      />
-      <Tab.Screen
-        name="ProfileScreen"
-        component={ProfileScreen}
-        options={{
-          tabBarLabel: 'Profile',
-          headerShown: false,
-        }}
-      />
+        }}>
+        <Animated.View
+          style={{
+            transform: [
+              {
+                translateX,
+              },
+              {
+                scaleY: scale,
+              },
+            ],
+          }}>
+          <PriceScreen />
+        </Animated.View>
+      </Tab.Screen>
     </Tab.Navigator>
   );
 };
 
-export default MainTabNavigator;
+export default TabNavigator;

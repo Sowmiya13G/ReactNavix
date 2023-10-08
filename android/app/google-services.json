@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "59641266798",
+    "project_id": "reactnavix",
+    "storage_bucket": "reactnavix.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:59641266798:android:92ed8f64c682881ef5dc7f",
+        "android_client_info": {
+          "package_name": "com.reactnavix"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmXABeCAS1RdL3bUVjwD_5htABOK6wat0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

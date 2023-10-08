@@ -1,22 +1,14 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import MainTabNavigator from './TabNavigator';
-import LoginScreen from '../screens/LoginScreen';
-import SignupScreen from '../screens/SignupScreen';
-import HomeScreen from '../screens/HomeScreen';
-
+import SignupScreen from '../screens/OnBoardingscreens/SignUpScreen/SignupScreen';
+import TabNavigator from './TabNavigator';
 const Stack = createStackNavigator();
 
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="LoginScreen">
-        {/* <Stack.Screen
-          name="LoginScreen"
-          component={LoginScreen}
-          options={{headerShown: false}}
-        /> */}
+      <Stack.Navigator initialRouteName="SignupScreen">
         <Stack.Screen
           name="SignupScreen"
           component={SignupScreen}
@@ -24,7 +16,7 @@ const AppNavigator = () => {
         />
         <Stack.Screen
           name="HomeScreen"
-          component={MainTabNavigator}
+          component={TabNavigator}
           options={{title: '', headerShown: false}}
         />
       </Stack.Navigator>
