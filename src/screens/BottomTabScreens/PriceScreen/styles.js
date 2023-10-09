@@ -42,4 +42,15 @@ export const styles = StyleSheet.create({
     fontSize: 15,
     color: 'green',
   },
+  removeButton: {
+    backgroundColor: 'red',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 5,
+    marginTop: 10,
+    alignSelf: 'flex-end',
+  },
+  removeButtonText: {
+    color: 'white',
+  },
 });

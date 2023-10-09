@@ -4,15 +4,21 @@ export const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
   },
+  cartToggle: {
+    flexDirection: 'row',
+    marginTop: 10,
+  },
   cartCount: {
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 16,
     color: 'red',
+    marginLeft: 5,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+    marginBottom: 5,
   },
   title: {
     marginTop: 8,

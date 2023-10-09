@@ -1,12 +1,14 @@
 import React, {useEffect} from 'react';
 import {Text, View, Image, FlatList, TouchableOpacity} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {fetchProducts, addToCart} from '../../../redux-saga/actions/actions';
+import {useNavigation} from '@react-navigation/native';
 import {styles} from './styles';
 import {CommonGradient} from '../../../components/GlobalStyles/CommonGradient';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchProducts, addToCart} from '../../../redux-saga/actions/actions';
 
 export default function HomeScreen() {
+  const navigation = useNavigation();
   const dispatch = useDispatch();
   const products = useSelector(state => state.products.products);
   const cart = useSelector(state => state.cart.cart);
@@ -18,20 +20,22 @@ export default function HomeScreen() {
   const handleAddToCart = product => {
     dispatch(addToCart(product));
   };
+
+  const goToCart = () => {
+    navigation.navigate('PriceTab');
+  };
   return (
     <CommonGradient>
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.title}>Hey User!</Text>
           <View style={styles.header}>
-            {/* <TouchableOpacity
-              onPress={handleAddToCart}
-              style={styles.cartToggle}> */}
-            <Icon name="shopping-cart" size={30} color="white" />
-            {cart.length > 0 && (
-              <Text style={styles.cartCount}>{cart.length}</Text>
-            )}
-            {/* </TouchableOpacity> */}
+            <TouchableOpacity onPress={goToCart} style={styles.cartToggle}>
+              <Icon name="shopping-cart" size={30} color="white" />
+              {cart.length > 0 && (
+                <Text style={styles.cartCount}>{cart.length}</Text>
+              )}
+            </TouchableOpacity>
           </View>
         </View>
 
