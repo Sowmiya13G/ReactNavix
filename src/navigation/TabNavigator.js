@@ -1,41 +1,45 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import TabBar from './TabBar';
 import HomeScreen from '../screens/BottomTabScreens/HomeScreen/HomeScreen';
 import PriceScreen from '../screens/BottomTabScreens/PriceScreen/PriceScreen';
 
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
+  const tabs = [
+    {
+      name: 'HomeTab',
+      label: 'Home',
+      component: HomeScreen,
+    },
+    {
+      name: 'PriceTab',
+      label: 'Cart',
+      component: PriceScreen,
+    },
+  ];
+
   return (
     <Tab.Navigator
+      tabBar={props => <TabBar {...props} />}
+      initialRouteName={'HomeTab'}
       screenOptions={{
-        activeTintColor: 'black',
-        inactiveTintColor: 'gray',
-        tabBarStyle: {backgroundColor: '#CCC', position: 'absolute'},
+        tabBarActiveTintColor: 'blue',
+        tabBarInactiveTintColor: '#ccc',
+        activeTintColor: 'white',
+        headerShown: false,
       }}>
-      <Tab.Screen
-        name="HomeTab"
-        component={HomeScreen}
-        options={{
-          tabBarLabel: 'Home',
-          title: '',
-          headerShown: false,
-          tabBarIcon: ({color, size}) => (
-            <Icon name="home" size={size} color={color} />
-          ),
-        }}></Tab.Screen>
-      <Tab.Screen
-        name="PriceTab"
-        component={PriceScreen}
-        options={{
-          tabBarLabel: 'Price',
-          title: '',
-          headerShown: false,
-          tabBarIcon: ({color, size}) => (
-            <Icon name="tags" size={size} color={color} />
-          ),
-        }}></Tab.Screen>
+      {tabs.map((tab, index) => (
+        <Tab.Screen
+          key={index}
+          name={tab.name}
+          component={tab.component}
+          options={{
+            tabBarLabel: tab.label,
+          }}
+        />
+      ))}
     </Tab.Navigator>
   );
 };

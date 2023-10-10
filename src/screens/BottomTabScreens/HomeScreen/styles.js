@@ -3,6 +3,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
+    paddingTop: Platform.OS === 'android' ? 0 : 0,
   },
   cartToggle: {
     flexDirection: 'row',

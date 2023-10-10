@@ -11,11 +11,11 @@ const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="SignupScreen">
-        <Stack.Screen
+        {/* <Stack.Screen
           name="SignupScreen"
           component={SignupScreen}
           options={{title: '', headerShown: false}}
-        />
+        /> */}
         <Stack.Screen
           name="HomeScreen"
           component={TabNavigator}
