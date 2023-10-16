@@ -1,13 +1,5 @@
 import React, {useEffect} from 'react';
-import {
-  Text,
-  View,
-  Image,
-  FlatList,
-  TouchableOpacity,
-  SafeAreaView,
-  StatusBar,
-} from 'react-native';
+import {Text, View, Image, FlatList, TouchableOpacity} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
 import {styles} from './styles';
@@ -15,12 +7,18 @@ import {CommonGradient} from '../../../components/GlobalStyles/CommonGradient';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useDispatch, useSelector} from 'react-redux';
 import {fetchProducts, addToCart} from '../../../redux-saga/actions/actions';
+import styled from 'styled-components';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const products = useSelector(state => state.products.products);
   const cart = useSelector(state => state.cart.cart);
+
+  // const Container = styled.View`
+  //   flex: 1;
+  //   background-color: black;
+  // `;
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -36,6 +34,7 @@ export default function HomeScreen() {
   return (
     <CommonGradient>
       <SafeAreaProvider>
+        {/* <Container> */}
         <View style={styles.container}>
           <View style={styles.header}>
             <Text style={styles.title}>Hey User!</Text>
@@ -68,6 +67,7 @@ export default function HomeScreen() {
             )}
           />
         </View>
+        {/* </Container> */}
       </SafeAreaProvider>
     </CommonGradient>
   );

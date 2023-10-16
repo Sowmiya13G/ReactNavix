@@ -29,7 +29,7 @@ const TabBar = ({state, descriptors, navigation}) => {
 
   return (
     <View style={styles.container}>
-      <Animated.View style={styles.animatedWrapper}>
+      <Animated.View style={styles.animatedContainer}>
         <Animated.View
           style={[
             styles.animatedView,
@@ -45,7 +45,6 @@ const TabBar = ({state, descriptors, navigation}) => {
           const {options} = descriptors[route.key];
           const label = options.tabBarLabel || route.name;
 
-          // Define icons for each tab
           const icon = route.name === 'HomeTab' ? 'home' : 'tags';
 
           return (
@@ -94,7 +93,7 @@ const styles = StyleSheet.create({
     height: ANIMATED_PART_HEIGHT,
     backgroundColor: '#fff',
   },
-  animatedWrapper: {
+  animatedContainer: {
     width: TAB_BAR_WIDTH,
     alignItems: 'center',
     justifyContent: 'center',

@@ -4,12 +4,11 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
   },
 
   imageStyle: {
-    width: 200,
-    height: 200,
+    width: 250,
+    height: 250,
   },
 
   scrollView: {
@@ -24,6 +23,7 @@ export const styles = StyleSheet.create({
   header: {
     fontSize: 24,
     color: '#000',
+    textTransform: 'uppercase',
   },
   paragraph: {
     fontSize: 16,
@@ -39,11 +39,26 @@ export const styles = StyleSheet.create({
     width: 10,
     height: 10,
     borderRadius: 5,
-    backgroundColor: 'black',
+    backgroundColor: '#000',
     margin: 5,
+    marginBottom: 15,
   },
-  // imageStyle: {
-  //   width: Dimensions.get('window').width,
-  //   height: Dimensions.get('window').height,
-  // },
+  completeButton: {
+    color: '#fff',
+    position: 'absolute',
+    // justifyContent: 'flex-end',
+    alignItems: 'center',
+    flexDirection: 'row',
+    bottom: 5,
+    right: 5,
+    // alignSelf: 'flex-end',
+  },
+  completeButtonText: {
+    color: '#fff',
+    right: 5,
+    fontSize: 15,
+  },
+  icon: {
+    fontSize: 15,
+  },
 });
