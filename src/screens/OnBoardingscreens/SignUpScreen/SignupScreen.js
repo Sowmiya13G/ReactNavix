@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text} from 'react-native';
 import {styles} from './styles';
 import {globalStyles} from '../../../components/GlobalStyles/globalStyles';
@@ -10,7 +10,9 @@ export default SignUpScreen = ({navigation}) => {
   const handleSignUp = () => {
     navigation.navigate('HomeScreen');
   };
-
+  const handleLogIn = () => {
+    navigation.navigate('LoginScreen');
+  };
   return (
     <CommonGradient>
       <View style={[styles.container, globalStyles]}>
@@ -61,12 +63,17 @@ export default SignUpScreen = ({navigation}) => {
           {/* <Text style={styles.errorText}>
             {formErrors.confirmPassword || (errors && errors.confirmPassword)}
           </Text> */}
+        </View>
 
+        <View style={styles.fields}>
           <CustomButton
             signUpButton
             label="SIGN UP"
             handlePress={handleSignUp}
           />
+          <Text style={styles.option}>or</Text>
+          <Text style={styles.optionText}>Already have an account?</Text>
+          <CustomButton logInButton label="LOG IN" handlePress={handleLogIn} />
         </View>
       </View>
     </CommonGradient>

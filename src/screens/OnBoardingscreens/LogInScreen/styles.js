@@ -10,7 +10,13 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  signup: {
+  title: {
+    fontSize: 15,
+    color: '#000000',
+    marginBottom: 15,
+  },
+
+  logIn: {
     color: '#fff',
     fontSize: 30,
     fontWeight: 'bold',
@@ -33,11 +39,33 @@ export const styles = StyleSheet.create({
     color: '#fff',
     alignSelf: 'center',
     marginBottom: 10,
-    marginTop: 10,
   },
   optionText: {
     color: '#fff',
     alignSelf: 'center',
     marginBottom: 10,
   },
+  forgot: {
+    fontSize: 10,
+    color: '#fff',
+    alignSelf: 'flex-end',
+    right: 5,
+    marginBottom: 15,
+  },
+  errorText: {
+    color: 'red',
+    marginTop: 5,
+  },
 });
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     height: '100%',
+//     backgroundColor: '#fff',
+//   },
+//   feilds: {
+//     width: '80%',
+//   },
+// });
