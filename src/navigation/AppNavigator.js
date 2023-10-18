@@ -1,4 +1,4 @@
-import {valueUnpacker} from 'react-native-reanimated';
+import 'react-native-reanimated';
 import 'react-native-gesture-handler';
 
 import React from 'react';
