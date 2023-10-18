@@ -10,7 +10,7 @@ import {Dimensions} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const {width} = Dimensions.get('window');
-const TAB_BAR_WIDTH = width / 2;
+const TAB_BAR_WIDTH = width / 3;
 const ANIMATED_PART_HEIGHT = 6;
 
 const TabBar = ({state, descriptors, navigation}) => {
@@ -45,7 +45,12 @@ const TabBar = ({state, descriptors, navigation}) => {
           const {options} = descriptors[route.key];
           const label = options.tabBarLabel || route.name;
 
-          const icon = route.name === 'HomeTab' ? 'home' : 'tags';
+          const icon =
+            route.name === 'HomeTab'
+              ? 'home'
+              : route.name === 'PriceTab'
+              ? 'tags'
+              : 'user-circle-o';
 
           return (
             <TouchableWithoutFeedback

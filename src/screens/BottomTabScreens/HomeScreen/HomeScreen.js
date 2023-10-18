@@ -6,7 +6,7 @@ import {styles} from './styles';
 import {CommonGradient} from '../../../components/GlobalStyles/CommonGradient';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useDispatch, useSelector} from 'react-redux';
-import {fetchProducts, addToCart} from '../../../redux-saga/actions/actions';
+import {fetchProducts, addToCart} from '../../../redux/actions/actions';
 import styled from 'styled-components';
 
 export default function HomeScreen() {

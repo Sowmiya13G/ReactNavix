@@ -40,4 +40,14 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     marginBottom: 10,
   },
+  checkboxContainer: {
+    flexDirection: 'row',
+    marginBottom: 20,
+  },
+  checkbox: {
+    alignSelf: 'center',
+  },
+  input: {
+    backgroundColor: 'transperant',
+  },
 });

@@ -1,3 +1,12 @@
+export const setUser = user => ({
+  type: 'SET_USER',
+  payload: user,
+});
+export const getUser = user => ({
+  type: 'GET_USER',
+  payload: user,
+});
+
 export const fetchProducts = () => ({
   type: 'FETCH_PRODUCTS',
 });

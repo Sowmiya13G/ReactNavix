@@ -32,7 +32,7 @@ export default function InitialScreen() {
   const navigation = useNavigation();
 
   const handleCompleteSlider = () => {
-    navigation.navigate('SignupScreen');
+    navigation.navigate('SignUpScreen');
   };
   const {currentPage: pageIndex} = sliderState;
   console.log('pageIndex:', pageIndex);

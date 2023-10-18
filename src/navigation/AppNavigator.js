@@ -5,7 +5,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {StatusBar, View} from 'react-native';
-import SignupScreen from '../screens/OnBoardingscreens/SignUpScreen/SignupScreen';
+import SignUpScreen from '../screens/OnBoardingscreens/SignUpScreen/SignUpScreen';
 import InitialScreen from '../screens/OnBoardingscreens/InitialScreen/InitialScreen';
 import TabNavigator from './TabNavigator';
 import LoginScreen from '../screens/OnBoardingscreens/LogInScreen/LoginScreen';
@@ -16,15 +16,15 @@ const AppNavigator = () => {
     <View style={{flex: 1}}>
       <StatusBar backgroundColor="#37ECBA" barStyle="dark-content" />
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="InitialScreen">
+        <Stack.Navigator initialRouteName="SignUpScreen">
           <Stack.Screen
             name="InitialScreen"
             component={InitialScreen}
             options={{title: '', headerShown: false}}
           />
           <Stack.Screen
-            name="SignupScreen"
-            component={SignupScreen}
+            name="SignUpScreen"
+            component={SignUpScreen}
             options={{title: '', headerShown: false}}
           />
           <Stack.Screen

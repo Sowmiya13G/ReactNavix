@@ -3,7 +3,7 @@ import React from 'react';
 import {styles} from './styles';
 import {CommonGradient} from '../../../components/GlobalStyles/CommonGradient';
 import {useDispatch, useSelector} from 'react-redux';
-import {removeFromCart} from '../../../redux-saga/actions/actions';
+import {removeFromCart} from '../../../redux/actions/actions';
 export default function PriceScreen() {
   const cartItems = useSelector(state => state.cart.cart);
   const dispatch = useDispatch();

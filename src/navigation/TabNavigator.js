@@ -3,7 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import TabBar from './TabBar';
 import HomeScreen from '../screens/BottomTabScreens/HomeScreen/HomeScreen';
 import PriceScreen from '../screens/BottomTabScreens/PriceScreen/PriceScreen';
-
+import ProfileScreen from '../screens/BottomTabScreens/ProfileScreen/ProfileScreen';
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
@@ -17,6 +17,11 @@ const TabNavigator = () => {
       name: 'PriceTab',
       label: 'Cart',
       component: PriceScreen,
+    },
+    {
+      name: 'ProfileTab',
+      label: 'Profile',
+      component: ProfileScreen,
     },
   ];
 
