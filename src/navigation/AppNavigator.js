@@ -34,21 +34,27 @@ async function requestUserPermission() {
     console.log('Authorization status:', authStatus);
   }
 }
-
 async function setupFCMListener() {
   await notifee.requestPermission();
+  const channelId = await notifee.createChannel({
+    id: 'default',
+    name: 'Default Channel',
+  });
 
   messaging().onMessage(async remoteMessage => {
     console.log('NOTIFICATION IN FOREGROUND STATE', remoteMessage);
     const {title, body} = remoteMessage.notification;
-    try {
-      await notifee.displayNotification({
-        title,
-        body,
-      });
-    } catch (error) {
-      console.error('Error displaying notification:', error);
-    }
+    await notifee.displayNotification({
+      title,
+      body,
+      android: {
+        channelId,
+        smallIcon: 'ic_launcher',
+        pressAction: {
+          id: 'default',
+        },
+      },
+    });
   });
 }
 
