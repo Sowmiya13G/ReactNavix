@@ -8,12 +8,12 @@ import {
   Text,
   View,
   SafeAreaView,
-  PixelRatio,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {CommonGradient} from '../../../components/GlobalStyles/CommonGradient';
 import {styles} from './styles';
+import notifee from '@notifee/react-native';
 export default function InitialScreen() {
   const [sliderState, setSliderState] = useState({currentPage: 0});
   const {width, height} = Dimensions.get('window');
@@ -32,10 +32,33 @@ export default function InitialScreen() {
   const navigation = useNavigation();
 
   const handleCompleteSlider = () => {
-    navigation.navigate('SignUpScreen');
+    onDisplayNotification();
+    navigation.navigate('HomeScreen');
   };
   const {currentPage: pageIndex} = sliderState;
   console.log('pageIndex:', pageIndex);
+
+  async function onDisplayNotification() {
+    await notifee.requestPermission();
+
+    const channelId = await notifee.createChannel({
+      id: 'default',
+      name: 'Default Channel',
+    });
+
+    await notifee.displayNotification({
+      title: 'Notification Title',
+      body: 'Main body content of the notification',
+      android: {
+        channelId,
+        smallIcon: 'ic_launcher',
+        pressAction: {
+          id: 'default',
+        },
+      },
+    });
+  }
+
   return (
     <>
       <CommonGradient>

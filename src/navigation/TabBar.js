@@ -10,7 +10,7 @@ import {Dimensions} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const {width} = Dimensions.get('window');
-const TAB_BAR_WIDTH = width / 3;
+const TAB_BAR_WIDTH = width / 2;
 const ANIMATED_PART_HEIGHT = 6;
 
 const TabBar = ({state, descriptors, navigation}) => {
