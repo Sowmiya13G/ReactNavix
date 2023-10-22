@@ -41,6 +41,7 @@ export const styles = StyleSheet.create({
   productPrice: {
     fontSize: 15,
     color: 'green',
+    fontWeight: 'bold',
   },
   removeButton: {
     backgroundColor: 'red',
@@ -52,5 +53,15 @@ export const styles = StyleSheet.create({
   },
   removeButtonText: {
     color: 'white',
+  },
+  totalPriceContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
+  totalPrice: {
+    fontSize: 20,
+    color: '#FFF',
+    fontWeight: 'bold',
+    marginRight: 10,
   },
 });

@@ -7,10 +7,18 @@ import {removeFromCart} from '../../../redux/actions/actions';
 export default function PriceScreen() {
   const cartItems = useSelector(state => state.cart.cart);
   const dispatch = useDispatch();
+  const calculateTotalPrice = cartItems => {
+    let totalPrice = 0;
+    cartItems.forEach(item => {
+      totalPrice += item.price;
+    });
+    return totalPrice.toFixed(2);
+  };
 
   const handleRemoveItem = itemId => {
     dispatch(removeFromCart({id: itemId}));
   };
+  const totalCartPrice = calculateTotalPrice(cartItems);
   return (
     <CommonGradient>
       <View style={styles.container}>
@@ -33,6 +41,10 @@ export default function PriceScreen() {
             </View>
           )}
         />
+        <View style={styles.totalPriceContainer}>
+          <Text style={styles.totalPrice}>Total Price:</Text>
+          <Text style={styles.totalPrice}>${totalCartPrice}</Text>
+        </View>
       </View>
     </CommonGradient>
   );
