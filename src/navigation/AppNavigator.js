@@ -1,4 +1,4 @@
-import 'react-native-reanimated';
+import {valuePacker} from 'react-native-reanimated';
 import 'react-native-gesture-handler';
 
 import React, {useEffect} from 'react';
@@ -9,6 +9,7 @@ import InitialScreen from '../screens/OnBoardingscreens/InitialScreen/InitialScr
 import TabNavigator from './TabNavigator';
 import messaging from '@react-native-firebase/messaging';
 import notifee from '@notifee/react-native';
+import SignUpScreen from '../screens/OnBoardingscreens/SignUpScreen/SignUpScreen';
 
 const Stack = createStackNavigator();
 
@@ -77,6 +78,11 @@ const AppNavigator = () => {
           <Stack.Screen
             name="InitialScreen"
             component={InitialScreen}
+            options={{title: '', headerShown: false}}
+          />
+          <Stack.Screen
+            name="SignUpScreen"
+            component={SignUpScreen}
             options={{title: '', headerShown: false}}
           />
           <Stack.Screen

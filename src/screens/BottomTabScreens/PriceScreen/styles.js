@@ -4,8 +4,12 @@ export const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
   title: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 16,
   },
@@ -63,5 +67,17 @@ export const styles = StyleSheet.create({
     color: '#FFF',
     fontWeight: 'bold',
     marginRight: 10,
+  },
+  clearCartButton: {
+    display: 'flex',
+    alignSelf: 'flex-end',
+    padding: 3,
+  },
+  clearCartButtonText: {
+    fontSize: 20,
+    color: 'red',
+    fontWeight: 'bold',
+    marginRight: 10,
+    opacity: 0.8,
   },
 });

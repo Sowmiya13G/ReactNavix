@@ -3,7 +3,7 @@ import React from 'react';
 import {styles} from './styles';
 import {CommonGradient} from '../../../components/GlobalStyles/CommonGradient';
 import {useDispatch, useSelector} from 'react-redux';
-import {removeFromCart} from '../../../redux/actions/actions';
+import {removeFromCart, clearCart} from '../../../redux/actions/actions';
 export default function PriceScreen() {
   const cartItems = useSelector(state => state.cart.cart);
   const dispatch = useDispatch();
@@ -19,10 +19,20 @@ export default function PriceScreen() {
     dispatch(removeFromCart({id: itemId}));
   };
   const totalCartPrice = calculateTotalPrice(cartItems);
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
   return (
     <CommonGradient>
       <View style={styles.container}>
-        <Text style={styles.title}>Your Cart</Text>
+        <View style={styles.header}>
+          <Text style={styles.title}>Your Cart</Text>
+          <View style={styles.totalPriceContainer}>
+            <Text style={styles.totalPrice}>Total Price:</Text>
+            <Text style={styles.totalPrice}>${totalCartPrice}</Text>
+          </View>
+        </View>
         <FlatList
           data={cartItems}
           keyExtractor={item => item.id.toString()}
@@ -40,11 +50,14 @@ export default function PriceScreen() {
               </View>
             </View>
           )}
+          showsVerticalScrollIndicator={false}
         />
-        <View style={styles.totalPriceContainer}>
-          <Text style={styles.totalPrice}>Total Price:</Text>
-          <Text style={styles.totalPrice}>${totalCartPrice}</Text>
-        </View>
+
+        <TouchableOpacity
+          onPress={handleClearCart}
+          style={styles.clearCartButton}>
+          <Text style={styles.clearCartButtonText}>Clear Cart</Text>
+        </TouchableOpacity>
       </View>
     </CommonGradient>
   );
