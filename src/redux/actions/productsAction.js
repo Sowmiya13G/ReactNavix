@@ -1,5 +1,6 @@
+import * as ActionTypes from '../actionTypes';
 export const fetchProducts = () => ({
-  type: 'FETCH_PRODUCTS',
+  type: ActionTypes.fetchProducts,
 });
 
 export const addToCart = product => ({

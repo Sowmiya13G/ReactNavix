@@ -1,6 +1,6 @@
 import {valuePacker} from 'react-native-reanimated';
 import 'react-native-gesture-handler';
-
+import {enableFreeze} from 'react-native-screens';
 import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -61,6 +61,8 @@ async function setupFCMListener() {
 
 const AppNavigator = () => {
   useEffect(() => {
+    enableFreeze(true);
+
     const initializeFirebaseMessaging = async () => {
       await messaging().registerDeviceForRemoteMessages();
       await getFCMToken();

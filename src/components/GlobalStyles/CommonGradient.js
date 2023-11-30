@@ -4,7 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 export const CommonGradient = ({children}) => {
   return (
     <LinearGradient
-      colors={['#37ECBA', '#72AFD3']}
+      colors={['#37ECBA', '#FFF']}
       style={{flex: 1, flexDirection: 'row'}}>
       {children}
     </LinearGradient>
