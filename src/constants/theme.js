@@ -24,6 +24,10 @@ const backgroundColor = {
   oliveGreen: '#B29950',
   saddleBrown: '#9E8847',
   status: '#37ECBA',
+  saddleBrown2: '#786017',
+  saddleBrown3: '#6b5514',
+  saddleBrown4: '#50400f',
+  saddleBrown5: '#43350d',
 };
 
 const borderColor = {
@@ -39,13 +43,6 @@ const fontSizes = {
   smallFontText: hp('1.8%'),
 };
 
-//   const fontFamily = {
-//     fontRobotoBlack: 'Roboto-Black',
-//     fontRobotoBold: 'Roboto-Black',
-//     fontRobotoLight: 'Roboto-Light',
-//     fontRobotoRegular: 'Roboto-Regular',
-//   };
-
 const fontColors = {
   secondaryBlack: '#292929',
   inkBlack: '#252A31',
@@ -60,7 +57,6 @@ const fontColors = {
 
 export default {
   fontSizes,
-  // fontFamily,
   fontColors,
   screenHeight,
   screenWidth,

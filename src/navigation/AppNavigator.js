@@ -1,4 +1,5 @@
-import {valuePacker} from 'react-native-reanimated';
+// import {valuePacker} from 'react-native-reanimated';
+import 'react-native-reanimated';
 import 'react-native-gesture-handler';
 import {enableFreeze} from 'react-native-screens';
 import React, {useEffect} from 'react';
@@ -9,7 +10,8 @@ import InitialScreen from '../screens/OnBoardingscreens/InitialScreen/InitialScr
 import TabNavigator from './TabNavigator';
 import messaging from '@react-native-firebase/messaging';
 import notifee from '@notifee/react-native';
-import SignUpScreen from '../screens/OnBoardingscreens/SignUpScreen/SignUpScreen';
+import SignUpScreen from '../screens/OnBoardingscreens/SignupScreen/SignupScreen';
+import theme from '../constants/theme';
 
 const Stack = createStackNavigator();
 
@@ -74,10 +76,13 @@ const AppNavigator = () => {
   }, []);
   return (
     <View style={{flex: 1}}>
-      <StatusBar backgroundColor="#37ECBA" barStyle="dark-content" />
+      <StatusBar
+        backgroundColor={theme.backgroundColor.white}
+        barStyle="dark-content"
+      />
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="InitialScreen">
-          <Stack.Screen
+        <Stack.Navigator>
+          {/* <Stack.Screen
             name="InitialScreen"
             component={InitialScreen}
             options={{title: '', headerShown: false}}
@@ -86,7 +91,7 @@ const AppNavigator = () => {
             name="SignUpScreen"
             component={SignUpScreen}
             options={{title: '', headerShown: false}}
-          />
+          /> */}
           <Stack.Screen
             name="HomeScreen"
             component={TabNavigator}

@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import {Dimensions} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import theme from '../constants/theme';
 
 const {width} = Dimensions.get('window');
 const TAB_BAR_WIDTH = width / 2;
@@ -50,6 +51,8 @@ const TabBar = ({state, descriptors, navigation}) => {
               ? 'home'
               : route.name === 'PriceTab'
               ? 'tags'
+              : route.name === 'ItemTab'
+              ? 'tasks'
               : 'user-circle-o';
 
           return (
@@ -61,17 +64,9 @@ const TabBar = ({state, descriptors, navigation}) => {
               <View style={styles.tabButton}>
                 <Icon
                   name={icon}
-                  size={24}
+                  size={28}
                   color={state.index === index ? '#FFFFFF' : '#999999'}
                 />
-                <Text
-                  style={
-                    state.index === index
-                      ? styles.tabTextActive
-                      : styles.tabTextInactive
-                  }>
-                  {label}
-                </Text>
               </View>
             </TouchableWithoutFeedback>
           );
@@ -86,17 +81,18 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     borderTopColor: 'grey',
     borderTopWidth: 0.5,
-    backgroundColor: '#72AFD3',
+    backgroundColor: theme.backgroundColor.saddleBrown5,
     height: 50,
   },
   tabButton: {
     flex: 1,
     alignItems: 'center',
+    marginTop: 5,
   },
   animatedView: {
     width: TAB_BAR_WIDTH,
     height: ANIMATED_PART_HEIGHT,
-    backgroundColor: '#fff',
+    backgroundColor: theme.backgroundColor.white,
   },
   animatedContainer: {
     width: TAB_BAR_WIDTH,
@@ -104,7 +100,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   tabTextActive: {
-    color: '#FFFFFF',
+    color: theme.fontColors.white,
   },
   tabTextInactive: {
     color: '#999999',

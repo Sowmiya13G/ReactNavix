@@ -18,7 +18,8 @@
     "@react-navigation/bottom-tabs": "^6.5.8",
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/stack": "^6.3.17",
-    "axios": "^1.5.1",
+    "@reduxjs/toolkit": "^1.9.7",
+    "axios": "^1.6.2",
     "firebase": "^10.4.0",
     "react": "18.2.0",
     "react-native": "^0.72.4",
@@ -32,6 +33,7 @@
     "react-native-permissions": "^3.9.2",
     "react-native-push-notification": "^8.1.1",
     "react-native-reanimated": "^3.5.4",
+    "react-native-responsive-screen": "^1.4.2",
     "react-native-safe-area-context": "4.7.2",
     "react-native-screens": "^3.27.0",
     "react-native-side-menu-updated": "^1.3.2",
@@ -40,8 +42,6 @@
     "react-redux": "^8.1.3",
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
-    "redux-saga": "^1.2.3",
-    "redux-thunk": "^2.4.2",
     "styled-components": "^6.0.9"
   },
   "devDependencies": {
@@ -62,6 +62,6 @@
     "typescript": "4.8.4"
   },
   "engines": {
-    "node": ">=16"
+    "node": "16"
   }
 }

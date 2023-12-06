@@ -1,9 +1,15 @@
 import {StyleSheet} from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+import theme from '../../../constants/theme';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
     paddingTop: Platform.OS === 'android' ? 0 : 0,
+    backgroundColor: theme.backgroundColor.white,
   },
   cartToggle: {
     flexDirection: 'row',
@@ -28,49 +34,76 @@ export const styles = StyleSheet.create({
     color: '#fff',
   },
   productContainer: {
-    flexDirection: 'row',
+    flex: 1,
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 10,
-    marginBottom: 10,
+    padding: '3%',
+    borderRadius: wp('8%'),
+    margin: '3%',
     borderWidth: 1,
-    borderColor: '#fff',
-    padding: 8,
-    borderRadius: 8,
+    borderColor: theme.fontColors.white,
+    backgroundColor: theme.backgroundColor.white,
+    elevation: wp('2%'),
   },
+
   productImage: {
-    width: 150,
-    height: 150,
+    width: wp('30%'),
+    height: hp('15%'),
     resizeMode: 'cover',
-    marginBottom: 8,
-    borderRadius: 8,
+    borderRadius: wp('1%'),
   },
+
   details: {
     display: 'flex',
-    alignItems: 'center',
-    margin: 3,
-    padding: 3,
+    margin: '3%',
     width: '50%',
   },
   productTitle: {
-    fontSize: 16,
+    fontSize: theme.fontSizes.smallFontText,
     fontWeight: 'bold',
+    color: theme.fontColors.black,
   },
   productPrice: {
     marginTop: 8,
-    fontSize: 15,
+    fontSize: theme.fontSizes.smallFontText,
     fontWeight: 'bold',
-    color: 'green',
+    color: theme.fontColors.green,
+    textAlign: 'center',
   },
   addToCartButton: {
-    backgroundColor: '#fff',
-    padding: 8,
+    padding: '8%',
     borderRadius: 8,
-    marginTop: 10,
   },
+
   addToCartButtonText: {
-    color: '#37ECBA',
+    color: theme.fontColors.black,
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  wishList: {
+    alignSelf: 'flex-end',
+    padding: wp('2%'),
+  },
+  cartToggle: {
+    flexDirection: 'row',
+    // marginTop: 10,
+  },
+  cartCount: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 16,
+    color: theme.fontColors.black,
+    marginLeft: 5,
+  },
+  header: {
+    marginTop: '3%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    marginBottom: '1%',
+  },
+  title: {
+    fontSize: theme.fontSizes.bigFont,
+    fontWeight: 'bold',
+    color: theme.fontColors.black,
   },
 });

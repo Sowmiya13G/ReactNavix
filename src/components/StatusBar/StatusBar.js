@@ -5,7 +5,7 @@ import theme from '../../constants/theme';
 function StatusBar() {
   return (
     <View
-      backgroundColor={theme.backgroundColor.status}
+      backgroundColor={theme.backgroundColor.saddleBrown}
       barStyle="dark-content"
     />
   );
