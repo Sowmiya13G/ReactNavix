@@ -5,20 +5,19 @@ const itemSlice = createSlice({
   initialState: [],
   reducers: {
     addItem: (state, action) => {
-      return [...state, action.payload];
+      state.push({id: Date.now(), text: action.payload});
     },
     editItem: (state, action) => {
-      const {index, editedItem} = action.payload;
-      state[index] = editedItem;
+      const item = state.find(item => item.id === action.payload.id);
+      if (item) {
+        item.text = action.payload.text;
+      }
     },
     deleteItem: (state, action) => {
-      return state.filter((_, index) => index !== action.payload);
-    },
-    setItems: (state, action) => {
-      return action.payload;
+      return state.filter(item => item.id !== action.payload);
     },
   },
 });
 
-export const {addItem, editItem, deleteItem, setItems} = itemSlice.actions;
+export const {addItem, editItem, deleteItem} = itemSlice.actions;
 export default itemSlice.reducer;

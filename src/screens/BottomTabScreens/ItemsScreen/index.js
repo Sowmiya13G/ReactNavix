@@ -1,81 +1,119 @@
-import React, {useEffect} from 'react';
-import {Text, View, FlatList, Keyboard} from 'react-native';
-import {useSelector, useDispatch} from 'react-redux';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {setItems} from '../../../redux/features/ItemSlice';
-import ItemInput from '../../../components/ItemInput';
-import ItemContainer from '../../../components/ItemContainer';
+import React, {useState} from 'react';
+import {
+  View,
+  TextInput,
+  FlatList,
+  Text,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {useDispatch, useSelector} from 'react-redux';
+import {addItem, editItem, deleteItem} from '../../../redux/features/ItemSlice';
 import {styles} from './styles';
-
 const ItemScreen = () => {
-  const items = useSelector(state => state.items);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    loadItems();
-  }, []);
-
-  const loadItems = async () => {
-    try {
-      const savedItems = await AsyncStorage.getItem('items');
-      console.log('savedItems', savedItems);
-      if (savedItems) {
-        dispatch(setItems(JSON.parse(savedItems)));
+  const items = useSelector(state => state.items);
+  const [newItem, setNewItem] = useState('');
+  const [editedItem, setEditedItem] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editableIndex, setEditableIndex] = useState(-1);
+  const handleAddItem = () => {
+    if (newItem.trim() !== '') {
+      if (editedItem) {
+        dispatch(editItem({id: editedItem.id, text: newItem}));
+        setEditedItem(null);
+        setIsEditing(false);
+      } else {
+        dispatch(addItem(newItem));
       }
-    } catch (error) {
-      console.error('Error loading items from AsyncStorage:', error);
+      setNewItem('');
     }
   };
-
-  const handleAddItem = item => {
-    if (!item.trim()) return;
-    const newItems = [...items, item];
-    console.log('newItems', newItems);
-
-    dispatch(setItems(newItems));
-    saveTasksToAsyncStorage(newItems);
-    Keyboard.dismiss();
+  const handleSave = () => {
+    setIsEditing(false);
+    setEditableIndex(-1);
+  };
+  const handleEditItem = (id, text, index) => {
+    setEditedItem({id, text});
+    setNewItem(text);
+    setEditableIndex(index);
+  };
+  const handleEdit = (id, text) => {
+    dispatch(editItem({id, text}));
+    setEditedItem(null);
+    setIsEditing(false);
+  };
+  const handleDeleteItem = id => {
+    dispatch(deleteItem(id));
   };
 
-  const handleEditItem = (index, editedItem) => {
-    const updatedItems = [...items];
-    updatedItems[index] = editedItem;
-    dispatch(setItems(updatedItems));
-    saveTasksToAsyncStorage(updatedItems);
+  const renderInput = () => {
+    return (
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.inputContainer}>
+        <TextInput
+          style={styles.inputField}
+          value={newItem}
+          onChangeText={text => setNewItem(text)}
+          placeholder={'Enter item'}
+          placeholderTextColor={'#fff'}
+        />
+        <TouchableOpacity onPress={handleAddItem}>
+          <View style={styles.button}>
+            <Icon name="arrow-up" size={24} color="black" />
+          </View>
+        </TouchableOpacity>
+      </KeyboardAvoidingView>
+    );
   };
-
-  const handleDeleteItem = deleteIndex => {
-    const newItems = tasks.filter((_, index) => index !== deleteIndex);
-    dispatch(setItems(newItems));
-    saveTasksToAsyncStorage(newItems);
+  const renderBody = ({index, item}) => {
+    return (
+      <View style={styles.itemContainer}>
+        <View style={styles.indexContainer}>
+          <Text style={styles.index}>{index + 1}</Text>
+        </View>
+        <View style={styles.itemView}>
+          <TextInput
+            value={item.text}
+            onChangeText={text => handleEdit(item.id, text)}
+            style={[
+              styles.taskContainer,
+              {color: editableIndex === index ? '#000' : '#FFF'},
+            ]}
+            editable={editableIndex === index}
+          />
+          <View style={styles.buttonsContainer}>
+            {editableIndex === index ? (
+              <TouchableOpacity onPress={() => handleSave()}>
+                <Icon name="save" size={20} color="#000" />
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+                onPress={() => handleEditItem(item.id, item.text, index)}>
+                <Icon name="edit" size={20} color="#000" />
+              </TouchableOpacity>
+            )}
+            <TouchableOpacity
+              onPress={() => handleDeleteItem(item.id)}
+              style={styles.deleteButton}>
+              <Icon name="trash-o" size={20} color="#FFF" />
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+    );
   };
-
-  const saveTasksToAsyncStorage = async updatedItems => {
-    try {
-      await AsyncStorage.setItem('items', JSON.stringify(updatedItems));
-    } catch (error) {
-      console.error('Error saving items to AsyncStorage:', error);
-    }
-  };
-
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>TODAY'S ITEM LIST</Text>
       <FlatList
         data={items}
-        keyExtractor={(_, index) => index.toString()}
-        renderItem={({item, index}) => (
-          <View style={styles.taskContainer}>
-            <ItemContainer
-              index={index + 1}
-              task={item}
-              deleteTask={() => handleDeleteItem(index)}
-              editTask={editedItem => handleEditItem(index, editedItem)}
-            />
-          </View>
-        )}
+        keyExtractor={item => item.id.toString()}
+        renderItem={renderBody}
       />
-      <ItemInput addTask={handleAddItem} />
+      {renderInput()}
     </View>
   );
 };

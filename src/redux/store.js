@@ -4,7 +4,6 @@ import productReducer from './features/ProductSlice';
 import {persistStore, persistReducer} from 'redux-persist';
 import {combineReducers} from 'redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
@@ -19,9 +18,10 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: ['persist/PERSIST'],
-    },
+    serializableCheck: false,
+    // serializableCheck: {
+    //   ignoredActions: ['persist/PERSIST'],
+    // },
   }),
 });
 

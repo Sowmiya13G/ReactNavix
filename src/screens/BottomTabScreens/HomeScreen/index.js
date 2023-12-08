@@ -8,7 +8,7 @@ import {styles} from './styles';
 const HomeScreen = () => {
   const dispatch = useDispatch();
   const products = useSelector(state => state.products.data);
-  console.log('products', products);
+  // console.log('products', products);
 
   const renderBody = useCallback(({item}) => {
     return (
@@ -30,7 +30,7 @@ const HomeScreen = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get('https://fakestoreapi.com/products');
-        console.log('response', response);
+        // console.log('response', response);
         dispatch(setProducts(response.data));
       } catch (err) {
         console.log('err', err);

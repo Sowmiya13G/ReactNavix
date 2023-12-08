@@ -1,11 +1,12 @@
 import {StyleSheet} from 'react-native';
 import theme from '../../../constants/theme';
+import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: Platform.OS === 'android' ? 0 : 0,
     backgroundColor: theme.backgroundColor.white,
-    // backgroundColor: '#282007',
+    padding: '2%',
   },
   heading: {
     color: theme.fontColors.black,
@@ -20,5 +21,89 @@ export const styles = StyleSheet.create({
   },
   taskContainer: {
     marginTop: 20,
+  },
+  inputContainer: {
+    borderColor: '#fff',
+    backgroundColor: theme.backgroundColor.saddleBrown3,
+    borderWidth: 1,
+    marginHorizontal: 20,
+    borderRadius: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    paddingHorizontal: 10,
+    position: 'absolute',
+    bottom: 20,
+  },
+  inputField: {
+    color: '#fff',
+    height: 50,
+    flex: 1,
+  },
+  button: {
+    height: 30,
+    width: 30,
+    borderRadius: 5,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  itemContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    marginHorizontal: 20,
+    justifyContent: 'space-around',
+    width: wp('90%'),
+    alignItems: 'center',
+  },
+  indexContainer: {
+    backgroundColor: theme.backgroundColor.saddleBrown4,
+    borderRadius: 12,
+    marginRight: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 50,
+    height: 50,
+  },
+  index: {
+    color: theme.fontColors.white,
+    fontSize: 20,
+  },
+  taskContainer: {
+    backgroundColor: theme.backgroundColor.saddleBrown,
+    borderRadius: 12,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    flex: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    minHeight: 50,
+  },
+  task: {
+    color: theme.fontColors.white,
+    width: '90%',
+    fontSize: 16,
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: '2%',
+    justifyContent: 'space-around',
+  },
+  deleteButton: {
+    marginLeft: '8%',
+  },
+  itemView: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: theme.backgroundColor.saddleBrown,
+    borderRadius: 12,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    minHeight: 50,
+    margin: '3%',
   },
 });
