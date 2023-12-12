@@ -11,7 +11,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import theme from '../constants/theme';
 
 const {width} = Dimensions.get('window');
-const TAB_BAR_WIDTH = width / 2;
+const TAB_BAR_WIDTH = width / 3;
 const ANIMATED_PART_HEIGHT = 6;
 
 const TabBar = ({state, descriptors, navigation}) => {
@@ -53,7 +53,7 @@ const TabBar = ({state, descriptors, navigation}) => {
               ? 'tags'
               : route.name === 'ItemTab'
               ? 'tasks'
-              : 'user-circle-o';
+              : 'tags';
 
           return (
             <TouchableWithoutFeedback

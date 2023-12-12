@@ -4,6 +4,7 @@ import TabBar from './TabBar';
 import HomeScreen from '../screens/BottomTabScreens/HomeScreen';
 import PriceScreen from '../screens/BottomTabScreens/PriceScreen';
 import ItemScreen from '../screens/BottomTabScreens/ItemsScreen';
+import CartScreen from '../screens/BottomTabScreens/CartScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -13,10 +14,10 @@ const TabNavigator = () => {
       name: 'HomeTab',
       component: HomeScreen,
     },
-    // {
-    //   name: 'PriceTab',
-    //   component: PriceScreen,
-    // },
+    {
+      name: 'CartTab',
+      component: CartScreen,
+    },
     {
       name: 'ItemTab',
       component: ItemScreen,
