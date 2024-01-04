@@ -1,5 +1,5 @@
 
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import theme from '../../../constants/theme';
 import {
   heightPercentageToDP as hp,
@@ -24,8 +24,7 @@ export const styles = StyleSheet.create({
     height: hp('65%')
   },
   image: {
-    width: '100%',
-    height: '100%',
+    top: '5%',
     resizeMode: 'contain',
   },
   title: {
@@ -63,11 +62,9 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: theme.backgroundColor.gray,
     marginHorizontal: 5,
-    marginBottom: '10%',
   },
   paginationDotActive: {
-    backgroundColor: theme.backgroundColor.orange,
-    width: wp('8%'),
+    backgroundColor: theme.backgroundColor.blueTheme,
   },
   buttons: {
     flexDirection: 'row',
@@ -76,9 +73,9 @@ export const styles = StyleSheet.create({
   },
 
   buttonContainer: {
-        paddingRight: '15%',
-    paddingBottom: '6%',
-    paddingLeft: '15%'
+    paddingRight: '5%',
+    paddingLeft: '5%',
+    width: wp('100%'),
   },
 
   buttonText: {

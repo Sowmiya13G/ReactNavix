@@ -6,7 +6,7 @@ import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {StatusBar, View} from 'react-native';
-import InitialScreen from '../screens/OnBoardingscreens/InitialScreen/InitialScreen';
+import InitialScreen from '../screens/OnBoardingscreens/InitialScreen';
 import TabNavigator from './TabNavigator';
 import messaging from '@react-native-firebase/messaging';
 import notifee from '@notifee/react-native';
@@ -78,18 +78,15 @@ const AppNavigator = () => {
   }, []);
   return (
     <View style={{flex: 1}}>
-      <StatusBar
-        backgroundColor={theme.backgroundColor.white}
-        barStyle="dark-content"
-      />
-      <NavigationContainer>
+     
+      <NavigationContainer >
         <Stack.Navigator>
-          <Stack.Screen
+           <Stack.Screen
             name="InitialScreen"
             component={InitialScreen}
             options={{title: '', headerShown: false}}
           />
-          <Stack.Screen
+         <Stack.Screen
             name="WelcomeScreen"
             component={WelcomeScreen}
             options={{title: '', headerShown: false}}
@@ -98,7 +95,7 @@ const AppNavigator = () => {
             name="OtpScreen"
             component={OtpScreen}
             options={{title: '', headerShown: false}}
-          />
+          /> 
           <Stack.Screen
             name="HomeScreen"
             component={TabNavigator}

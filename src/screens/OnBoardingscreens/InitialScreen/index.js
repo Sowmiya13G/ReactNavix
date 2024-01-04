@@ -11,13 +11,13 @@ import {
 
 // Packages
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import notifee from '@notifee/react-native';
 import { heightPercentageToDP } from 'react-native-responsive-screen';
 
 // Constants
 import { onboardingData } from '../../../constants/onBoardingData';
 import theme from '../../../constants/theme';
+import { strings } from '../../../constants/strings';
 // Styles
 import { styles } from './styles';
 import commonImagePath from '../../../constants/images';
@@ -42,7 +42,7 @@ export default function InitialScreen() {
       flatListRef.current.scrollToIndex({ index: currentPage + 1 });
     } else {
       onDisplayNotification()
-      navigation.navigate('LoginScreen');
+      navigation.navigate('WelcomeScreen');
     }
   };
 
@@ -85,7 +85,9 @@ export default function InitialScreen() {
             <View style={{ width, height: '100%' }}>
               <View style={styles.slide}>
                 <Image source={item.image} style={styles.image} />
+                <Spacer height={heightPercentageToDP('5%')}/>
                 <Text style={styles.title}>{item.title}</Text>
+                <Spacer height={heightPercentageToDP('2%')}/>
                 <Text style={styles.description}>{item.description}</Text>
               </View>
             </View>
@@ -97,6 +99,7 @@ export default function InitialScreen() {
             setCurrentPage(indexOfNextScreen);
           }}
         />
+        <Spacer height={heightPercentageToDP('2%')}/>
         {currentPage < onboardingData.length && (
           <View style={styles.pagination}>
             {onboardingData.map((_, index) => (
@@ -110,10 +113,11 @@ export default function InitialScreen() {
             ))}
           </View>
         )}
+        <Spacer height={heightPercentageToDP('3%')}/>
         <View style={styles.buttonContainer}>
           <CustomButton
-            logInButton
-            label="GET STARTED"
+            primaryButton
+            label={strings.getStarted}
             handlePress={handleNextSlide}
           />
         </View>
@@ -121,5 +125,3 @@ export default function InitialScreen() {
     </View>
   );
 }
-
-

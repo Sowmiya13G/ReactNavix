@@ -44,7 +44,7 @@ const WelcomeScreen = () => {
     };
     return (
         <SafeAreaView style={styles.container}>
-                <StatusBar backgroundColor={theme.backgroundColor.blueTheme} barStyle="light-content" />
+                {/* {/* <StatusBar backgroundColor={theme.backgroundColor.blueTheme} barStyle="light-content" /> */}
             <KeyboardAvoidingView
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
                 style={styles.container}
@@ -57,7 +57,7 @@ const WelcomeScreen = () => {
                     <Text style={styles.data}>{strings.enterNumber}</Text>
                     <Spacer height={heightPercentageToDP('2%')} />
                     <CustomInput
-                        placeholder="Mobile NUmber"
+                        placeholder="Mobile Number"
                         style={styles.input}
                         icon={commonImagePath.mobile}
                         value={phoneNumber}
@@ -74,12 +74,12 @@ const WelcomeScreen = () => {
                     <View style={styles.buttonContainer}>
                         <CustomButton
                             logInButton
-                            label="GET STARTED"
+                            label={strings.continue}
                             handlePress={handleContinue}
                         />
                     </View>
                 </View>
-            </KeyboardAvoidingView>
+            </KeyboardAvoidingView> 
         </SafeAreaView>
     );
 };

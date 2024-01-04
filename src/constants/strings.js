@@ -29,10 +29,14 @@ const strings = {
   forgotPassword: 'Forgot password',
 
   //otp
- verify: 'Verify your number',
- sent: 'We have sent an One Time Password'+'\n'+'to your mobile number',
- wait: 'please wait for 30s'
- 
+  verify: 'Verify your number',
+  sent: 'We have sent an One Time Password' + '\n' + 'to your mobile number',
+  wait: 'please wait for 30s',
+
+  // Button text
+  verifyBtn: 'VERFIY',
+  continue: 'CONTINUE',
+  getStarted: 'GET STARTED'
 
 };
 

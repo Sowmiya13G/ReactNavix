@@ -60,7 +60,7 @@ const OtpScreen = () => {
                 <View style={styles.buttonContainer}>
                     <CustomButton
                         logInButton
-                        label="VERIFY"
+                        label={strings.verify}
                         handlePress={handleContinue}
                     />
                 </View>
