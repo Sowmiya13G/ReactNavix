@@ -8,6 +8,14 @@ const commonImagePath = {
   wishList: require('../assets/images/wishList.png'),
   web: require('../assets/images/web.png'),
   online: require('../assets/images/online.png'),
+
+  //MeraDoc Image
+  backgroundCurve: require('../assets/images/union.png'),
+  healthCare: require('../assets/images/healthCare.png'),
+  schedule: require('../assets/images/schedule.png'),
+  bookTest: require('../assets/images/test.png'),
+  doc: require('../assets/images/doc.png'),
+  mobile: require('../assets/images/mobile.png')
 };
 export default commonImagePath;
 

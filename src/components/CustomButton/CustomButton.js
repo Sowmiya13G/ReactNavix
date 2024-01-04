@@ -1,30 +1,32 @@
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import theme from '../../constants/theme';
+import { widthPercentageToDP } from 'react-native-responsive-screen';
 
 const CustomButton = ({
-  signUpButton,
+  primaryButton,
   label = '',
   logInButton,
-  handlePress = () => {},
+  handlePress = () => { },
 }) => {
   return (
     <View>
       <TouchableOpacity
         style={
-          signUpButton
-            ? styles.signUpButton
+          primaryButton
+            ? styles.primaryButton
             : logInButton
-            ? styles.logInButton
-            : ''
+              ? styles.logInButton
+              : ''
         }
         onPress={handlePress}>
         <Text
           style={
-            signUpButton
-              ? styles.signUpButtonText
+            primaryButton
+              ? styles.primaryButtonText
               : logInButton
-              ? styles.logInButtonText
-              : ''
+                ? styles.logInButtonText
+                : ''
           }>
           {label}
         </Text>
@@ -38,23 +40,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 10,
-    borderRadius: 20,
+    borderRadius: '1%',
     borderColor: '#FFF',
     borderWidth: 2,
     marginBottom: 20,
   },
-  signUpButton: {
+  primaryButton: {
     alignItems: 'center',
     justifyContent: 'center',
     padding: 10,
-    borderRadius: 20,
-    borderColor: '#fff',
+    borderRadius: widthPercentageToDP('2%'),
+    borderColor: 'transparent',
+    backgroundColor: theme.backgroundColor.blueTheme,
     borderWidth: 2,
   },
   logInButtonText: {
     color: '#fff',
   },
-  signUpButtonText: {
+  primaryButtonText: {
     color: '#fff',
   },
 });

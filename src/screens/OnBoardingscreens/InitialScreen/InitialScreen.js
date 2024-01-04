@@ -1,42 +1,50 @@
-import React, {useState} from 'react';
+import React, { useState, useRef } from 'react';
 import {
   Dimensions,
-  Image,
-  ScrollView,
-  TouchableOpacity,
   StatusBar,
   Text,
   View,
-  SafeAreaView,
+  Image,
+  ImageBackground,
+  FlatList
 } from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import {CommonGradient} from '../../../components/GlobalStyles/CommonGradient';
-import {styles} from './styles';
-import notifee from '@notifee/react-native';
-export default function InitialScreen() {
-  const [sliderState, setSliderState] = useState({currentPage: 0});
-  const {width, height} = Dimensions.get('window');
 
-  const setSliderPage = event => {
-    const {currentPage} = sliderState;
-    const {x} = event.nativeEvent.contentOffset;
-    const indexOfNextScreen = Math.floor(x / width);
-    if (indexOfNextScreen !== currentPage) {
-      setSliderState({
-        ...sliderState,
-        currentPage: indexOfNextScreen,
-      });
-    }
-  };
+// Packages
+import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import notifee from '@notifee/react-native';
+import { heightPercentageToDP } from 'react-native-responsive-screen';
+
+// Constants
+import { onboardingData } from '../../../constants/onBoardingData';
+import theme from '../../../constants/theme';
+// Styles
+import { styles } from './styles';
+import commonImagePath from '../../../constants/images';
+import Spacer from '../../../components/Spacer';
+import CustomButton from '../../../components/CustomButton/CustomButton';
+
+export default function InitialScreen() {
+  // Use state
+  const [currentPage, setCurrentPage] = useState(0);
+
+  // variables
+  const { width } = Dimensions.get('window');
   const navigation = useNavigation();
 
-  const handleCompleteSlider = () => {
-    onDisplayNotification();
-    navigation.navigate('HomeScreen');
+  // useRef
+  const flatListRef = useRef(null);
+
+  // Functions
+  const handleNextSlide = () => {
+    if (currentPage < onboardingData.length - 1 && flatListRef.current) {
+      setCurrentPage(currentPage + 1);
+      flatListRef.current.scrollToIndex({ index: currentPage + 1 });
+    } else {
+      onDisplayNotification()
+      navigation.navigate('LoginScreen');
+    }
   };
-  const {currentPage: pageIndex} = sliderState;
-  console.log('pageIndex:', pageIndex);
 
   async function onDisplayNotification() {
     await notifee.requestPermission();
@@ -59,119 +67,59 @@ export default function InitialScreen() {
     });
   }
 
+
+  // Render UI ..................
   return (
-    <>
-      <CommonGradient>
-        <StatusBar backgroundColor="#37ECBA" barStyle="dark-content" />
-        <SafeAreaView style={styles.container}>
-          <ScrollView
-            style={{flex: 1}}
-            horizontal={true}
-            scrollEventThrottle={16}
-            pagingEnabled={true}
-            showsHorizontalScrollIndicator={false}
-            onScroll={event => {
-              setSliderPage(event);
-            }}>
-            <View style={{width, height}}>
-              <View style={styles.wrapper}>
-                {/* <Image
-                  source={require('../../../assets/gifs/cashier.gif')}
-                  style={styles.imageStyle}
-                /> */}
-                <Image
-                  source={require('../../../assets/images/online.png')}
-                  style={styles.imageStyle}
-                />
-                <Text style={styles.header}>Nature Imitates Art</Text>
-                <Text style={styles.paragraph}>....something like that</Text>
+    <View style={styles.container}>
+      <StatusBar backgroundColor={theme.backgroundColor.blueTheme} barStyle="light-content" />
+      <ImageBackground source={commonImagePath.backgroundCurve} resizeMode="cover" style={styles.background} />
+      <View style={styles.data}>
+        <FlatList
+          ref={flatListRef}
+          data={onboardingData}
+          horizontal
+          pagingEnabled
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={(_, index) => index.toString()}
+          renderItem={({ item, index }) => (
+            <View style={{ width, height: '100%' }}>
+              <View style={styles.slide}>
+                <Image source={item.image} style={styles.image} />
+                <Text style={styles.title}>{item.title}</Text>
+                <Text style={styles.description}>{item.description}</Text>
               </View>
             </View>
-            <View style={{width, height}}>
-              <View style={styles.wrapper}>
-                {/* <Image
-                  source={require('../../../assets/gifs/bag.gif')}
-                  style={styles.imageStyle}
-                /> */}
-                <Image
-                  source={require('../../../assets/images/checkout.png')}
-                  style={styles.imageStyle}
-                />
-                <Text style={styles.header}>Nature Imitates Art</Text>
-                <Text style={styles.paragraph}>....something like that</Text>
-              </View>
-            </View>
-            <View style={{width, height}}>
-              <View style={styles.wrapper}>
-                {/* <Image
-                  source={require('../../../assets/gifs/shopping.gif')}
-                  style={styles.imageStyle}
-                />*/}
-                <Image
-                  source={require('../../../assets/images/ads.png')}
-                  style={styles.imageStyle}
-                />
-                <Text style={styles.header}>Nature Imitates Art</Text>
-                <Text style={styles.paragraph}>....something like that</Text>
-              </View>
-            </View>
-            <View style={{width, height}}>
-              <View style={styles.wrapper}>
-                {/* <Image
-                  source={require('../../../assets/gifs/pay.gif')}
-                  style={styles.imageStyle}
-                /> */}
-                <Image
-                  source={require('../../../assets/images/bag.png')}
-                  style={styles.imageStyle}
-                />
-                <Text style={styles.header}>Nature Imitates Art</Text>
-                <Text style={styles.paragraph}>....something like that</Text>
-              </View>
-            </View>
-            <View style={{width, height}}>
-              <View style={styles.wrapper}>
-                {/* <Image
-                  source={require('../../../assets/gifs/stalls.gif')}
-                  style={styles.imageStyle}
-                /> */}
-                <Image
-                  source={require('../../../assets/images/web.png')}
-                  style={styles.imageStyle}
-                />
-                <Text style={styles.header}>Nature Imitates Art</Text>
-                <Text style={styles.paragraph}>....something like that</Text>
-              </View>
-            </View>
-          </ScrollView>
-          <View style={styles.paginationWrapper}>
-            {Array.from(Array(4).keys()).map(index => (
+          )}
+          onMomentumScrollEnd={event => {
+            const indexOfNextScreen = Math.floor(
+              event.nativeEvent.contentOffset.x / width,
+            );
+            setCurrentPage(indexOfNextScreen);
+          }}
+        />
+        {currentPage < onboardingData.length && (
+          <View style={styles.pagination}>
+            {onboardingData.map((_, index) => (
               <View
-                style={[
-                  styles.paginationDots,
-                  {opacity: pageIndex === index ? 1 : 0.2},
-                ]}
                 key={index}
+                style={[
+                  styles.paginationDot,
+                  index === currentPage ? styles.paginationDotActive : null,
+                ]}
               />
             ))}
           </View>
-          <View style={styles.completeButton}>
-            {pageIndex === 3 && (
-              <TouchableOpacity
-                onPress={handleCompleteSlider}
-                style={styles.completeButton}>
-                <Text style={styles.completeButtonText}>Complete</Text>
-                <Icon
-                  name="check"
-                  size={24}
-                  color="#FFFFFF"
-                  style={styles.icon}
-                />
-              </TouchableOpacity>
-            )}
-          </View>
-        </SafeAreaView>
-      </CommonGradient>
-    </>
+        )}
+        <View style={styles.buttonContainer}>
+          <CustomButton
+            logInButton
+            label="GET STARTED"
+            handlePress={handleNextSlide}
+          />
+        </View>
+      </View>
+    </View>
   );
 }
+
+

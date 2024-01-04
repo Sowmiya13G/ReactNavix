@@ -1,4 +1,3 @@
-
 import {StyleSheet} from 'react-native';
 import theme from '../../../constants/theme';
 import {
@@ -15,35 +14,48 @@ export const styles = StyleSheet.create({
     height: hp('44%'),
     padding: '5%',
   },
-  background: {
-    position: 'absolute',
-    bottom: '40%',
-    left: 0,
-    right: 0,
-    width: wp('100%'),
-    height: hp('65%')
-  },
   image: {
-    width: '100%',
-    height: '100%',
+    width: wp('30%'),
+    height: hp('44%'),
     resizeMode: 'contain',
+    alignSelf: 'center',
+  },
+  content: {
+    marginLeft: '5%',
+    marginRight: '5%',
+    marginTop: 0,
+    backgroundColor: theme.backgroundColor.white,
+    borderRadius: wp('2%'),
+    padding: '5%'
+
+  },
+  input: {
+    backgroundColor:theme.backgroundColor.inputGray,
   },
   title: {
-    fontSize: theme.fontSizes.bigFont,
+    fontSize: theme.fontSizes.mediumFontText,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: theme.fontColors.secondaryBlack,
+    color: theme.fontColors.blueTheme,
   },
   data: {
-    marginTop: '5%',
-    marginBottom: '3%',
-    width: '100%',
-    height: '90%',
-    marginBottom: '30%',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: '3%',
+    marginLeft: '5%',
+    fontSize: theme.fontSizes.mediumFont,
+    // fontWeight: 'bold',
+    textAlign: 'left',
+    color: theme.fontColors.black,
+    
+  },
+
+  buttonContainer: {
+    paddingRight: '15%',
+paddingBottom: '6%',
+paddingLeft: '15%'
+},
+  option: {
+    fontSize: theme.fontSizes.mediumFont,
+    textAlign: 'center',
+    color: theme.fontColors.blueTheme,
   },
   description: {
     fontSize: theme.fontSizes.mediumFont,
@@ -75,14 +87,26 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  buttonContainer: {
-        paddingRight: '15%',
-    paddingBottom: '6%',
-    paddingLeft: '15%'
-  },
-
   buttonText: {
     color: theme.fontColors.white,
     fontSize: theme.fontSizes.mediumFont,
+  },
+  skipView: {
+    alignSelf: 'flex-end',
+    marginRight: '10%',
+    marginTop: '15%',
+  },
+  skipButton: {
+    alignSelf: 'flex-end',
+    color: theme.fontColors.black,
+    fontWeight: 'bold',
+  },
+  background: {
+    position: 'absolute',
+    bottom: '40%',
+    left: 0,
+    right: 0,
+    width: wp('100%'),
+    height: hp('65%')
   },
 });

@@ -10,8 +10,10 @@ import InitialScreen from '../screens/OnBoardingscreens/InitialScreen/InitialScr
 import TabNavigator from './TabNavigator';
 import messaging from '@react-native-firebase/messaging';
 import notifee from '@notifee/react-native';
-import SignUpScreen from '../screens/OnBoardingscreens/SignupScreen/SignupScreen';
+// import SignUpScreen from '../screens/OnBoardingscreens/SignupScreen/SignupScreen';
 import theme from '../constants/theme';
+import WelcomeScreen from '../screens/OnBoardingscreens/WelcomeScreen';
+import OtpScreen from '../screens/OnBoardingscreens/OtpScreen';
 
 const Stack = createStackNavigator();
 
@@ -82,16 +84,21 @@ const AppNavigator = () => {
       />
       <NavigationContainer>
         <Stack.Navigator>
-          {/* <Stack.Screen
+          <Stack.Screen
             name="InitialScreen"
             component={InitialScreen}
             options={{title: '', headerShown: false}}
           />
           <Stack.Screen
-            name="SignUpScreen"
-            component={SignUpScreen}
+            name="WelcomeScreen"
+            component={WelcomeScreen}
             options={{title: '', headerShown: false}}
-          /> */}
+          />
+           <Stack.Screen
+            name="OtpScreen"
+            component={OtpScreen}
+            options={{title: '', headerShown: false}}
+          />
           <Stack.Screen
             name="HomeScreen"
             component={TabNavigator}

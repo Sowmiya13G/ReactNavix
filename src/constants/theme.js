@@ -28,6 +28,10 @@ const backgroundColor = {
   saddleBrown3: '#6b5514',
   saddleBrown4: '#50400f',
   saddleBrown5: '#43350d',
+  // Meradoc
+  blueTheme: '#0655A3',
+  inputGray: '#F6F6F6'
+
 };
 
 const borderColor = {
@@ -53,6 +57,8 @@ const fontColors = {
   green: '#008000',
   black: '#000000',
   candyBlue: '#37ECBA',
+   // Meradoc
+   blueTheme: '#0655A3',
 };
 
 export default {

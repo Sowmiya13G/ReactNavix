@@ -1,9 +1,11 @@
 import React from 'react';
-import {View, TextInput, StyleSheet} from 'react-native';
-
-const CustomInput = ({placeholder, value, onChangeText, secureTextEntry}) => {
+import {View, TextInput, StyleSheet, Image} from 'react-native';
+import { widthPercentageToDP as wp , heightPercentageToDP as hp} from 'react-native-responsive-screen';
+const CustomInput = ({placeholder, value,icon, onChangeText, secureTextEntry}) => {
   return (
     <View style={styles.inputContainer}>
+          {Boolean(icon) && <Image source={icon} style={styles.icon} />}
+
       <TextInput
         style={styles.input}
         placeholder={placeholder}
@@ -30,6 +32,12 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 40,
     color: '#fff',
+  },
+  icon: {
+    width: wp("5%"),
+    height: wp("5%"),
+    resizeMode: "contain",
+    flex: 0.13,
   },
 });
 

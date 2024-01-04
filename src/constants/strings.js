@@ -19,6 +19,21 @@ const strings = {
   googleLogin: 'Continue with Google',
   or: 'or',
   authLogin: 'Authorized Login',
+  // MeraDoc
+
+  // WelcomeScreen
+  welcomeTo: 'Welcome to MeraDoc',
+  enterNumber: 'Enter your Mobile Number',
+  account: 'Don’t have an account? Create Now',
+  loginWith: 'Login with password',
+  forgotPassword: 'Forgot password',
+
+  //otp
+ verify: 'Verify your number',
+ sent: 'We have sent an One Time Password'+'\n'+'to your mobile number',
+ wait: 'please wait for 30s'
+ 
+
 };
 
 const placeholders = {
@@ -26,4 +41,4 @@ const placeholders = {
   enterPassword: 'Enter your Password',
 };
 
-export {strings, placeholders};
+export { strings, placeholders };
