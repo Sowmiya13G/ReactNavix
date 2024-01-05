@@ -15,7 +15,11 @@ const commonImagePath = {
   schedule: require('../assets/images/rafiki.png'),
   bookTest: require('../assets/images/lab.png'),
   doc: require('../assets/images/doc.png'),
-  mobile: require('../assets/images/mobile.png')
+  mobile: require('../assets/images/mobile.png'),
+  doct1: require('../assets/images/doct1.png'),
+  doct2: require('../assets/images/doct2.png'),
+  doct3: require('../assets/images/doct3.png'),
+  blog:require('../assets/images/blog.png'),
 };
 export default commonImagePath;
 

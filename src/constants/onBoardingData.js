@@ -1,4 +1,5 @@
 import commonImagePath from './images';
+import { strings } from './strings';
 
 export const onboardingData = [
   {
@@ -18,5 +19,22 @@ export const onboardingData = [
     image: commonImagePath.bookTest,
     description:
       'Book Lab tests & Health Checkups from India’s most trusted labs.',
+  },
+];
+export const ouSpeakersData = [
+  {
+    name:strings.jhon,
+    image: commonImagePath.doct1,
+    description:strings.detail
+  },
+  {
+    name:strings.williams,
+    image: commonImagePath.doct2,
+    description:strings.detail
+  },
+  {
+    name: strings.aditya,
+    image: commonImagePath.doct3,
+    description:strings.detail
   },
 ];

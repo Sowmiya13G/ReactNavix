@@ -14,6 +14,8 @@ import notifee from '@notifee/react-native';
 import theme from '../constants/theme';
 import WelcomeScreen from '../screens/OnBoardingscreens/WelcomeScreen';
 import OtpScreen from '../screens/OnBoardingscreens/OtpScreen';
+import { WebinarScreen } from '../screens/OnBoardingscreens/WebinarScreen';
+import { BlogScreen } from '../screens/OnBoardingscreens/BlogScreen';
 
 const Stack = createStackNavigator();
 
@@ -81,7 +83,7 @@ const AppNavigator = () => {
      
       <NavigationContainer >
         <Stack.Navigator>
-           <Stack.Screen
+         <Stack.Screen
             name="InitialScreen"
             component={InitialScreen}
             options={{title: '', headerShown: false}}
@@ -94,6 +96,16 @@ const AppNavigator = () => {
            <Stack.Screen
             name="OtpScreen"
             component={OtpScreen}
+            options={{title: '', headerShown: false}}
+          /> 
+            <Stack.Screen
+            name="WebinarScreen"
+            component={WebinarScreen}
+            options={{title: '', headerShown: false}}
+          /> 
+            <Stack.Screen
+            name="BlogScreen"
+            component={BlogScreen}
             options={{title: '', headerShown: false}}
           /> 
           <Stack.Screen

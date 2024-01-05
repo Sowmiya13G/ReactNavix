@@ -20,7 +20,16 @@ const strings = {
   or: 'or',
   authLogin: 'Authorized Login',
   // MeraDoc
-
+  webniars:'Webniars',
+  blogs: 'Blogs',
+  content: 'Missed our webinars? No issues, we got you covered. Access all our webinars below & share them with your family, friends and colleagues.',
+  watch: 'Watch our latest Healthcare Bytes',
+  speakers:'Our Speakers',
+  jhon:"Dr.JohnDoe",
+  detail:"President NATHEALTH & Founder,Mahajan Imagining",
+williams:'Dr.Williams',
+aditya:'Dr.Aditya K',
+view: 'View',
   // WelcomeScreen
   welcomeTo: 'Welcome to MeraDoc',
   enterNumber: 'Enter your Mobile Number',

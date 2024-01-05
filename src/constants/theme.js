@@ -60,6 +60,8 @@ const fontColors = {
   candyBlue: '#37ECBA',
    // Meradoc
    blueTheme: '#0655A3',
+   royalBlue: '#243D63'
+
 };
 
 export default {

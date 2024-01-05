@@ -36,8 +36,11 @@ const OtpScreen = () => {
     const navigation = useNavigation();
 
     //Functions
+    const goBack = () => {
+        navigation.navigate('WelcomeScreen');
+      }
     const handleContinue = () => {
-        navigation.navigate('HomeScreen')
+        navigation.navigate('WebinarScreen')
     };
     return (
         <SafeAreaView style={styles.container}>
