@@ -12,8 +12,15 @@ export const styles = StyleSheet.create({
   },
   slide: {
     width: wp('100%'),
-    height: hp('44%'),
+    height: hp('94%'),
     padding: '5%',
+  },
+  backgroundCurve: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    width: wp('100%'),
+    height: hp('5%')
   },
   background: {
     position: 'absolute',
@@ -26,6 +33,9 @@ export const styles = StyleSheet.create({
   image: {
     top: '5%',
     resizeMode: 'contain',
+    height: hp('50%'),
+    width: wp('73%'),
+    alignSelf: 'center'
   },
   title: {
     fontSize: theme.fontSizes.bigFont,

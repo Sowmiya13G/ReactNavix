@@ -9,28 +9,22 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
-    slide: {
-        width: wp('100%'),
-        height: hp('44%'),
-        padding: '5%',
-    },
     image: {
         width: wp('30%'),
-        height: hp('44%'),
+        height: hp('30%'),
         resizeMode: 'contain',
         alignSelf: 'center',
     },
     content: {
         marginLeft: '5%',
         marginRight: '5%',
-        marginTop: 0,
         backgroundColor: theme.backgroundColor.white,
-        // borderRadius: 15,
-        padding: '5%'
-
+        borderRadius: 15,
+        padding: '5%',
     },
     input: {
         backgroundColor: theme.backgroundColor.inputGray,
+        color: theme.fontColors.black
     },
     title: {
         fontSize: theme.fontSizes.mediumFontText,

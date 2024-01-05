@@ -44,10 +44,10 @@ const WelcomeScreen = () => {
     };
     return (
         <SafeAreaView style={styles.container}>
-                {/* {/* <StatusBar backgroundColor={theme.backgroundColor.blueTheme} barStyle="light-content" /> */}
+               <StatusBar backgroundColor={theme.backgroundColor.blueTheme} barStyle="light-content" /> 
             <KeyboardAvoidingView
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-                style={styles.container}
+               
             >
                 <ImageBackground source={commonImagePath.backgroundCurve} resizeMode="cover" style={styles.background} />
                 <Image source={commonImagePath.doc} style={styles.image} />
@@ -73,7 +73,7 @@ const WelcomeScreen = () => {
                     <Spacer height={heightPercentageToDP('2%')} />
                     <View style={styles.buttonContainer}>
                         <CustomButton
-                            logInButton
+                            primaryButton
                             label={strings.continue}
                             handlePress={handleContinue}
                         />

@@ -1,21 +1,25 @@
 import { StyleSheet } from 'react-native';
 import theme from '../../../constants/theme';
-
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: theme.backgroundColor.black,
+        padding: '5%'
     },
     title: {
-        fontSize: theme.fontSizes.mediumFontText,
+        fontSize: theme.fontSizes.bigFont,
         fontWeight: 'bold',
-        textAlign: 'center',
         color: theme.fontColors.blueTheme,
     },
     option: {
         fontSize: theme.fontSizes.mediumFont,
         textAlign: 'center',
         color: theme.fontColors.blueTheme,
+    },
+    text: {
+        fontSize: theme.fontSizes.mediumFont,
+        // textAlign: 'center',
+        color: theme.fontColors.black,
     },
     buttons: {
         flexDirection: 'row',
@@ -26,16 +30,35 @@ export const styles = StyleSheet.create({
         color: theme.fontColors.white,
         fontSize: theme.fontSizes.mediumFont,
     },
-    otpContainer: {
-        marginVertical: 10,
-        paddingHorizontal: 20,
-    },
+
+  buttonContainer: {
+    paddingRight: '5%',
+    paddingLeft: '5%',
+    width: wp('90%'),
+
+  },
+    
     otpInput: {
-        height: 40,
-        borderColor: 'gray',
-        borderWidth: 1,
+        borderColor:theme.borderColor.black,
+        color: theme.fontColors.black,
+        borderWidth: 1.5,
         borderRadius: 5,
-        paddingHorizontal: 10,
+        paddingHorizontal: 0,
         fontSize: 16,
     },
+    otpContainer: {
+        alignSelf: 'center',
+        height: 50,
+        width: wp('90%'),
+        
+      },
+      header: {
+        // padding: '5%',
+        flexDirection: 'row',
+        alignItems: 'center',
+      },
+      icon: {
+        alignSelf: 'flex-start',
+        
+      },
 });

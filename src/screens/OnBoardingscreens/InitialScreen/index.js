@@ -11,7 +11,7 @@ import {
 
 // Packages
 import { useNavigation } from '@react-navigation/native';
-import notifee from '@notifee/react-native';
+// import notifee from '@notifee/react-native';
 import { heightPercentageToDP } from 'react-native-responsive-screen';
 
 // Constants
@@ -41,38 +41,39 @@ export default function InitialScreen() {
       setCurrentPage(currentPage + 1);
       flatListRef.current.scrollToIndex({ index: currentPage + 1 });
     } else {
-      onDisplayNotification()
+      // onDisplayNotification()
       navigation.navigate('WelcomeScreen');
     }
   };
 
-  async function onDisplayNotification() {
-    await notifee.requestPermission();
+  // async function onDisplayNotification() {
+  //   await notifee.requestPermission();
 
-    const channelId = await notifee.createChannel({
-      id: 'default',
-      name: 'Default Channel',
-    });
+  //   const channelId = await notifee.createChannel({
+  //     id: 'default',
+  //     name: 'Default Channel',
+  //   });
 
-    await notifee.displayNotification({
-      title: 'Notification Title',
-      body: 'Main body content of the notification',
-      android: {
-        channelId,
-        smallIcon: 'ic_launcher',
-        pressAction: {
-          id: 'default',
-        },
-      },
-    });
-  }
+  //   await notifee.displayNotification({
+  //     title: 'Notification Title',
+  //     body: 'Main body content of the notification',
+  //     android: {
+  //       channelId,
+  //       smallIcon: 'ic_launcher',
+  //       pressAction: {
+  //         id: 'default',
+  //       },
+  //     },
+  //   });
+  // }
 
 
   // Render UI ..................
+  
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={theme.backgroundColor.blueTheme} barStyle="light-content" />
-      <ImageBackground source={commonImagePath.backgroundCurve} resizeMode="cover" style={styles.background} />
+      <ImageBackground source={commonImagePath.backgroundCurve} resizeMode="cover" style={styles.backgroundCurve} />
       <View style={styles.data}>
         <FlatList
           ref={flatListRef}
@@ -84,6 +85,8 @@ export default function InitialScreen() {
           renderItem={({ item, index }) => (
             <View style={{ width, height: '100%' }}>
               <View style={styles.slide}>
+      <ImageBackground source={commonImagePath.backgroundCurve} resizeMode="cover" style={styles.background} />
+
                 <Image source={item.image} style={styles.image} />
                 <Spacer height={heightPercentageToDP('5%')}/>
                 <Text style={styles.title}>{item.title}</Text>

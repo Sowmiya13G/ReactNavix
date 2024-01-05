@@ -37,6 +37,7 @@ const backgroundColor = {
 const borderColor = {
   white: '#FFFFFF',
   black: '#000000',
+  gray: '#CCCCCC',
 };
 const fontSizes = {
   bigFont: hp('3%'),

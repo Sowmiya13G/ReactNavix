@@ -12,8 +12,8 @@ const commonImagePath = {
   //MeraDoc Image
   backgroundCurve: require('../assets/images/union.png'),
   healthCare: require('../assets/images/healthCare.png'),
-  schedule: require('../assets/images/schedule.png'),
-  bookTest: require('../assets/images/test.png'),
+  schedule: require('../assets/images/rafiki.png'),
+  bookTest: require('../assets/images/lab.png'),
   doc: require('../assets/images/doc.png'),
   mobile: require('../assets/images/mobile.png')
 };

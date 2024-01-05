@@ -1,7 +1,8 @@
 import React from 'react';
 import {View, TextInput, StyleSheet, Image} from 'react-native';
 import { widthPercentageToDP as wp , heightPercentageToDP as hp} from 'react-native-responsive-screen';
-const CustomInput = ({placeholder, value,icon, onChangeText, secureTextEntry}) => {
+import theme from '../../constants/theme';
+const CustomInput = ({placeholder, value,icon, onChangeText, secureTextEntry, keyboardType}) => {
   return (
     <View style={styles.inputContainer}>
           {Boolean(icon) && <Image source={icon} style={styles.icon} />}
@@ -13,6 +14,7 @@ const CustomInput = ({placeholder, value,icon, onChangeText, secureTextEntry}) =
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
         placeholderTextColor="#E8E8E8"
+        keyboardType={keyboardType}
       />
     </View>
   );
@@ -23,7 +25,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#fff',
+    borderColor: theme.borderColor.gray,
     borderRadius: 10,
     paddingHorizontal: 10,
     marginBottom: 10,
@@ -31,7 +33,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     height: 40,
-    color: '#fff',
+    color: theme.fontColors.black
   },
   icon: {
     width: wp("5%"),
