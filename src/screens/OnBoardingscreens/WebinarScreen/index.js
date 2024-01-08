@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
 import {
     StatusBar,
@@ -38,7 +39,7 @@ export const WebinarScreen = () => {
       };
     // Render UI .........................
     // Render Body
-    renderBody = () => {
+    const renderBody = () => {
         return (
             <SafeAreaView style={styles.container}>
                 <View style={styles.contentView}>
@@ -104,7 +105,7 @@ export const WebinarScreen = () => {
     };
 
     // Render Header
-    renderHeader = () => {
+    const renderHeader = () => {
         return (
             <View style={styles.header}>
                 <Spacer height={heightPercentageToDP('8%')} />

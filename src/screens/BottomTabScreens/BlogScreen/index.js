@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
 import {
     StatusBar,
@@ -32,9 +33,12 @@ export const BlogScreen = () => {
     const goBack = () => {
         navigation.navigate('WebinarScreen');
       }
+      const gotoNext =() =>{
+        navigation.navigate('DashboardTab')
+      }
     // Render UI .........................
     // Render Body
-    renderBody = () => {
+  const  renderBody = () => {
         return (
             <SafeAreaView style={styles.container}>
                 {/* <ImageBackground source={commonImagePath.backgroundCurve} resizeMode="cover" style={styles.background} /> */}
@@ -58,7 +62,7 @@ export const BlogScreen = () => {
     };
 
     // Render Header
-    renderHeader = () => {
+ const renderHeader = () => {
         return (
             <>
                 <View style={styles.header}>
@@ -69,7 +73,9 @@ export const BlogScreen = () => {
                         </TouchableOpacity>
                         <Text style={styles.heading}>{strings.blogs}</Text>
                         <Spacer width={widthPercentageToDP('35%')} />
+                        <TouchableOpacity onPress={gotoNext()}>
                         <Icon name="volume-control-phone" size={30} color={theme.fontColors.white} style={styles.callIcon} />
+                        </TouchableOpacity>
                         <Spacer width={widthPercentageToDP('5%')} />
                         <Icon name="filter" size={30} color={theme.fontColors.white} />
                     </View>
@@ -109,6 +115,7 @@ export const BlogScreen = () => {
                 keyExtractor={(item, index) => index.toString()}
                 ListHeaderComponent={renderHeader()}
             />
+            
         </SafeAreaView>
     );
 

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
@@ -29,12 +30,6 @@ export const styles = StyleSheet.create({
     color: 'red',
     marginBottom: 10,
   },
-  title: {
-    fontSize: 15,
-    marginBottom: 15,
-    left: 0,
-    color: '#fff',
-  },
   option: {
     color: '#fff',
     alignSelf: 'center',
@@ -51,10 +46,6 @@ export const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     right: 5,
     marginBottom: 15,
-  },
-  errorText: {
-    color: 'red',
-    marginTop: 5,
   },
 });
 // const styles = StyleSheet.create({

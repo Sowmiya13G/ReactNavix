@@ -6,7 +6,6 @@ import {
 import theme from '../../../constants/theme';
 
 export const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -15,10 +14,10 @@ export const styles = StyleSheet.create({
   view: {
     flexDirection: 'row',
     marginTop: 10,
-    padding: '5%'
+    padding: '5%',
   },
-  contentView:{
-    flex:1,
+  contentView: {
+    flex: 1,
     padding: '5%',
   },
   image: {
@@ -26,7 +25,7 @@ export const styles = StyleSheet.create({
     height: hp('25%'),
     resizeMode: 'contain',
     alignSelf: 'center',
-},
+  },
   name: {
     color: theme.fontColors.royalBlue,
     fontSize: theme.fontSizes.mediumFontText,
@@ -42,14 +41,13 @@ export const styles = StyleSheet.create({
     paddingRight: '2%',
     paddingLeft: '2%',
     marginBottom: '5%',
-    textAlign: 'center'
+    textAlign: 'center',
   },
-  heading:{
-        color: theme.fontColors.white,
-        fontSize: theme.fontSizes.bigFont,
-        fontWeight: 'bold',
-        paddingLeft: '5%',
-  
+  heading: {
+    color: theme.fontColors.white,
+    fontSize: theme.fontSizes.bigFont,
+    fontWeight: 'bold',
+    paddingLeft: '5%',
   },
   title: {
     color: theme.fontColors.royalBlue,
@@ -57,11 +55,11 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     paddingLeft: '5%',
   },
-  speakers:{
+  speakers: {
     color: theme.fontColors.royalBlue,
     fontSize: theme.fontSizes.bigFont,
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   scroll: {
     flex: 1,
@@ -93,31 +91,33 @@ export const styles = StyleSheet.create({
   },
   icon: {
     backgroundColor: theme.backgroundColor.white,
-    borderRadius:wp('2%'),
+    borderRadius: wp('2%'),
     padding: 10,
-    height:hp('5%'),
+    height: hp('5%'),
     width: wp('12%'),
   },
 
-  backIcon:{
+  backIcon: {
     alignSelf: 'center',
-    fontWeight: 'bold'
-  },
-  callIcon:{
     fontWeight: 'bold',
-    transform: [{ rotate: '-30deg' }]  },
+  },
+  callIcon: {
+    fontWeight: 'bold',
+    transform: [{rotate: '-30deg'}],
+  },
   button: {
     padding: '5%',
+    // eslint-disable-next-line prettier/prettier
     width: wp('90%')
   },
   inputContainer: {
     flexDirection: 'row',
     marginBottom: '10%',
   },
-  videoPlayer:{
+  videoPlayer: {
     width: wp('100%'),
-    height: hp('30%'), 
-    padding:'3%'
+    height: hp('30%'),
+    padding: '3%',
   },
   backgroundVideo: {
     width: '100%',
@@ -135,6 +135,6 @@ export const styles = StyleSheet.create({
     color: 'white',
   },
   arrowIcon: {alignSelf: 'center'},
-  containerStyle:{ flexDirection: 'row', display: 'flex'},
-list:{ flexDirection: 'column', width: wp('28%'), justifyContent: 'center' }
+  containerStyle: {flexDirection: 'row', display: 'flex'},
+  list: {flexDirection: 'column', width: wp('28%'), justifyContent: 'center'},
 });

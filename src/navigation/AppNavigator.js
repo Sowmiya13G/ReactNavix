@@ -1,21 +1,24 @@
+/* eslint-disable prettier/prettier */
 // import {valuePacker} from 'react-native-reanimated';
 import 'react-native-reanimated';
 import 'react-native-gesture-handler';
-import {enableFreeze} from 'react-native-screens';
-import React, {useEffect} from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import {StatusBar, View} from 'react-native';
+import { enableFreeze } from 'react-native-screens';
+import React, { useEffect } from 'react';
+import { StatusBar } from 'react-native';
+import theme from '../constants/theme';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import InitialScreen from '../screens/OnBoardingscreens/InitialScreen';
-import TabNavigator from './TabNavigator';
 import messaging from '@react-native-firebase/messaging';
 import notifee from '@notifee/react-native';
 // import SignUpScreen from '../screens/OnBoardingscreens/SignupScreen/SignupScreen';
-import theme from '../constants/theme';
 import WelcomeScreen from '../screens/OnBoardingscreens/WelcomeScreen';
 import OtpScreen from '../screens/OnBoardingscreens/OtpScreen';
 import { WebinarScreen } from '../screens/OnBoardingscreens/WebinarScreen';
-import { BlogScreen } from '../screens/OnBoardingscreens/BlogScreen';
+import { BlogScreen } from '../screens/BottomTabScreens/BlogScreen';
+import { UserProfileScreen } from '../screens/BottomTabScreens/UserProfileScreen';
+import { CompleteProfileScreen } from '../screens/BottomTabScreens/CompleteProfileScreen';
+import BottomTabNavigator from './BottomTabNavigator';
 
 const Stack = createStackNavigator();
 
@@ -50,7 +53,7 @@ async function setupFCMListener() {
 
   messaging().onMessage(async remoteMessage => {
     console.log('NOTIFICATION IN FOREGROUND STATE', remoteMessage);
-    const {title, body} = remoteMessage.notification;
+    const { title, body } = remoteMessage.notification;
     await notifee.displayNotification({
       title,
       body,
@@ -68,7 +71,6 @@ async function setupFCMListener() {
 const AppNavigator = () => {
   useEffect(() => {
     enableFreeze(true);
-
     const initializeFirebaseMessaging = async () => {
       await messaging().registerDeviceForRemoteMessages();
       await getFCMToken();
@@ -79,47 +81,62 @@ const AppNavigator = () => {
     initializeFirebaseMessaging();
   }, []);
   return (
-    <View style={{flex: 1}}>
-     
       <NavigationContainer >
+            <StatusBar backgroundColor={theme.backgroundColor.blueTheme} barStyle="light-content" />
+
         <Stack.Navigator>
-         <Stack.Screen
+          <Stack.Screen
             name="InitialScreen"
             component={InitialScreen}
-            options={{title: '', headerShown: false}}
+            options={{ title: '', headerShown: false }}
           />
-         <Stack.Screen
+          <Stack.Screen
             name="WelcomeScreen"
             component={WelcomeScreen}
-            options={{title: '', headerShown: false}}
+            options={{ title: '', headerShown: false }}
           />
-           <Stack.Screen
+          <Stack.Screen
             name="OtpScreen"
             component={OtpScreen}
-            options={{title: '', headerShown: false}}
-          /> 
-            <Stack.Screen
+            options={{ title: '', headerShown: false }}
+          />
+          <Stack.Screen
             name="WebinarScreen"
             component={WebinarScreen}
-            options={{title: '', headerShown: false}}
-          /> 
-            <Stack.Screen
+            options={{ title: '', headerShown: false }}
+          />
+          <Stack.Screen
+            name="DashboardScreen"
+            component={BottomTabNavigator}
+            options={{ title: '', headerShown: false }}
+          />
+          <Stack.Screen
             name="BlogScreen"
             component={BlogScreen}
-            options={{title: '', headerShown: false}}
+            options={{ title: '', headerShown: false }}
           /> 
           <Stack.Screen
-            name="HomeScreen"
-            component={TabNavigator}
-            options={{title: '', headerShown: false}}
+            name="UserProfileScreen"
+            component={UserProfileScreen}
+            options={{ title: '', headerShown: false }}
           />
+          <Stack.Screen
+            name="CompleteProfileScreen"
+            component={CompleteProfileScreen}
+            options={{ title: '', headerShown: false }}
+          />
+
         </Stack.Navigator>
       </NavigationContainer>
-    </View>
   );
 };
 
 export default AppNavigator;
+{/* <Stack.Screen
+  name="HomeScreen"
+  component={TabNavigator}
+  options={{ title: '', headerShown: false }}
+/> */}
 
 // messaging().onNotificationOpenedApp(async remoteMessage => {
 

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import theme from '../../constants/theme';
@@ -40,10 +41,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 10,
-    borderRadius: '1%',
-    borderColor: '#FFF',
+    borderRadius: widthPercentageToDP('2%'),
+    borderColor: theme.backgroundColor.blueTheme,
     borderWidth: 2,
     marginBottom: 20,
+    backgroundColor: theme.backgroundColor.white,
+    color: theme.fontColors.blueTheme
   },
   primaryButton: {
     alignItems: 'center',
@@ -55,10 +58,10 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   logInButtonText: {
-    color: '#fff',
+    color: theme.fontColors.blueTheme,
   },
   primaryButtonText: {
-    color: '#fff',
+    color: theme.fontColors.white,
   },
 });
 

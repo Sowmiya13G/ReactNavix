@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 const commonImagePath = {
   background: require('../assets/images/background.jpg'),
   ads: require('../assets/images/ads.png'),
@@ -20,6 +21,27 @@ const commonImagePath = {
   doct2: require('../assets/images/doct2.png'),
   doct3: require('../assets/images/doct3.png'),
   blog:require('../assets/images/blog.png'),
+  pana:require('../assets/images/pana.png'),
+  plan1:require('../assets/images/plan1.png'),
+  plan2:require('../assets/images/plan2.png'),
+  plan3:require('../assets/images/plan3.png'),
+  plan4:require('../assets/images/plan4.png'),
+  plan5:require('../assets/images/plan5.png'),
+  specialist:require('../assets/images/specialist.png'),
+  date:require('../assets/images/date.png'),
+  frame:require('../assets/images/frame.png'),
+  group:require('../assets/images/group.png'),
+  quote:require('../assets/images/quote.png'),
+  profile:require('../assets/images/profile.png'),
+  inst1:require('../assets/images/inst1.png'),
+  inst2:require('../assets/images/inst2.png'),
+  inst3:require('../assets/images/inst3.png'),
+  part1:require('../assets/images/part1.png'),
+  part2:require('../assets/images/part2.png'),
+  part3:require('../assets/images/part3.png'),
+  corporate:require('../assets/images/corporate.png'),
+  wellness:require('../assets/images/wellness.png'),
+  call:require('../assets/images/call.png'),
 };
 export default commonImagePath;
 

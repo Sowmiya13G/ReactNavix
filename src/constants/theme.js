@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -30,7 +31,8 @@ const backgroundColor = {
   saddleBrown5: '#43350d',
   // Meradoc
   blueTheme: '#0655A3',
-  inputGray: '#F6F6F6'
+  inputGray: '#F6F6F6',
+  background:'#F9F9F9'
 
 };
 
