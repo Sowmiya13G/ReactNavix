@@ -14,18 +14,19 @@ import {
     Alert,
     TextInput
 } from 'react-native';
+
 // Packages
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 
-
 // Constants
 import theme from '../../../constants/theme';
 import { strings, placeholders } from '../../../constants/strings';
 import commonImagePath from '../../../constants/images';
 import { checkAndRequestPermissions } from '../../../utils/checkAndroidPermissions';
+
 // Styles
 import { styles } from './styles';
 
@@ -38,16 +39,19 @@ import GenderPicker from '../../../components/GenderPicker';
 
 // redux
 import { useDispatch, useSelector } from 'react-redux';
-import { setFormData, selectFormData, addUserProfile, updatePhoto } from '../../../redux/features/FormDataSlice';
+import { selectFormData, addUserProfile, initialState } from '../../../redux/features/FormDataSlice';
 
-export const CompleteProfileScreen = () => {
-    const navigation = useNavigation()
+export const CompleteProfileScreen = ({route}) => {
+    // Selectors
+    const formData = useSelector(selectFormData);
+    console.log(formData);
+    // Variables
+    const navigation = useNavigation();
     const dispatch = useDispatch();
 
-    const formData = useSelector(selectFormData);
-    console.log(formData)
     // Local Use State
     const [localFormData, setLocalFormData] = useState({
+        ...formData,
         name: '',
         email: '',
         relation: '',
@@ -69,7 +73,13 @@ export const CompleteProfileScreen = () => {
         photo: '',
         unit: 'cm',
     });
-
+  // Check if route.params.formData exists and update localFormData accordingly
+  useEffect(() => {
+    if (route.params?.formData) {
+      setLocalFormData(initialState);
+    }
+  }, [route.params?.formData]);
+    //Fucntions
     const handleFormDataChange = (fieldName, value) => {
         const updatedLocalFormData = { ...localFormData, [fieldName]: value };
         setLocalFormData(updatedLocalFormData);
@@ -81,7 +91,7 @@ export const CompleteProfileScreen = () => {
     }
     const handleContinue = () => {
         dispatch(addUserProfile(localFormData));
-        navigation.navigate('UserProfileScreen');
+        navigation.navigate('UserTab');
     }
     const handleGenderChange = (selectedOption) => {
         console.log('Selected gender:', selectedOption);
@@ -141,13 +151,6 @@ export const CompleteProfileScreen = () => {
                 console.log('Image URI is undefined');
                 return;
             }
-            console.log('imageUri', imageUri);
-            const imageResponse = await fetch(imageUri);
-            const blob = await imageResponse.blob();
-            console.log('image blob',blob);
-            dispatch(updatePhoto(imageUri));
-            dispatch(setFormData({ ...localFormData, photo: imageUri }));
-
         } catch (error) {
             console.error('Error handling camera callback:', error);
         }
@@ -172,13 +175,6 @@ export const CompleteProfileScreen = () => {
                 console.log('Image URI is undefined');
                 return;
             }
-            console.log('imageUri', imageUri);
-            const imageResponse = await fetch(imageUri);
-            const blob = await imageResponse.blob();
-            console.log('image blob',blob);
-            dispatch(updatePhoto(imageUri));
-            dispatch(setFormData({ ...localFormData, photo: imageUri }));
-
         } catch (error) {
             console.error('Error handling camera callback:', error);
         }
@@ -351,23 +347,19 @@ export const CompleteProfileScreen = () => {
                             handlePress={handleUploadPhoto}
                         />
                     </View>
-                </View>
-            </SafeAreaView>
-        );
-
-    };
-    // Render Footer
-    const renderFooter = () => {
-        return (
-            <View style={styles.button}>
+                    <View style={styles.button}>
                 <CustomButton
                     primaryButton
                     label={strings.continue}
                     handlePress={handleContinue}
                 />
             </View>
+                </View>
+            </SafeAreaView>
         );
+
     };
+
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar backgroundColor={theme.backgroundColor.blueTheme} barStyle="light-content" />
@@ -378,7 +370,6 @@ export const CompleteProfileScreen = () => {
                 keyExtractor={(item) => item.key}
             />
 
-            {renderFooter()}
         </SafeAreaView>
     );
 

@@ -30,7 +30,7 @@ const GenderPicker = ({onOptionPress}) => {
           borderColor:
             selectedOption === option
               ? theme.backgroundColor.bgBlue
-              : theme.backgroundColor.gray,
+              : theme.fontColors.inkLight,
           borderRadius: 5,
           padding: 10,
           margin: 10,
@@ -55,7 +55,7 @@ const GenderPicker = ({onOptionPress}) => {
             color:
               selectedOption === option
                 ? theme.backgroundColor.bgBlue
-                : theme.fontColors.inputGray,
+                : theme.fontColors.inkLight,
             fontWeight: 'bold',
           }}>
           {option}

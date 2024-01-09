@@ -37,10 +37,10 @@ export const styles = StyleSheet.create({
     
     contentView: {
         padding: '5%',
-        width: wp('95%'),
+        width: wp('90%'),
         backgroundColor: theme.backgroundColor.white,
         borderRadius: wp('3%'),
-        alignSelf: 'center'
+        alignSelf: 'center',
     },
     header: {
         position: 'absolute',
@@ -119,8 +119,8 @@ export const styles = StyleSheet.create({
         width: wp('84%'),
         paddingLeft: wp('25%'),
         marginLeft: '3%',
-        height: 40,
-        fontSize: theme.fontSizes.mediumFont,
+        height: 45,
+        fontSize: theme.fontSizes.smallFontText,
         backgroundColor: theme.backgroundColor.inputGray,
         color: theme.fontColors.black
       },

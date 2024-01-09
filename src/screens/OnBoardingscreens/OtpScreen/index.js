@@ -1,3 +1,8 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable no-undef */
+/* eslint-disable prettier/prettier */
+/* eslint-disable comma-dangle */
+/* eslint-disable prettier/prettier */
 import React, { useState, useRef } from 'react';
 import {
     StatusBar,
@@ -40,7 +45,7 @@ const OtpScreen = () => {
         navigation.navigate('WelcomeScreen');
       }
     const handleContinue = () => {
-        navigation.navigate('WebinarScreen')
+        navigation.navigate('HomeScreen')
     };
     return (
         <SafeAreaView style={styles.container}>

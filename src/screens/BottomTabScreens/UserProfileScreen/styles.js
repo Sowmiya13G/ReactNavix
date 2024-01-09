@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -17,8 +17,8 @@ export const styles = StyleSheet.create({
     marginTop: 10,
     padding: '5%',
   },
-  contentView:{
-    flex:1,
+  contentView: {
+    flex: 1,
     padding: '5%',
     margin: '3%',
     borderRadius: wp('5%'),
@@ -42,7 +42,7 @@ export const styles = StyleSheet.create({
     fontSize: theme.fontSizes.smallFontText,
     color: theme.fontColors.white,
     textAlign: 'center',
-    textDecorationLine:'underline'
+    textDecorationLine: 'underline'
   },
   title: {
     color: theme.fontColors.royalBlue,
@@ -59,26 +59,27 @@ export const styles = StyleSheet.create({
   },
   icon: {
     backgroundColor: theme.backgroundColor.white,
-    borderRadius:wp('2%'),
+    borderRadius: wp('2%'),
     padding: 10,
-    height:hp('5%'),
+    height: hp('5%'),
     width: wp('12%'),
   },
 
-  backIcon:{
+  backIcon: {
     alignSelf: 'center',
     fontWeight: 'bold'
   },
-  callIcon:{
+  callIcon: {
     fontWeight: 'bold',
-    transform: [{ rotate: '-30deg' }]  },
+    transform: [{ rotate: '-30deg' }]
+  },
 
-    heading: {
-      color: theme.fontColors.white,
-      fontSize: theme.fontSizes.bigFont,
-      fontWeight: 'bold',
-      paddingLeft: '5%',
-    },
+  heading: {
+    color: theme.fontColors.white,
+    fontSize: theme.fontSizes.bigFont,
+    fontWeight: 'bold',
+    paddingLeft: '5%',
+  },
   userProfile: {
     alignItems: 'center',
     marginTop: hp('5%'),
@@ -102,17 +103,17 @@ export const styles = StyleSheet.create({
     color: theme.fontColors.black
   },
   progressContainer: {
-    alignItems: 'flex-end',
-    justifyContent:'flex-end',
-    left: '15%'
+    position: 'absolute',
+    bottom: '10%',
+    right: '8%'
   },
-progressText:{
-  fontSize: theme.fontSizes.smallFont,
-  color: theme.fontColors.black,
-  fontWeight:'bold',
-  alignItems: 'flex-end',
-  justifyContent:'flex-end',
-  top: '30%',
-   right:'10%'
-}
+  progressText: {
+    fontSize: theme.fontSizes.smallFont,
+    color: theme.fontColors.black,
+    fontWeight: 'bold',
+    position: 'absolute',
+    bottom: '10%',
+    right: '8%',
+    top: '33%',
+  }
 });

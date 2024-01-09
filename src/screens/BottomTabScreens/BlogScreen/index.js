@@ -34,7 +34,6 @@ export const BlogScreen = () => {
         navigation.navigate('WebinarScreen');
       }
       const gotoNext =() =>{
-        navigation.navigate('DashboardScreen')
       }
     // Render UI .........................
     // Render Body

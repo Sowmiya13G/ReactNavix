@@ -26,40 +26,46 @@ import commonImagePath from '../../../constants/images';
 import { styles } from './styles';
 
 // redux
-import { useSelector } from 'react-redux';
-import { selectFormData } from '../../../redux/features/FormDataSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import {  selectFormData} from '../../../redux/features/FormDataSlice';
 
 export const UserProfileScreen = () => {
-  const navigation = useNavigation()
+  // Selectors
   const formData = useSelector(selectFormData);
-  const userName = formData.name;
+  console.log('formData', formData)
+  const userPhotos = formData.profiles.map((profile) => profile.photo);
+  console.log('userPhoto', userPhotos)
+  // Variables
+  const navigation = useNavigation()
   const completedProgress = formData.progress;
-  console.log('userName', userName,' formData.photo' ,formData.photo,'completedProgress', completedProgress)
+
+  // Fuctions
   const goBack = () => {
     navigation.navigate('OtpScreen');
   }
   const goToProfile = () => {
-    navigation.navigate('CompleteProfileScreen');
+    navigation.navigate('DashboardTab');
   }
+
+  // REnder UI............
 const renderUserProfile = ({ item }) => {
-  const userProfile = item;
   const imageUri = item.photo && item.photo.trim() !== '' ? item.photo : null;
-  console.log('imageUri:', imageUri);
+
   return (
-      <View key={userProfile.name} style={styles.contentView}>
+      <View key={item.name} style={styles.contentView}>
       {imageUri ? (
         <Image source={{ uri: imageUri }} style={styles.userPhoto} />
       ) : (
         <View style={styles.userPhotoPlaceholder}>
-          <Text>No Photo Available</Text>
+        <Text style={styles.userAge}>No Photo Available</Text>
         </View>
       )}
       <View style={{flexDirection: 'column'}} >
-          <Text style={styles.userName}>{strings.name}:{userProfile.name}</Text>
+          <Text style={styles.userName}>{strings.name}:{item.name}</Text>
           <Spacer height={heightPercentageToDP('1%')}/>
-          <Text style={styles.userRelation}>{strings.relation}:{userProfile.relation}</Text>
+          <Text style={styles.userRelation}>{strings.relation}:{item.relation}</Text>
           <Spacer height={heightPercentageToDP('1%')}/>
-          <Text style={styles.userAge}>{strings.age}: {userProfile.age}</Text>
+          <Text style={styles.userAge}>{strings.age}: {item.age}</Text>
           <Spacer height={heightPercentageToDP('2%')}/>
 
           <View style={{flexDirection: 'row', justifyContent: 'space-between', width: widthPercentageToDP('20%')}}>
@@ -77,7 +83,6 @@ const renderUserProfile = ({ item }) => {
               borderWidth={0}
               color={theme.backgroundColor.blueTheme}
               unfilledColor={theme.backgroundColor.gray}
-            
           />
           </View>
       </View>

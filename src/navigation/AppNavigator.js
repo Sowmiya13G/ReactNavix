@@ -94,8 +94,8 @@ const AppNavigator = () => {
     <NavigationContainer >
       <StatusBar backgroundColor={theme.backgroundColor.blueTheme} barStyle="light-content" />
 
-      <Stack.Navigator>
-        <Stack.Screen
+     <Stack.Navigator>
+       {/*   <Stack.Screen
           name="InitialScreen"
           component={InitialScreen}
           options={{ title: '', headerShown: false }}
@@ -114,7 +114,7 @@ const AppNavigator = () => {
           name="WebinarScreen"
           component={WebinarScreen}
           options={{ title: '', headerShown: false }}
-        />
+        /> */}
         <Stack.Screen
           name="HomeScreen"
           component={BottomTabNavigator}

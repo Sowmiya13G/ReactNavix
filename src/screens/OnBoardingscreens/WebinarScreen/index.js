@@ -140,7 +140,7 @@ export const WebinarScreen = () => {
                 keyExtractor={(item, index) => index.toString()}
                 ListHeaderComponent={renderHeader()}
             />
-            {renderFooter()}
+            {/* {renderFooter()} */}
         </SafeAreaView>
     );
 
