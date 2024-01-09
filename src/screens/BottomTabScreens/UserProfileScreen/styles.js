@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
 
   container: {
     flex: 1,
+    backgroundColor: theme.backgroundColor.background
   },
   view: {
     flexDirection: 'row',
@@ -19,7 +20,10 @@ export const styles = StyleSheet.create({
   contentView:{
     flex:1,
     padding: '5%',
-    backgroundColor: theme.backgroundColor.lightCoral
+    margin: '3%',
+    borderRadius: wp('5%'),
+    backgroundColor: theme.backgroundColor.white,
+    flexDirection: 'row'
   },
 
   detailsText: {
@@ -83,24 +87,32 @@ export const styles = StyleSheet.create({
     width: wp('30%'),
     height: wp('30%'),
     borderRadius: wp('15%'),
-    marginBottom: hp('2%'),
+    alignSelf: 'flex-start'
   },
   userName: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: theme.fontColors.black,
+    fontSize: theme.fontSizes.mediumFontText,
+    color: theme.fontColors.black
   },
   userRelation: {
-    fontSize: 16,
-    color: theme.fontColors.gray,
+    fontSize: theme.fontSizes.mediumFont,
+    color: theme.fontColors.black
   },
   userAge: {
-    fontSize: 16,
-    color: theme.fontColors.gray,
+    fontSize: theme.fontSizes.mediumFont,
+    color: theme.fontColors.black
   },
-  progressCircleContainer: {
-    alignItems: 'center',
-    marginTop: hp('5%'),
+  progressContainer: {
+    alignItems: 'flex-end',
+    justifyContent:'flex-end',
+    left: '15%'
   },
-
+progressText:{
+  fontSize: theme.fontSizes.smallFont,
+  color: theme.fontColors.black,
+  fontWeight:'bold',
+  alignItems: 'flex-end',
+  justifyContent:'flex-end',
+  top: '30%',
+   right:'10%'
+}
 });

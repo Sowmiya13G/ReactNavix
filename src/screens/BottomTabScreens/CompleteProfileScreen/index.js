@@ -66,7 +66,7 @@ export const CompleteProfileScreen = () => {
     const handleFormDataChange = (fieldName, value) => {
         const updatedLocalFormData = { ...localFormData, [fieldName]: value };
         setLocalFormData(updatedLocalFormData);
-        dispatch(setFormData(updatedLocalFormData));
+        // dispatch(setFormData(updatedLocalFormData));
     };
     const handleLocation = () => {
     }

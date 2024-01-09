@@ -23,7 +23,7 @@ import * as Progress from 'react-native-progress';
 // Constants
 import theme from '../../../constants/theme';
 import { strings } from '../../../constants/strings';
-import { ouSpeakersData, servicesdata , testimonialData, instData, partnerData, corporateData} from '../../../constants/onBoardingData';
+import { ouSpeakersData, servicesdata, testimonialData, instData, partnerData, corporateData } from '../../../constants/onBoardingData';
 import commonImagePath from '../../../constants/images';
 // Styles
 import { styles } from './styles';
@@ -44,10 +44,10 @@ export const DashboardScreen = () => {
         navigation.navigate('OtpScreen');
     };
     const handleContinue = () => {
-        navigation.navigate('BlogScreen');
+        // navigation.navigate('BlogScreen');
     };
-    const goToNext =()=>{
-        navigation.navigate('ProfileScreen')
+    const goToNext = () => {
+        navigation.navigate('UserProfileScreen')
     }
     // Render UI .........................
     // Render Body
@@ -56,13 +56,13 @@ export const DashboardScreen = () => {
             <SafeAreaView style={styles.container}>
                 <View style={styles.contentView}>
                     <View style={{ flexDirection: 'row' }}>
-                        <View style={{ flexDirection: 'column', bottom: 5 }}>
+                        <View style={{ flexDirection: 'column' }}>
                             <Text style={styles.speakers}>{strings.onBoarding}</Text>
                             <Spacer height={heightPercentageToDP('3%')} />
                             <Text style={styles.title}>{strings.answer}</Text>
                         </View>
                         <Spacer width={widthPercentageToDP('2%')} />
-                        <Image source={commonImagePath.pana} style={styles.pana} resizeMode= 'contain'/>
+                        <Image source={commonImagePath.pana} style={styles.pana} resizeMode='contain' />
                     </View>
                     <Spacer height={heightPercentageToDP('3%')} />
                     <Progress.Bar progress={0.4} width={200} />
@@ -102,13 +102,13 @@ export const DashboardScreen = () => {
                         <Text style={styles.title}>{strings.plan3}</Text>
                     </View>
                     <Spacer height={heightPercentageToDP('3%')} />
-                    <View style={{ flexDirection: 'row', width: widthPercentageToDP('80%') }}>
+                    <View style={{ flexDirection: 'row', width: widthPercentageToDP('75%') }}>
                         <Image source={commonImagePath.plan4} />
                         <Spacer width={widthPercentageToDP('3%')} />
                         <Text style={styles.title}>{strings.plan4}</Text>
                     </View>
                     <Spacer height={heightPercentageToDP('3%')} />
-                    <View style={{ flexDirection: 'row', width: widthPercentageToDP('90%') }}>
+                    <View style={{ flexDirection: 'row', width: widthPercentageToDP('80%') }}>
                         <Image source={commonImagePath.plan5} />
                         <Spacer width={widthPercentageToDP('3%')} />
                         <Text style={styles.title}>{strings.plan5}</Text>
@@ -144,11 +144,10 @@ export const DashboardScreen = () => {
                         contentContainerStyle={styles.containerStyle}
                     />
                 </View>
-                <View style={{flexDirection: 'row'}}>
-
-                <Text style={styles.subPlans}> {strings.checkOut} </Text>
-                <Spacer width={widthPercentageToDP('13%')} />
-                <Text style={styles.knowMore}>View all</Text>
+                <View style={{ flexDirection: 'row', width: widthPercentageToDP('90%'), justifyContent: 'space-between' }}>
+                    <Text style={styles.checkOut}> {strings.checkOut} </Text>
+                    <Spacer width={widthPercentageToDP('13%')} />
+                    <Text style={styles.knowMore}>View all</Text>
                 </View>
                 <View style={styles.videoPlayer}>
                     <Video
@@ -163,8 +162,27 @@ export const DashboardScreen = () => {
                     />
                 </View>
                 {renderPaginationDots(10, partnerIndex)}
-
-                <Image source={commonImagePath.frame} style={styles.frame} />
+                <View style={styles.contentView}>
+                    <View style={{ flexDirection: 'row' , justifyContent: 'center'}}>
+                        <View style={{ flexDirection: 'column' }}>
+                            <Text style={styles.speakers}>{strings.famSpl}</Text>
+                            <Spacer height={heightPercentageToDP('3%')} />
+                            <Text style={styles.title}>{strings.bannerLoerem}</Text>
+                        </View>
+                        <Spacer width={widthPercentageToDP('2%')} />
+                        <Image source={commonImagePath.family} style={styles.family} resizeMode='contain' />
+                    </View>
+                    <TouchableOpacity style={styles.consult} onPress={goToNext()}>
+                        <Text style={styles.consultText}>{strings.consult}</Text>
+                        <Spacer width={widthPercentageToDP('4%')} />
+                        <Icon
+                            name={'arrow-right'}
+                            size={20}
+                            color={theme.fontColors.white}
+                            style={styles.arrowIcon}
+                        />
+                    </TouchableOpacity>
+                </View>
                 {renderPaginationDots(2, partnerIndex)}
 
                 <View style={styles.contentView}>
@@ -183,7 +201,27 @@ export const DashboardScreen = () => {
                         contentContainerStyle={styles.containerStyle}
                     />
                 </View>
-                <Image source={commonImagePath.group} style={styles.group} />
+                <View style={styles.banner}>
+                    <View style={{ flexDirection: 'row' , justifyContent: 'center',}}>
+                        <View style={{ flexDirection: 'column' }}>
+                        <Text style={styles.bannerText}>{strings.bannerTit}</Text>
+                            <Spacer height={heightPercentageToDP('2%')} />
+                            <Text style={styles.bannerText}>{strings.bannerDes}</Text>
+                        </View>
+                        <Spacer width={widthPercentageToDP('2%')} />
+                        <Image source={commonImagePath.content} style={styles.bannerImg} resizeMode='contain' />
+                    </View>
+                    <TouchableOpacity style={styles.buttonView} onPress={goToNext()}>
+                        <Text style={styles.buttonText}>{strings.read}</Text>
+                        <Spacer width={widthPercentageToDP('4%')} />
+                        <Icon
+                            name={'arrow-right'}
+                            size={20}
+                            color={theme.fontColors.blueTheme}
+                            style={styles.arrowIcon}
+                        />
+                    </TouchableOpacity>
+                </View>
                 <Spacer height={heightPercentageToDP('3%')} />
 
                 <View style={styles.serviceView}>
@@ -200,7 +238,7 @@ export const DashboardScreen = () => {
                             </View>
                         )}
                         keyExtractor={(item, index) => index.toString()}
-                        horizontal={true}   
+                        horizontal={true}
                         contentContainerStyle={styles.containerStyle}
                     />
                 </View>
@@ -211,12 +249,12 @@ export const DashboardScreen = () => {
                     <FlatList
                         data={partnerData}
                         renderItem={({ item }) => (
-                            <View style={{padding:5}}>
-                                <Image source={item.image} style={{alignSelf: 'center', margin: 15}} />
-                                </View>
+                            <View style={{ padding: 5 }}>
+                                <Image source={item.image} style={{ alignSelf: 'center', margin: 15 }} />
+                            </View>
                         )}
                         keyExtractor={(item, index) => index.toString()}
-                        horizontal={true} 
+                        horizontal={true}
                         contentContainerStyle={styles.containerStyle}
                     />
                 </View>
@@ -234,19 +272,19 @@ export const DashboardScreen = () => {
                                 <Spacer height={heightPercentageToDP('1%')} />
                                 <Text style={styles.serviceDescription}>{item.description}</Text>
                                 <Spacer height={heightPercentageToDP('2%')} />
-                                <View style={{flexDirection: 'row'}}>
-                                <Image source={item.profile}/>
-                                <Spacer width={widthPercentageToDP('5%')} />
-                                <View style={{flexDirection: 'column'}}>
-                                <Text style={styles.serviceTitle}>{item.title}</Text>
-                                <Text style={{color: 'gray', fontSize: theme.fontSizes.mediumFont}}>New delhi</Text>
-                            </View>
-                            </View>
-                            <Spacer height={heightPercentageToDP('5%')} />
+                                <View style={{ flexDirection: 'row' }}>
+                                    <Image source={item.profile} />
+                                    <Spacer width={widthPercentageToDP('5%')} />
+                                    <View style={{ flexDirection: 'column' }}>
+                                        <Text style={styles.serviceTitle}>{item.title}</Text>
+                                        <Text style={{ color: 'gray', fontSize: theme.fontSizes.mediumFont }}>New delhi</Text>
+                                    </View>
+                                </View>
+                                <Spacer height={heightPercentageToDP('5%')} />
                             </View>
                         )}
                         keyExtractor={(item, index) => index.toString()}
-                        horizontal={true} 
+                        horizontal={true}
                         contentContainerStyle={styles.containerStyle}
                     />
                 </View>
@@ -258,17 +296,17 @@ export const DashboardScreen = () => {
                     <FlatList
                         data={instData}
                         renderItem={({ item }) => (
-                            <View style={{padding:5,alignSelf: 'center'}}>
-                                <Image source={item.image} style={{alignSelf: 'center', margin: 5}} />
-                                </View>
+                            <View style={{ padding: 5, alignSelf: 'center' }}>
+                                <Image source={item.image} style={{ alignSelf: 'center', margin: 5 }} />
+                            </View>
                         )}
                         keyExtractor={(item, index) => index.toString()}
-                        horizontal={true} 
+                        horizontal={true}
                         contentContainerStyle={styles.containerStyle}
                     />
                 </View>
                 {renderPaginationDots(2, trustIndex)}
-           </SafeAreaView>
+            </SafeAreaView>
         );
     };
     const renderPaginationDots = (totalDots, currentIndex) => (

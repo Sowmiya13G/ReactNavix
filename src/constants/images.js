@@ -42,6 +42,8 @@ const commonImagePath = {
   corporate:require('../assets/images/corporate.png'),
   wellness:require('../assets/images/wellness.png'),
   call:require('../assets/images/call.png'),
+  family:require('../assets/images/family.png'),
+  content:require('../assets/images/content.png'),
 };
 export default commonImagePath;
 

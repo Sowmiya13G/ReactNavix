@@ -85,7 +85,7 @@ const AppNavigator = () => {
             <StatusBar backgroundColor={theme.backgroundColor.blueTheme} barStyle="light-content" />
 
         <Stack.Navigator>
-          <Stack.Screen
+          {/* <Stack.Screen
             name="InitialScreen"
             component={InitialScreen}
             options={{ title: '', headerShown: false }}
@@ -104,17 +104,17 @@ const AppNavigator = () => {
             name="WebinarScreen"
             component={WebinarScreen}
             options={{ title: '', headerShown: false }}
-          />
-          <Stack.Screen
-            name="DashboardScreen"
-            component={BottomTabNavigator}
-            options={{ title: '', headerShown: false }}
-          />
+          /> */}
           <Stack.Screen
             name="BlogScreen"
             component={BlogScreen}
             options={{ title: '', headerShown: false }}
           /> 
+          <Stack.Screen
+            name="DashboardScreen"
+            component={BottomTabNavigator}
+            options={{ title: '', headerShown: false }}
+          />
           <Stack.Screen
             name="UserProfileScreen"
             component={UserProfileScreen}

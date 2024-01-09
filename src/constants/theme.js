@@ -32,8 +32,8 @@ const backgroundColor = {
   // Meradoc
   blueTheme: '#0655A3',
   inputGray: '#F6F6F6',
-  background:'#F9F9F9'
-
+  background:'#F9F9F9',
+  bannerBackground: '#0E69C2',
 };
 
 const borderColor = {

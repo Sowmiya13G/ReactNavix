@@ -25,7 +25,9 @@ export const styles = StyleSheet.create({
         backgroundColor: theme.backgroundColor.white,
         margin: '3%',
         borderRadius: wp('3%'),
+        width: wp('90%')
     },
+ 
     subPlans: {
         color: theme.fontColors.black,
         fontSize: theme.fontSizes.mediumFontText,
@@ -33,13 +35,18 @@ export const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         paddingLeft: '5%',
     },
+    checkOut: {
+        color: theme.fontColors.black,
+        fontSize: theme.fontSizes.mediumFontText,
+        fontWeight: 'bold',
+    },
     famCare: {
         color: theme.fontColors.blueTheme,
         fontSize: theme.fontSizes.mediumFont,
         alignSelf: 'flex-start',
     },
     image: {
-        width: wp('25%'),
+        width: wp('23%'),
         height: hp('25%'),
         resizeMode: 'contain',
         alignSelf: 'center',
@@ -93,7 +100,7 @@ export const styles = StyleSheet.create({
     title: {
         color: theme.fontColors.black,
         fontSize: theme.fontSizes.mediumFont,
-        flexWrap: 'wrap'
+        // flexWrap: 'wrap'
     },
     speakers: {
         color: theme.fontColors.black,
@@ -101,9 +108,14 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     pana: {
-        width: wp('27%'),
-        height: hp('10%'),
-       
+        width: wp('23%'),
+        height: hp('10%'),   
+    },
+    family: {
+        width: wp('28%'),
+        height: hp('18%'),   
+        alignSelf: 'center',
+        justifyContent: 'center'
     },
     paginationDotsContainer: {
         flexDirection: 'row',
@@ -267,5 +279,48 @@ flexDirection: 'row'
     position: 'absolute',
     bottom: 5,
     left: 5
+  },
+  consult: {
+    backgroundColor:theme.backgroundColor.blueTheme,
+    flexDirection: 'row',
+    padding: '3%',
+    borderRadius: wp('3%'),
+    width: wp('38%')
+  },
+  consultText: {
+    color: theme.fontColors.white,
+    fontWeight: 'bold',
+    left: '4%'
+  },
+
+  // banner
+  banner: {
+    flex: 1,
+    padding: '5%',
+    backgroundColor: theme.backgroundColor.bannerBackground,
+    margin: '3%',
+    borderRadius: wp('3%'),
+    width: wp('90%')
+},
+bannerText:{
+    color: theme.fontColors.white,
+    fontSize: theme.fontSizes.smallFontText,
+    flexWrap: 'wrap',
+},
+bannerImg: {
+    width: wp('30%'),
+    height: hp('20%'),
+},
+buttonView: {
+    backgroundColor:theme.backgroundColor.white,
+    flexDirection: 'row',
+    padding: '3%',
+    borderRadius: wp('2%'),
+    width: wp('40%'),
+    justifyContent: 'space-between'
+  },
+buttonText: {
+    color: theme.fontColors.blueTheme,
+    fontWeight: 'bold',
   },
 });
