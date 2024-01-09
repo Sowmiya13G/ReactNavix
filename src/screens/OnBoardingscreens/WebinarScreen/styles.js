@@ -18,21 +18,21 @@ export const styles = StyleSheet.create({
   },
   contentView: {
     flex: 1,
-    padding: '5%',
+    padding: '3%',
   },
   image: {
-    width: wp('25%'),
-    height: hp('25%'),
+    width: wp('23%'),
+    height: hp('18%'),
     resizeMode: 'contain',
     alignSelf: 'center',
   },
   name: {
     color: theme.fontColors.royalBlue,
-    fontSize: theme.fontSizes.mediumFontText,
+    fontSize: theme.fontSizes.mediumFont,
     fontWeight: 'bold',
   },
   detailsText: {
-    fontSize: theme.fontSizes.smallFontText,
+    fontSize: theme.fontSizes.smallFont,
     color: theme.fontColors.secondaryBlack,
   },
   text: {

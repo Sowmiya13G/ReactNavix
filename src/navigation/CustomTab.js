@@ -6,7 +6,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import theme from '../constants/theme';
 
 const { width } = Dimensions.get('window');
-const TAB_BAR_WIDTH = width / 3;
 
 const CustomTab = ({ state, descriptors, navigation }) => {
   return (
@@ -18,13 +17,11 @@ const CustomTab = ({ state, descriptors, navigation }) => {
 
           const icon =
             route.name === 'HomeTab'
-              ? 'user-md'
-              : route.name === 'BlogsTab'
-              ? 'tags'
+              ? 'home'
               : route.name === 'ItemTab'
               ? 'tasks'
               : route.name === 'UserTab'
-              ? 'plus'
+              ? 'question'
               : route.name === 'DashboardTab'
               ? 'user'
               : 'tags';

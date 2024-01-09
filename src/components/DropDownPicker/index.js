@@ -1,8 +1,10 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
 import {View, Platform} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
-import {widthPercentageToDP} from 'react-native-responsive-screen';
+import {heightPercentageToDP, widthPercentageToDP} from 'react-native-responsive-screen';
 
 const DropdownPicker = ({
   options = [],
@@ -10,20 +12,24 @@ const DropdownPicker = ({
   setSelectedUnit = () => {},
 }) => {
   const [open, setOpen] = useState(false);
-  console.log('DropdownPicker options:', options);
-  console.log('selectedUnit//////', selectedUnit);
+    const dropdownItems = options.map((option, index) => ({
+      label: option,
+      value: option,
+      key: index.toString(),
+    }));
+
   return (
     <View>
       <DropDownPicker
         open={open}
         value={selectedUnit}
-        items={options || []}
+        items={dropdownItems}
         setOpen={setOpen}
         style={{
           backgroundColor: 'white',
           borderColor: 'white',
           width: widthPercentageToDP('25%'),
-          height: 53,
+          height: heightPercentageToDP('4%'),
           ...Platform.select({
             ios: {
               shadowColor: 'black',

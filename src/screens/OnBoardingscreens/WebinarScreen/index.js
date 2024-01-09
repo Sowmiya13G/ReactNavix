@@ -35,7 +35,7 @@ export const WebinarScreen = () => {
         navigation.navigate('OtpScreen');
       }
     const handleContinue = () => {
-        navigation.navigate('BlogScreen');
+        navigation.navigate('HomeScreen');
       };
     // Render UI .........................
     // Render Body
@@ -50,7 +50,6 @@ export const WebinarScreen = () => {
                         renderItem={({ item }) => (
                             <View style={styles.list}>
                                 <Image source={item.image} style={styles.image} />
-                                {/* <Spacer height={heightPercentageToDP('0.5%')} /> */}
                                 <Text style={styles.name}>{item.name}</Text>
                                 <Spacer height={heightPercentageToDP('0.5%')} />
                                 <Text style={styles.detailsText}>{strings.detail}</Text>
@@ -81,14 +80,13 @@ export const WebinarScreen = () => {
                     <Spacer width={widthPercentageToDP('3%')}/>
                     <Icon name={open ? 'angle-up' : 'angle-down'} size={30} color={theme.fontColors.blueTheme} style={styles.arrowIcon} />
                 </TouchableOpacity>
-                <Spacer height={heightPercentageToDP('3%')} />
                 {open && (
+                    <View style={styles.contentView}>
                     <FlatList
                         data={ouSpeakersData}
                         renderItem={({ item }) => (
-                            <View style={styles.list}>
+                            <View style={[styles.list]}>
                                 <Image source={item.image} style={styles.image} />
-                                <Spacer height={heightPercentageToDP('0.5%')} />
                                 <Text style={styles.name}>{item.name}</Text>
                                 <Spacer height={heightPercentageToDP('0.5%')} />
                                 <Text style={styles.detailsText}>{strings.detail}</Text>
@@ -98,6 +96,7 @@ export const WebinarScreen = () => {
                         horizontal={true}
                         contentContainerStyle={styles.containerStyle}
                     />
+                    </View>
                 )}
             </SafeAreaView>
         );
@@ -146,30 +145,3 @@ export const WebinarScreen = () => {
     );
 
 };
-
-{/* <View style={{ flexDirection: 'row', display: 'flex', flexWrap: 'wrap' }}>
-                        <View style={{ flexDirection: 'column', width: widthPercentageToDP('28%'), justifyContent: 'center' }}>
-                        <Spacer height={heightPercentageToDP('2%')} />
-                            <Image source={commonImagePath.doct1} style={styles.image} />
-                            <Text style={styles.name}>{strings.jhon}</Text>
-                            <Spacer height={heightPercentageToDP('0.5%')} />
-                            <Text style={styles.detailsText}>{strings.detail}</Text>
-                        </View>
-                        <Spacer width={widthPercentageToDP('2%')} />
-                        <View style={{ flexDirection: 'column', width: widthPercentageToDP('28%'), justifyContent: 'center' }}>
-                            <Image source={commonImagePath.doct2} style={styles.image} />
-
-                            <Text style={styles.name}>{strings.williams}</Text>
-                            <Spacer height={heightPercentageToDP('2%')} />
-                            <Text style={styles.detailsText}>{strings.detail}</Text>
-                        </View>
-                        <Spacer width={widthPercentageToDP('2%')} />
-                        <View style={{ flexDirection: 'column', width: widthPercentageToDP('28%'), justifyContent: 'center' }}>
-                            <Image source={commonImagePath.doct3} style={styles.image} />
-
-                            <Text style={styles.name}>{strings.aditya}</Text>
-                            <Spacer height={heightPercentageToDP('2%')} />
-                            <Text style={styles.detailsText}>{strings.detail}</Text>
-                        </View>
-
-                    </View> */}

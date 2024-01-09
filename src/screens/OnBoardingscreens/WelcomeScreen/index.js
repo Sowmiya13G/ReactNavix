@@ -34,6 +34,8 @@ const WelcomeScreen = () => {
 
     //Functions
     const handleContinue = () => {
+        navigation.navigate('OtpScreen');
+
         const phoneNumberRegex = /^\d{10}$/;
 
         if (phoneNumberRegex.test(phoneNumber)) {

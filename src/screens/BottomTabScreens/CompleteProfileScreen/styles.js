@@ -22,8 +22,19 @@ export const styles = StyleSheet.create({
     view: {
         flexDirection: 'row',
         marginTop: 10,
-        padding: '5%'
+        padding: '5%',
+        justifyContent: 'center'
     },
+    dropdownWrapper: {
+        position: 'absolute',
+        zIndex: 1,
+        left: '1%',
+        bottom: '35%',
+      },
+      viewOptions: {
+        marginTop: '25%',
+      },
+    
     contentView: {
         padding: '5%',
         width: wp('95%'),
@@ -98,24 +109,21 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center'
     },
-    
-    input: {
-        borderWidth: wp('0.5%'),
-        borderRadius: 5,
-        width: wp('90%'),
-        marginBottom: '5%',
-        paddingLeft: wp('28%'),
-        fontSize: theme.fontSizes.mediumFont,
-        backgroundColor: theme.backgroundColor.gray
-    },
     button: {
         padding: '5%',
         width: wp('90%'),
         alignSelf: 'center'
       },
-    viewOptions: {
-        marginTop: '25%',
-    },
+      input: {
+        borderRadius: 5,
+        width: wp('84%'),
+        paddingLeft: wp('25%'),
+        marginLeft: '3%',
+        height: 40,
+        fontSize: theme.fontSizes.mediumFont,
+        backgroundColor: theme.backgroundColor.inputGray,
+        color: theme.fontColors.black
+      },
     inputContainer: {
         flexDirection: 'row',
         marginBottom: '10%',

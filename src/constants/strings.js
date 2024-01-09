@@ -126,6 +126,8 @@ const placeholders = {
   enterNum: 'Enter Mobile Number',
   enterBloodGrp: 'Enter Blood Group',
   enterWeight: 'Enter Weight',
+  enterHeight: 'Enter Height',
+
   enterAddress: 'Enter Address',
   enterDistrict: 'Enter District',
   enterCity: 'Enter City',

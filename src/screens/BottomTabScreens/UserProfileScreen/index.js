@@ -34,19 +34,26 @@ export const UserProfileScreen = () => {
   const formData = useSelector(selectFormData);
   const userName = formData.name;
   const completedProgress = formData.progress;
-  console.log('userName', userName, 'completedProgress', completedProgress)
+  console.log('userName', userName,' formData.photo' ,formData.photo,'completedProgress', completedProgress)
   const goBack = () => {
     navigation.navigate('OtpScreen');
   }
   const goToProfile = () => {
     navigation.navigate('CompleteProfileScreen');
   }
-
 const renderUserProfile = ({ item }) => {
   const userProfile = item;
+  const imageUri = item.photo && item.photo.trim() !== '' ? item.photo : null;
+  console.log('imageUri:', imageUri);
   return (
       <View key={userProfile.name} style={styles.contentView}>
-      <Image style={styles.userPhoto}>{userProfile.userPhoto}</Image>
+      {imageUri ? (
+        <Image source={{ uri: imageUri }} style={styles.userPhoto} />
+      ) : (
+        <View style={styles.userPhotoPlaceholder}>
+          <Text>No Photo Available</Text>
+        </View>
+      )}
       <View style={{flexDirection: 'column'}} >
           <Text style={styles.userName}>{strings.name}:{userProfile.name}</Text>
           <Spacer height={heightPercentageToDP('1%')}/>
@@ -117,51 +124,3 @@ return (
   </SafeAreaView>
 );
 };
-
-
-  // Render UI .........................
-//   const renderUserProfile = ({ item }) => {
-//     const userProfile = item.profile;
-//     const userProgress = item.progress;
-//     return (
-//       <View key={userProfile.name} style={styles.contentView}>
-//         <Text style={styles.userName}>{userProfile.name}</Text>
-//         <Text style={styles.userRelation}>{userProfile.relation}</Text>
-//         <Text style={styles.userAge}>{strings.age}: {userProfile.age}</Text>
-//         <Progress.Circle
-//           progress={userProgress / 100}
-//           size={widthPercentageToDP('30%')}
-//           thickness={5}
-//           borderWidth={0}
-//           color={theme.progressBarColor}
-//         />
-//       </View>
-//     );
-//   };
-//   // Render Body
-//   const renderBody = () => {
-//     return (
-//       <SafeAreaView style={styles.container}>
-//         <FlatList
-//           data={formData}
-//           renderItem={({ item }) => renderUserProfile(item)}
-//           keyExtractor={(item, index) => index.toString()}
-//           ListHeaderComponent={renderHeader()}
-//         />
-  
-//       </SafeAreaView>
-//     );
-//   };
-
-
-
-
-//   return (
-//     <SafeAreaView style={styles.container}>
-//       <StatusBar backgroundColor={theme.backgroundColor.blueTheme} barStyle="light-content" />
-//       {renderBody()}
-
-//     </SafeAreaView>
-//   );
-
-// };

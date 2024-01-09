@@ -87,7 +87,7 @@ export const styles = StyleSheet.create({
     width: wp('30%'),
     height: wp('30%'),
     borderRadius: wp('15%'),
-    alignSelf: 'flex-start'
+    alignSelf: 'flex-start',
   },
   userName: {
     fontSize: theme.fontSizes.mediumFontText,

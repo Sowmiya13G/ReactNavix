@@ -41,7 +41,7 @@ export const DashboardScreen = () => {
         setOpen(!open);
     };
     const goBack = () => {
-        navigation.navigate('OtpScreen');
+        navigation.navigate('BlogScreen');
     };
     const handleContinue = () => {
         // navigation.navigate('BlogScreen');

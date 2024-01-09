@@ -1,37 +1,6 @@
 /* eslint-disable prettier/prettier */
  /* eslint-disable prettier/prettier */
-// import { createSlice } from '@reduxjs/toolkit';
 
-// export const formDataSlice = createSlice({
-//   name: 'formData',
-//   initialState: [],
-//   reducers: {
-//     setFormData: (state, action) => {
-//       return action.payload;
-//     },
-//   },
-// });
-
-// export const { setFormData } = formDataSlice.actions;
-// export const selectFormData = (state) => state.formData;
-
-// export default formDataSlice.reducer;
-// FormDataSlice.js
-// import { createSlice } from '@reduxjs/toolkit';
-
-// export const formDataSlice = createSlice({
-//   name: 'formData',
-//   initialState: [],
-//   reducers: {
-//     addUserProfile: (state, action) => {
-//       state.push(action.payload);
-//     },
-//   },
-// });
-
-// export const { addUserProfile } = formDataSlice.actions;
-// export const selectFormData = (state) => state.formData;
-// export default formDataSlice.reducer;
 import { createSlice } from '@reduxjs/toolkit';
 
 export const formDataSlice = createSlice({
@@ -39,6 +8,7 @@ export const formDataSlice = createSlice({
   initialState: {
     profiles: [],
     progress: 0, 
+    photo: '', 
   },
   reducers: {
     addUserProfile: (state, action) => {
@@ -47,9 +17,18 @@ export const formDataSlice = createSlice({
       const filledFields = Object.values(action.payload).filter((value) => value !== '').length;
       state.progress = (filledFields / totalFields) * 100;
     },
+    setFormData: (state, action) => {
+      return {
+        ...state,
+        ...action.payload,
+      };
+    },
+    updatePhoto: (state, action) => {
+      state.photo = action.payload;
+    },
   },
 });
 
-export const { addUserProfile } = formDataSlice.actions;
+export const { addUserProfile , setFormData, updatePhoto} = formDataSlice.actions;
 export const selectFormData = (state) => state.formData;
 export default formDataSlice.reducer;

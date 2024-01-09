@@ -41,32 +41,9 @@ export default function InitialScreen() {
       setCurrentPage(currentPage + 1);
       flatListRef.current.scrollToIndex({ index: currentPage + 1 });
     } else {
-      // onDisplayNotification()
       navigation.navigate('WelcomeScreen');
     }
   };
-
-  // async function onDisplayNotification() {
-  //   await notifee.requestPermission();
-
-  //   const channelId = await notifee.createChannel({
-  //     id: 'default',
-  //     name: 'Default Channel',
-  //   });
-
-  //   await notifee.displayNotification({
-  //     title: 'Notification Title',
-  //     body: 'Main body content of the notification',
-  //     android: {
-  //       channelId,
-  //       smallIcon: 'ic_launcher',
-  //       pressAction: {
-  //         id: 'default',
-  //       },
-  //     },
-  //   });
-  // }
-
 
   // Render UI ..................
   

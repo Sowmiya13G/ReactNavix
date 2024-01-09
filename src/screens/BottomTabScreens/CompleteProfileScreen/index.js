@@ -10,21 +10,27 @@ import {
     Image,
     TouchableOpacity,
     FlatList,
-    ImageBackground
+    ImageBackground,
+    Alert,
+    TextInput
 } from 'react-native';
 // Packages
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
+import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+
+
 // Constants
 import theme from '../../../constants/theme';
 import { strings, placeholders } from '../../../constants/strings';
 import commonImagePath from '../../../constants/images';
-
+import { checkAndRequestPermissions } from '../../../utils/checkAndroidPermissions';
 // Styles
 import { styles } from './styles';
 
 // components
+import DropdownPicker from '../../../components/DropDownPicker';
 import CustomInput from '../../../components/CustomInput/CustomInput';
 import Spacer from '../../../components/Spacer';
 import CustomButton from '../../../components/CustomButton/CustomButton';
@@ -32,7 +38,7 @@ import GenderPicker from '../../../components/GenderPicker';
 
 // redux
 import { useDispatch, useSelector } from 'react-redux';
-import { setFormData, selectFormData, addUserProfile } from '../../../redux/features/FormDataSlice';
+import { setFormData, selectFormData, addUserProfile, updatePhoto } from '../../../redux/features/FormDataSlice';
 
 export const CompleteProfileScreen = () => {
     const navigation = useNavigation()
@@ -60,13 +66,13 @@ export const CompleteProfileScreen = () => {
         district: '',
         state: '',
         country: '',
-        photo: ''
+        photo: '',
+        unit: 'cm',
     });
 
     const handleFormDataChange = (fieldName, value) => {
         const updatedLocalFormData = { ...localFormData, [fieldName]: value };
         setLocalFormData(updatedLocalFormData);
-        // dispatch(setFormData(updatedLocalFormData));
     };
     const handleLocation = () => {
     }
@@ -77,6 +83,106 @@ export const CompleteProfileScreen = () => {
         dispatch(addUserProfile(localFormData));
         navigation.navigate('UserProfileScreen');
     }
+    const handleGenderChange = (selectedOption) => {
+        console.log('Selected gender:', selectedOption);
+        setLocalFormData({ ...localFormData, gender: selectedOption });
+    };
+    const handleUploadPhoto = () => {
+        checkAndRequestPermissions();
+        const options = {
+            title: 'Select Image',
+            storageOptions: {
+                skipBackup: true,
+                path: 'images',
+            },
+        };
+
+        Alert.alert(
+            'Choose Image Source',
+            'Select an image source:',
+            [
+                {
+                    text: 'Gallery',
+                    onPress: () => {
+                        launchImageLibrary(options, handleImageLibraryCallback);
+                    },
+                },
+                {
+                    text: 'Camera',
+                    onPress: () => {
+                        launchCamera(options, handleCameraCallback);
+                    },
+                },
+                {
+                    text: 'Cancel',
+                    style: 'cancel',
+                },
+            ],
+            { cancelable: true },
+        );
+    };
+
+    const handleImageLibraryCallback = async response => {
+        try {
+            if (!response) {
+                console.log('Response is undefined');
+                return;
+            }
+            if (response.didCancel) {
+                console.log('User canceled taking a photo');
+                return;
+            }
+            if (response.error) {
+                console.log('Camera Error: ', response.error);
+                return;
+            }
+            const imageUri = response.uri || (response.assets?.[0]?.uri ?? null);
+            if (!imageUri) {
+                console.log('Image URI is undefined');
+                return;
+            }
+            console.log('imageUri', imageUri);
+            const imageResponse = await fetch(imageUri);
+            const blob = await imageResponse.blob();
+            console.log('image blob',blob);
+            dispatch(updatePhoto(imageUri));
+            dispatch(setFormData({ ...localFormData, photo: imageUri }));
+
+        } catch (error) {
+            console.error('Error handling camera callback:', error);
+        }
+    };
+
+    const handleCameraCallback = async (response) => {
+        try {
+            if (!response) {
+                console.log('Response is undefined');
+                return;
+            }
+            if (response.didCancel) {
+                console.log('User canceled taking a photo');
+                return;
+            }
+            if (response.error) {
+                console.log('Camera Error: ', response.error);
+                return;
+            }
+            const imageUri = response.uri || (response.assets?.[0]?.uri ?? null);
+            if (!imageUri) {
+                console.log('Image URI is undefined');
+                return;
+            }
+            console.log('imageUri', imageUri);
+            const imageResponse = await fetch(imageUri);
+            const blob = await imageResponse.blob();
+            console.log('image blob',blob);
+            dispatch(updatePhoto(imageUri));
+            dispatch(setFormData({ ...localFormData, photo: imageUri }));
+
+        } catch (error) {
+            console.error('Error handling camera callback:', error);
+        }
+    };
     // Render UI .........................
     // Render Body
     const renderBody = () => {
@@ -136,6 +242,30 @@ export const CompleteProfileScreen = () => {
                         onChangeText={(text) => handleFormDataChange('bloodGroup', text)}
                     />
                     <Spacer height={heightPercentageToDP('2%')} />
+                    <View style={styles.view}>
+                        <View style={styles.dropdownWrapper}>
+                            <Text style={styles.text}>{strings.height}</Text>
+                            <Spacer height={heightPercentageToDP('1.5%')} />
+
+                            <DropdownPicker
+                                options={['cm', 'inch']}
+                                selectedUnit={localFormData.unit} // Use the correct property here
+                                setSelectedUnit={(unit) => handleFormDataChange('unit', unit)}
+                            />
+                        </View>
+                        <TextInput
+                            style={[
+                                styles.input,
+                            ]}
+                            value={localFormData.height}
+                            placeholder={placeholders.enterHeight}
+                            placeholderTextColor="#8692A6"
+                            onChangeText={(text) => handleFormDataChange('height', text)}
+                            keyboardType='numeric'
+                        />
+                    </View>
+
+                    <Spacer height={heightPercentageToDP('2%')} />
                     <CustomInput
                         label={strings.weight}
                         placeholder={placeholders.enterWeight}
@@ -147,7 +277,7 @@ export const CompleteProfileScreen = () => {
                     <Text style={styles.text}>{strings.gender}</Text>
                     <Spacer height={heightPercentageToDP('1.5%')} />
 
-                    <GenderPicker />
+                    <GenderPicker onOptionPress={handleGenderChange} />
                     <Spacer height={heightPercentageToDP('2%')} />
                     <CustomInput
                         label={strings.occupation}
@@ -218,7 +348,7 @@ export const CompleteProfileScreen = () => {
                         <CustomButton
                             logInButton
                             label={strings.upload}
-                            handlePress={handleLocation}
+                            handlePress={handleUploadPhoto}
                         />
                     </View>
                 </View>
@@ -243,11 +373,11 @@ export const CompleteProfileScreen = () => {
             <StatusBar backgroundColor={theme.backgroundColor.blueTheme} barStyle="light-content" />
 
             <FlatList
-                data={['USERPROFILE']}
-                renderItem={renderBody}
-                keyExtractor={(item, index) => index.toString()}
-            // ListHeaderComponent={renderHeader()}
+                data={[{ key: '1', screen: 'USERPROFILE' }]}
+                renderItem={({ item }) => renderBody(item.screen)}
+                keyExtractor={(item) => item.key}
             />
+
             {renderFooter()}
         </SafeAreaView>
     );

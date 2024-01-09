@@ -32,8 +32,10 @@ const backgroundColor = {
   // Meradoc
   blueTheme: '#0655A3',
   inputGray: '#F6F6F6',
-  background:'#F9F9F9',
+  background: '#F9F9F9',
   bannerBackground: '#0E69C2',
+  bgBlue: '#4285F4',
+  fillingBlue: '#CDE7FF'
 };
 
 const borderColor = {
@@ -60,10 +62,14 @@ const fontColors = {
   green: '#008000',
   black: '#000000',
   candyBlue: '#37ECBA',
-   // Meradoc
-   blueTheme: '#0655A3',
-   royalBlue: '#243D63'
-
+  // Meradoc
+  blueTheme: '#0655A3',
+  inputGray: '#F6F6F6',
+  background: '#F9F9F9',
+  bannerBackground: '#0E69C2',
+  bgBlue: '#4285F4',
+  fillingBlue: '#CDE7FF',
+  royalBlue: '#243D63'
 };
 
 export default {
