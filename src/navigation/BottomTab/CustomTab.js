@@ -1,5 +1,3 @@
-/* eslint-disable prettier/prettier */
-// CustomTab.js
 import React from 'react';
 import { View, TouchableWithoutFeedback, StyleSheet, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';

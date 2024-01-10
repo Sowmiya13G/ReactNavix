@@ -29,7 +29,7 @@ const PastConsultaionScreen = ({ route, navigation }) => {
   const [upComing, setUpComing] = useState(selectedTab === 'Upcoming');
   const [past, setPast] = useState(selectedTab === 'Past');
   const goBack = () => {
-    navigation.navigate('BookConsultaionScreen');
+    navigation.navigate('HomeTab');
 
   }
   // Render UI .........................

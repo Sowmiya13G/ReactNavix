@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import commonImagePath from './images';
 import { strings } from './strings';
 

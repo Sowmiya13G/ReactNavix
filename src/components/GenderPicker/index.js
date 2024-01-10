@@ -1,6 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import { widthPercentageToDP } from 'react-native-responsive-screen';

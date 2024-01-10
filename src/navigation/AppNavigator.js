@@ -22,13 +22,14 @@ import WelcomeScreen from '../screens/OnBoardingscreens/WelcomeScreen';
 import OtpScreen from '../screens/OnBoardingscreens/OtpScreen';
 import { WebinarScreen } from '../screens/OnBoardingscreens/WebinarScreen';
 import { BlogScreen } from '../screens/BottomTabScreens/BlogScreen';
-import { UserProfileScreen } from '../screens/BottomTabScreens/UserProfileScreen';
-import { CompleteProfileScreen } from '../screens/BottomTabScreens/CompleteProfileScreen';
+import { UserProfileScreen } from '../screens/BottomTabScreens/ProfileScreens/UserProfileScreen';
+import { CompleteProfileScreen } from '../screens/BottomTabScreens/ProfileScreens/CompleteProfileScreen';
 import BottomTabNavigator from './BottomTab/BottomTabNavigator';
 import { DashboardScreen } from '../screens/OnBoardingscreens/DashboardScreen';
 import PastConsultaionScreen from '../screens/BottomTabScreens/ConsultationScreens/PastConsultation';
 import BookConsultaionScreen from '../screens/BottomTabScreens/ConsultationScreens/BookConsultation';
-import UpcomingConsultationScreen from '../screens/BottomTabScreens/ConsultationScreens/UpcomingConsultation';
+import { ProfileDetailsScreen } from '../screens/BottomTabScreens/ProfileScreens/ProfileDetailsScreen';
+import SettingsScreen from '../screens/BottomTabScreens/ProfileScreens/SettingsScreen';
 
 const Stack = createStackNavigator();
 
@@ -98,21 +99,30 @@ const AppNavigator = () => {
     <NavigationContainer >
       <StatusBar backgroundColor={theme.backgroundColor.blueTheme} barStyle="light-content" />
 
-     <Stack.Navigator initialRouteName='BookConsultaionScreen'>
-   
+     <Stack.Navigator initialRouteName='HomeScreen'>
+     <Stack.Screen
+          name="HomeScreen"
+          component={BottomTabNavigator}
+          options={{ title: '', headerShown: false }}
+        />
         <Stack.Screen
           name="BookConsultaionScreen"
           component={BookConsultaionScreen}
           options={{ title: '', headerShown: false }}
         />
-          <Stack.Screen
-          name="UpcomingConsultationScreen"
-          component={UpcomingConsultationScreen}
-          options={{ title: '', headerShown: false }}
-        />
         <Stack.Screen
           name="PastConsultaionScreen"
           component={PastConsultaionScreen}
+          options={{ title: '', headerShown: false }}
+        />
+         <Stack.Screen
+          name="ProfileDetailsScreen"
+          component={ProfileDetailsScreen}
+          options={{ title: '', headerShown: false }}
+        />
+            <Stack.Screen
+          name="SettingsScreen"
+          component={SettingsScreen}
           options={{ title: '', headerShown: false }}
         />
             {/*   <Stack.Screen
@@ -135,12 +145,8 @@ const AppNavigator = () => {
           component={WebinarScreen}
           options={{ title: '', headerShown: false }}
         /> */}
-        {/* <Stack.Screen
-          name="HomeScreen"
-          component={BottomTabNavigator}
-          options={{ title: '', headerShown: false }}
-        />
-        <Stack.Screen
+     
+         {/*  <Stack.Screen
           name="BlogScreen"
           component={BlogScreen}
           options={{ title: '', headerShown: false }}

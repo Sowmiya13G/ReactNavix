@@ -1,6 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react';
 import {
     StatusBar,
@@ -22,24 +19,24 @@ import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsi
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 
 // Constants
-import theme from '../../../constants/theme';
-import { strings, placeholders } from '../../../constants/strings';
-import commonImagePath from '../../../constants/images';
-import { checkAndRequestPermissions } from '../../../utils/checkAndroidPermissions';
+import theme from '../../../../constants/theme';
+import { strings, placeholders } from '../../../../constants/strings';
+import commonImagePath from '../../../../constants/images';
+import { checkAndRequestPermissions } from '../../../../utils/checkAndroidPermissions';
 
 // Styles
 import { styles } from './styles';
 
 // components
-import DropdownPicker from '../../../components/DropDownPicker';
-import CustomInput from '../../../components/CustomInput/CustomInput';
-import Spacer from '../../../components/Spacer';
-import CustomButton from '../../../components/CustomButton/CustomButton';
-import GenderPicker from '../../../components/GenderPicker';
+import DropdownPicker from '../../../../components/DropDownPicker';
+import CustomInput from '../../../../components/CustomInput/CustomInput';
+import Spacer from '../../../../components/Spacer';
+import CustomButton from '../../../../components/CustomButton/CustomButton';
+import GenderPicker from '../../../../components/GenderPicker';
 
 // redux
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFormData, addUserProfile, initialState } from '../../../redux/features/FormDataSlice';
+import { selectFormData, addUserProfile, initialState, updateUserProfile } from '../../../../redux/features/FormDataSlice';
 
 export const CompleteProfileScreen = ({ route }) => {
     // Selectors
@@ -73,11 +70,7 @@ export const CompleteProfileScreen = ({ route }) => {
         photo: '',
         unit: 'cm',
     });
-    useEffect(() => {
-        if (route.params?.formData) {
-            setLocalFormData(initialState);
-        }
-    }, [route.params?.formData]);
+   
     //Fucntions
     const handleFormDataChange = (fieldName, value) => {
         const updatedLocalFormData = { ...localFormData, [fieldName]: value };
@@ -88,12 +81,14 @@ export const CompleteProfileScreen = ({ route }) => {
     const goBack = () => {
         navigation.navigate('OtpScreen');
     }
-    // const handleContinue = () => {
-    //     dispatch(addUserProfile(localFormData));
-    //     navigation.navigate('UserTab');
-    // }
+
     const handleContinue = () => {
-        dispatch(addUserProfile(localFormData));
+        if (route.params?.formData) {
+            dispatch(updateUserProfile(localFormData)); 
+          } else {
+            dispatch(addUserProfile(localFormData));
+          }
+        // dispatch(addUserProfile(localFormData));
         navigation.navigate('UserTab');
         setLocalFormData(
             {
@@ -121,7 +116,7 @@ export const CompleteProfileScreen = ({ route }) => {
             }
         )
     }
-
+  
 
     const handleGenderChange = (selectedOption) => {
         console.log('Selected gender:', selectedOption);
@@ -136,7 +131,6 @@ export const CompleteProfileScreen = ({ route }) => {
                 path: 'images',
             },
         };
-
         Alert.alert(
             'Choose Image Source',
             'Select an image source:',
@@ -211,6 +205,11 @@ export const CompleteProfileScreen = ({ route }) => {
             console.error('Error handling camera callback:', error);
         }
     };
+    useEffect(() => {
+        if (route.params?.formData) {
+            setLocalFormData(route.params.formData);
+        }
+    }, [route.params?.formData]);
     // Render UI .........................
     // Render Body
     const renderBody = () => {

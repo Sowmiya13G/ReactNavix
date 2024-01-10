@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 // STRINGS USED IN UI
 const strings = {
   email: 'Email',
@@ -9,6 +8,7 @@ const strings = {
   passwordOption: 'Forgot Password?',
   notAccount: "Don't have an account?",
   register: 'Register now!',
+  myProfile: 'My Profile',
   //Signup View
   signupTitle: 'SIGN UP',
   authPerson: 'Already an have account?',
@@ -110,14 +110,18 @@ const strings = {
   userType: 'Single User',
   joinNow: 'Join Now',
   drName: "Dr.Usha",
-  drId:'21658966adsss',
+  drId: '21658966adsss',
   drRole: 'General Physician',
   patientName: 'Patients Name: Jsj',
   dateAndTime: '6th Nov, 2020   2:30PM',
   completed: 'Completed',
   attended: 'Attended',
   missed: 'Missed',
-
+  deleteAcc: 'Delete Account?',
+  currentPassword: 'Current password',
+  newPassword: 'New password',
+  confirmPassword: 'Confirm password',
+  changePassword: 'Change password',
   // WelcomeScreen
   welcomeTo: 'Welcome to MeraDoc',
   enterNumber: 'Enter your Mobile Number',

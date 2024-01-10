@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
 import itemReducer from './features/ItemSlice';
 import productReducer from './features/ProductSlice';
@@ -9,7 +8,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['items', 'products'],
+  whitelist: ['items', 'products', 'profiles'],
 };
 
 const rootReducer = combineReducers({

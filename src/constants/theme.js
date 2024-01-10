@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,

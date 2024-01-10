@@ -1,10 +1,10 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import { View, TextInput, StyleSheet, Image, Text } from 'react-native';
+
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import theme from '../../constants/theme';
 import Spacer from '../Spacer';
-const CustomInput = ({ placeholder, value, icon, onChangeText, secureTextEntry, keyboardType, label, multiline }) => {
+const CustomInput = ({ placeholder, value, icon,suffixIcon, onChangeText, secureTextEntry, keyboardType, label, multiline }) => {
   return (
     <>
       <Text style={styles.text}>{label}</Text>
@@ -21,6 +21,7 @@ const CustomInput = ({ placeholder, value, icon, onChangeText, secureTextEntry, 
           keyboardType={keyboardType}
           multiline={true}
         />
+        {Boolean(suffixIcon) && <Image source={suffixIcon} style={styles.icon} />}
       </View>
     </>
   );
@@ -43,6 +44,12 @@ const styles = StyleSheet.create({
     color: theme.fontColors.black,
   },
   icon: {
+    width: wp("5%"),
+    height: wp("5%"),
+    resizeMode: "contain",
+    flex: 0.13,
+  },
+  suffixIcon: {
     width: wp("5%"),
     height: wp("5%"),
     resizeMode: "contain",

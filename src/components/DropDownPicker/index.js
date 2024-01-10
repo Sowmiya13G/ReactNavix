@@ -1,6 +1,3 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
 import {View, Platform} from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';

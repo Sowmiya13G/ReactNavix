@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 const commonImagePath = {
   background: require('../assets/images/background.jpg'),
   ads: require('../assets/images/ads.png'),
@@ -47,6 +46,8 @@ const commonImagePath = {
   consults:require('../assets/images/consult.png'),
   specialistImg:require('../assets/images/specialistImg.png'),
   doctorImg:require('../assets/images/doctorImg.png'),
+  eye:require('../assets/images/eye.png'),
+
 };
 export default commonImagePath;
 

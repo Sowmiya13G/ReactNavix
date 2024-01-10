@@ -1,7 +1,4 @@
-/* eslint-disable prettier/prettier */
-// BottomTabNavigator.js
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
 
 // Packages
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -14,13 +11,13 @@ import FloatingButton from './FloatingButton';
 import { styles } from './styles';
 
 // Screens
-import { UserProfileScreen } from '../../screens/BottomTabScreens/UserProfileScreen';
+import { UserProfileScreen } from '../../screens/BottomTabScreens/ProfileScreens/UserProfileScreen';
 import { DashboardScreen } from '../../screens/OnBoardingscreens/DashboardScreen';
 import HomeScreen from '../../screens/BottomTabScreens/HomeScreen';
 import ItemScreen from '../../screens/BottomTabScreens/ItemsScreen';
 import { WebinarScreen } from '../../screens/OnBoardingscreens/WebinarScreen';
 import { BlogScreen } from '../../screens/BottomTabScreens/BlogScreen';
-import { CompleteProfileScreen } from '../../screens/BottomTabScreens/CompleteProfileScreen';
+import { CompleteProfileScreen } from '../../screens/BottomTabScreens/ProfileScreens/CompleteProfileScreen';
 import ConsultationStack from './BottomTabStacks';
 import BookConsultaionScreen from '../../screens/BottomTabScreens/ConsultationScreens/BookConsultation';
 
