@@ -96,6 +96,28 @@ const strings = {
   add: '+Add  member',
   addNew: 'Add new family member',
 
+  // Consultation  Screen
+  bookConsult: 'Book a Consultation',
+  consultHours: '24*7 consultation with General Physician for any health concern',
+  bookNowBtn: 'Book Now',
+  bookSpl: 'Book a Specialist',
+  splText: 'Consult India’s top specialists and super specialists online',
+  upComing: 'My Upcoming Consultations',
+  pastConsult: 'Past Consultations',
+  consultation: 'Consultation',
+  upComingConsultaion: 'Upcoming Consultation',
+  pastConsultation: 'Past Consultation',
+  userType: 'Single User',
+  joinNow: 'Join Now',
+  drName: "Dr.Usha",
+  drId:'21658966adsss',
+  drRole: 'General Physician',
+  patientName: 'Patients Name: Jsj',
+  dateAndTime: '6th Nov, 2020   2:30PM',
+  completed: 'Completed',
+  attended: 'Attended',
+  missed: 'Missed',
+
   // WelcomeScreen
   welcomeTo: 'Welcome to MeraDoc',
   enterNumber: 'Enter your Mobile Number',

@@ -44,6 +44,9 @@ const commonImagePath = {
   call:require('../assets/images/call.png'),
   family:require('../assets/images/family.png'),
   content:require('../assets/images/content.png'),
+  consults:require('../assets/images/consult.png'),
+  specialistImg:require('../assets/images/specialistImg.png'),
+  doctorImg:require('../assets/images/doctorImg.png'),
 };
 export default commonImagePath;
 

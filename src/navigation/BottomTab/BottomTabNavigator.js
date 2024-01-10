@@ -11,18 +11,18 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 // Custom Styles
 import CustomTab from './CustomTab';
 import FloatingButton from './FloatingButton';
-
-// Constants
-import theme from '../constants/theme';
+import { styles } from './styles';
 
 // Screens
-import { UserProfileScreen } from '../screens/BottomTabScreens/UserProfileScreen';
-import { DashboardScreen } from '../screens/OnBoardingscreens/DashboardScreen';
-import HomeScreen from '../screens/BottomTabScreens/HomeScreen';
-import ItemScreen from '../screens/BottomTabScreens/ItemsScreen';
-import { WebinarScreen } from '../screens/OnBoardingscreens/WebinarScreen';
-import { BlogScreen } from '../screens/BottomTabScreens/BlogScreen';
-import { CompleteProfileScreen } from '../screens/BottomTabScreens/CompleteProfileScreen';
+import { UserProfileScreen } from '../../screens/BottomTabScreens/UserProfileScreen';
+import { DashboardScreen } from '../../screens/OnBoardingscreens/DashboardScreen';
+import HomeScreen from '../../screens/BottomTabScreens/HomeScreen';
+import ItemScreen from '../../screens/BottomTabScreens/ItemsScreen';
+import { WebinarScreen } from '../../screens/OnBoardingscreens/WebinarScreen';
+import { BlogScreen } from '../../screens/BottomTabScreens/BlogScreen';
+import { CompleteProfileScreen } from '../../screens/BottomTabScreens/CompleteProfileScreen';
+import ConsultationStack from './BottomTabStacks';
+import BookConsultaionScreen from '../../screens/BottomTabScreens/ConsultationScreens/BookConsultation';
 
 const BottomTabNavigator = () => {
   // Variables
@@ -31,7 +31,7 @@ const BottomTabNavigator = () => {
   const tabs = [
     {
       name: 'HomeTab',
-      component: WebinarScreen,
+      component: BookConsultaionScreen,
       iconName: 'home',
       label:'Home'
     },
@@ -82,21 +82,8 @@ const BottomTabNavigator = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  floatingButton: {
-    position: 'absolute',
-    bottom: 30,
-    left: '50%',
-    transform: [{ translateX: -130 }], 
-    backgroundColor: theme.backgroundColor.orange,
-    borderRadius: 30,
-    width: 60,
-    height: 60,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderTopLeftRadius: 30, 
-    borderTopRightRadius: 30,
-  },
-});
+
 
 export default BottomTabNavigator;
+
+ 

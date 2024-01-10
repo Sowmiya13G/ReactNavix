@@ -24,8 +24,11 @@ import { WebinarScreen } from '../screens/OnBoardingscreens/WebinarScreen';
 import { BlogScreen } from '../screens/BottomTabScreens/BlogScreen';
 import { UserProfileScreen } from '../screens/BottomTabScreens/UserProfileScreen';
 import { CompleteProfileScreen } from '../screens/BottomTabScreens/CompleteProfileScreen';
-import BottomTabNavigator from './BottomTabNavigator';
+import BottomTabNavigator from './BottomTab/BottomTabNavigator';
 import { DashboardScreen } from '../screens/OnBoardingscreens/DashboardScreen';
+import PastConsultaionScreen from '../screens/BottomTabScreens/ConsultationScreens/PastConsultation';
+import BookConsultaionScreen from '../screens/BottomTabScreens/ConsultationScreens/BookConsultation';
+import UpcomingConsultationScreen from '../screens/BottomTabScreens/ConsultationScreens/UpcomingConsultation';
 
 const Stack = createStackNavigator();
 
@@ -95,8 +98,24 @@ const AppNavigator = () => {
     <NavigationContainer >
       <StatusBar backgroundColor={theme.backgroundColor.blueTheme} barStyle="light-content" />
 
-     <Stack.Navigator>
-       {/*   <Stack.Screen
+     <Stack.Navigator initialRouteName='BookConsultaionScreen'>
+   
+        <Stack.Screen
+          name="BookConsultaionScreen"
+          component={BookConsultaionScreen}
+          options={{ title: '', headerShown: false }}
+        />
+          <Stack.Screen
+          name="UpcomingConsultationScreen"
+          component={UpcomingConsultationScreen}
+          options={{ title: '', headerShown: false }}
+        />
+        <Stack.Screen
+          name="PastConsultaionScreen"
+          component={PastConsultaionScreen}
+          options={{ title: '', headerShown: false }}
+        />
+            {/*   <Stack.Screen
           name="InitialScreen"
           component={InitialScreen}
           options={{ title: '', headerShown: false }}
@@ -116,7 +135,7 @@ const AppNavigator = () => {
           component={WebinarScreen}
           options={{ title: '', headerShown: false }}
         /> */}
-        <Stack.Screen
+        {/* <Stack.Screen
           name="HomeScreen"
           component={BottomTabNavigator}
           options={{ title: '', headerShown: false }}
@@ -140,7 +159,7 @@ const AppNavigator = () => {
           name="DashboardScreen"
           component={DashboardScreen}
           options={{ title: '', headerShown: false }}
-        />
+        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );

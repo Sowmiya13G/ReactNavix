@@ -3,7 +3,7 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import theme from '../constants/theme';
+import theme from '../../constants/theme';
 
 const FloatingButton = ({ onPress }) => {
   return (
