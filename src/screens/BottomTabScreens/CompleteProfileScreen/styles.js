@@ -116,8 +116,8 @@ export const styles = StyleSheet.create({
       },
       input: {
         borderRadius: 5,
-        width: wp('84%'),
-        paddingLeft: wp('25%'),
+        width: wp('80%'),
+        paddingLeft: wp('28%'),
         marginLeft: '3%',
         height: 45,
         fontSize: theme.fontSizes.smallFontText,

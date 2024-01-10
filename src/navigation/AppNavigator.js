@@ -25,6 +25,7 @@ import { BlogScreen } from '../screens/BottomTabScreens/BlogScreen';
 import { UserProfileScreen } from '../screens/BottomTabScreens/UserProfileScreen';
 import { CompleteProfileScreen } from '../screens/BottomTabScreens/CompleteProfileScreen';
 import BottomTabNavigator from './BottomTabNavigator';
+import { DashboardScreen } from '../screens/OnBoardingscreens/DashboardScreen';
 
 const Stack = createStackNavigator();
 
@@ -133,6 +134,11 @@ const AppNavigator = () => {
         <Stack.Screen
           name="CompleteProfileScreen"
           component={CompleteProfileScreen}
+          options={{ title: '', headerShown: false }}
+        />
+         <Stack.Screen
+          name="DashboardScreen"
+          component={DashboardScreen}
           options={{ title: '', headerShown: false }}
         />
       </Stack.Navigator>

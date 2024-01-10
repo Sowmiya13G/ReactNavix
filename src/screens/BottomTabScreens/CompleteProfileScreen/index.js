@@ -41,7 +41,7 @@ import GenderPicker from '../../../components/GenderPicker';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFormData, addUserProfile, initialState } from '../../../redux/features/FormDataSlice';
 
-export const CompleteProfileScreen = ({route}) => {
+export const CompleteProfileScreen = ({ route }) => {
     // Selectors
     const formData = useSelector(selectFormData);
     console.log(formData);
@@ -73,12 +73,11 @@ export const CompleteProfileScreen = ({route}) => {
         photo: '',
         unit: 'cm',
     });
-  // Check if route.params.formData exists and update localFormData accordingly
-  useEffect(() => {
-    if (route.params?.formData) {
-      setLocalFormData(initialState);
-    }
-  }, [route.params?.formData]);
+    useEffect(() => {
+        if (route.params?.formData) {
+            setLocalFormData(initialState);
+        }
+    }, [route.params?.formData]);
     //Fucntions
     const handleFormDataChange = (fieldName, value) => {
         const updatedLocalFormData = { ...localFormData, [fieldName]: value };
@@ -89,10 +88,41 @@ export const CompleteProfileScreen = ({route}) => {
     const goBack = () => {
         navigation.navigate('OtpScreen');
     }
+    // const handleContinue = () => {
+    //     dispatch(addUserProfile(localFormData));
+    //     navigation.navigate('UserTab');
+    // }
     const handleContinue = () => {
         dispatch(addUserProfile(localFormData));
         navigation.navigate('UserTab');
+        setLocalFormData(
+            {
+                ...formData,
+                name: '',
+                email: '',
+                relation: '',
+                age: '',
+                dob: '',
+                bloodGroup: '',
+                height: '',
+                weight: '',
+                mobileNumber: '',
+                gender: '',
+                occupation: '',
+                address1: '',
+                address2: '',
+                city: '',
+                pinCode: '',
+                district: '',
+                state: '',
+                country: '',
+                photo: '',
+                unit: 'cm',
+            }
+        )
     }
+
+
     const handleGenderChange = (selectedOption) => {
         console.log('Selected gender:', selectedOption);
         setLocalFormData({ ...localFormData, gender: selectedOption });
@@ -151,6 +181,7 @@ export const CompleteProfileScreen = ({route}) => {
                 console.log('Image URI is undefined');
                 return;
             }
+            setLocalFormData({ ...localFormData, photo: imageUri })
         } catch (error) {
             console.error('Error handling camera callback:', error);
         }
@@ -175,6 +206,7 @@ export const CompleteProfileScreen = ({route}) => {
                 console.log('Image URI is undefined');
                 return;
             }
+            setLocalFormData({ ...localFormData, photo: imageUri })
         } catch (error) {
             console.error('Error handling camera callback:', error);
         }
@@ -348,12 +380,12 @@ export const CompleteProfileScreen = ({route}) => {
                         />
                     </View>
                     <View style={styles.button}>
-                <CustomButton
-                    primaryButton
-                    label={strings.continue}
-                    handlePress={handleContinue}
-                />
-            </View>
+                        <CustomButton
+                            primaryButton
+                            label={strings.continue}
+                            handlePress={handleContinue}
+                        />
+                    </View>
                 </View>
             </SafeAreaView>
         );

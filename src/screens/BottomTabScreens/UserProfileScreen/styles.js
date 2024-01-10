@@ -85,11 +85,21 @@ export const styles = StyleSheet.create({
     marginTop: hp('5%'),
   },
   userPhoto: {
-    width: wp('30%'),
-    height: wp('30%'),
+    width: wp('25%'),
+    height: wp('25%'),
     borderRadius: wp('15%'),
     alignSelf: 'flex-start',
+    margin: '4%'
   },
+  userPhotoPlaceholder:{
+    width: wp('25%'),
+    height: wp('25%'),
+    borderRadius: wp('15%'),
+    alignSelf: 'flex-start',
+    margin: '4%',
+    backgroundColor: theme.backgroundColor.inputGray
+  },
+
   userName: {
     fontSize: theme.fontSizes.mediumFontText,
     color: theme.fontColors.black

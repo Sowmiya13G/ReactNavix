@@ -57,7 +57,7 @@ const renderUserProfile = ({ item }) => {
         <Image source={{ uri: imageUri }} style={styles.userPhoto} />
       ) : (
         <View style={styles.userPhotoPlaceholder}>
-        <Text style={styles.userAge}>No Photo Available</Text>
+        {/* <Text>No Photo Available</Text> */}
         </View>
       )}
       <View style={{flexDirection: 'column'}} >

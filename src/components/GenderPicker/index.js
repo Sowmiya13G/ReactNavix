@@ -32,8 +32,8 @@ const GenderPicker = ({onOptionPress}) => {
               ? theme.backgroundColor.bgBlue
               : theme.fontColors.inkLight,
           borderRadius: 5,
-          padding: 10,
-          margin: 10,
+          padding: 8,
+          margin: 8,
           alignItems: 'center',
           width: widthPercentageToDP('22%'),
           flexDirection: 'row'
@@ -46,10 +46,8 @@ const GenderPicker = ({onOptionPress}) => {
               ? theme.backgroundColor.white
               : theme.fontColors.inkLight
           }
-          style={{ }}
         />
         <Spacer width={widthPercentageToDP('1%')}/>
-
         <Text
           style={{
             color:
