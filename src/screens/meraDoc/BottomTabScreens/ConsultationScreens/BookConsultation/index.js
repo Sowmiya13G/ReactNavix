@@ -5,7 +5,6 @@ import {
     View,
     SafeAreaView,
     Image,
-    ImageBackground,
     KeyboardAvoidingView,
     FlatList,
     TouchableOpacity
@@ -16,16 +15,14 @@ import { useNavigation } from '@react-navigation/native';
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import Spacer from '../../../../../components/Spacer';
 // Constants
-import theme from '../../../../constants/theme';
-import { strings } from '../../../../constants/strings';
-
+import theme from '../../../../../constants/theme';
+import { strings } from '../../../../../constants/strings';
+import commonImagePath from '../../../../../constants/images';
+import { Background } from '../../../../../components/Background/background';
 // Styles
 import { styles } from './styles';
-import commonImagePath from '../../../../constants/images';
-import Spacer from '../../../../components/Spacer';
-import { Background } from '../../../../components/Background/background';
-
 
 const BookConsultaionScreen = ({ route }) => {
     // const { selectedTab } = route.params || { selectedTab: 'Upcoming' };

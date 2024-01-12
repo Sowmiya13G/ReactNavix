@@ -11,16 +11,15 @@ import FloatingButton from './FloatingButton';
 import { styles } from './styles';
 
 // Screens
-import { UserProfileScreen } from '../../screens/BottomTabScreens/ProfileScreens/UserProfileScreen';
-import { DashboardScreen } from '../../screens/OnBoardingscreens/DashboardScreen';
+import ConsultationStack from './BottomTabStacks';
+import CompleteProfileScreen from '../../screens/meraDoc/BottomTabScreens/ProfileScreens/CompleteProfileScreen';
+import BookConsultaionScreen from '../../screens/meraDoc/BottomTabScreens/ConsultationScreens/BookConsultation';
 import HomeScreen from '../../screens/BottomTabScreens/HomeScreen';
 import ItemScreen from '../../screens/BottomTabScreens/ItemsScreen';
-import { WebinarScreen } from '../../screens/OnBoardingscreens/WebinarScreen';
-import { BlogScreen } from '../../screens/BottomTabScreens/BlogScreen';
-import { CompleteProfileScreen } from '../../screens/BottomTabScreens/ProfileScreens/CompleteProfileScreen';
-import ConsultationStack from './BottomTabStacks';
-import BookConsultaionScreen from '../../screens/BottomTabScreens/ConsultationScreens/BookConsultation';
-
+import DashboardScreen from '../../screens/meraDoc/OnboardingScreens/DashboardScreen';
+import WebinarScreen from '../../screens/meraDoc/OnboardingScreens/WebinarScreen';
+import UserProfileScreen from '../../screens/meraDoc/BottomTabScreens/ProfileScreens/UserProfileScreen';
+import BlogScreen from '../../screens/meraDoc/BottomTabScreens/BlogScreen';
 const BottomTabNavigator = () => {
   // Variables
   const Tab = createBottomTabNavigator();

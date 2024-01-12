@@ -15,14 +15,14 @@ import { useNavigation } from '@react-navigation/native';
 import { heightPercentageToDP } from 'react-native-responsive-screen';
 
 // Constants
-import { onboardingData } from '../../../constants/onBoardingData';
-import theme from '../../../constants/theme';
-import { strings } from '../../../constants/strings';
+import { onboardingData } from '../../../../constants/onBoardingData';
+import theme from '../../../../constants/theme';
+import { strings } from '../../../../constants/strings';
 // Styles
 import { styles } from './styles';
-import commonImagePath from '../../../constants/images';
-import Spacer from '../../../components/Spacer';
-import CustomButton from '../../../components/CustomButton/CustomButton';
+import commonImagePath from '../../../../constants/images';
+import Spacer from '../../../../components/Spacer';
+import CustomButton from '../../../../components/CustomButton/CustomButton';
 
 export default function InitialScreen() {
   // Use state

@@ -19,13 +19,13 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { heightPercentageToDP } from 'react-native-responsive-screen';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 // Constants
-import theme from '../../../constants/theme';
-import { strings } from '../../../constants/strings';
+import theme from '../../../../constants/theme';
+import { strings } from '../../../../constants/strings';
 
 // Styles
 import { styles } from './styles';
-import Spacer from '../../../components/Spacer';
-import CustomButton from '../../../components/CustomButton/CustomButton';
+import Spacer from '../../../../components/Spacer';
+import CustomButton from '../../../../components/CustomButton/CustomButton';
 
 
 const OtpScreen = () => {

@@ -1,28 +1,33 @@
-/* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
 import {
     StatusBar,
     Text,
     View,
     SafeAreaView,
-    ImageBackground,
     TouchableOpacity,
     FlatList,
     Image
 } from 'react-native';
+
 // Packages
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 import { SearchBar } from 'react-native-elements';
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
+
+// components
+import Spacer from '../../../../components/Spacer';
+
+// JSON
+import blogsJSON from '../../../../../blog.json'
+
 // Constants
-import theme from '../../../constants/theme';
-import { strings } from '../../../constants/strings';
-import commonImagePath from '../../../constants/images';
-import blogsJSON from '../../../../blog.json'
+import theme from '../../../../constants/theme';
+import { strings } from '../../../../constants/strings';
+import commonImagePath from '../../../../constants/images';
+
 // Styles
 import { styles } from './styles';
-import Spacer from '../../../components/Spacer';
 
 
  const BlogScreen = () => {

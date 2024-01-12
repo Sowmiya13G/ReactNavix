@@ -17,18 +17,17 @@ import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsi
 import Spacer from '../../../../components/Spacer';
 
 // Constants
-import theme from '../../../../constants/theme';
-import { strings } from '../../../../constants/strings';
-import commonImagePath from '../../../../constants/images';
+import theme from '../../../../../constants/theme';
+import { strings } from '../../../../../constants/strings';
+import commonImagePath from '../../../../../constants/images';
+import { Background } from '../../../../../components/Background/background';
 
 // Styles
 import { styles } from './styles';
 
 // redux
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFormData } from '../../../../redux/features/FormDataSlice';
-import { Background } from '../../../../components/Background/background';
-import PastConsultaionScreen from '../../ConsultationScreens/PastConsultation';
+import { selectFormData } from '../../../../../redux/features/FormDataSlice';
 
  const ProfileDetailsScreen = ({ route }) => {
     const profileData = route.params?.profileData || {};

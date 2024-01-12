@@ -21,14 +21,14 @@ import {
 import * as Progress from 'react-native-progress';
 
 // Constants
-import theme from '../../../constants/theme';
-import { strings } from '../../../constants/strings';
-import { ouSpeakersData, servicesdata, testimonialData, instData, partnerData, corporateData } from '../../../constants/onBoardingData';
-import commonImagePath from '../../../constants/images';
+import theme from '../../../../constants/theme';
+import { strings } from '../../../../constants/strings';
+import {  ouSpeakersData, servicesdata, testimonialData, instData, partnerData, corporateData } from '../../../../constants/onBoardingData';
+import commonImagePath from '../../../../constants/images';
 // Styles
 import { styles } from './styles';
-import Spacer from '../../../components/Spacer';
-import CustomButton from '../../../components/CustomButton/CustomButton';
+import Spacer from '../../../../components/Spacer';
+import CustomButton from '../../../../components/CustomButton/CustomButton';
 
  const DashboardScreen = () => {
     const [testimonialIndex, setTestimonialIndex] = useState(0);

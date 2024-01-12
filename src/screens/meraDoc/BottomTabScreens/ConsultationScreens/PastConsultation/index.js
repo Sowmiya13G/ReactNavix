@@ -15,13 +15,13 @@ import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsi
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 // Constants
-import theme from '../../../../constants/theme';
-import { strings } from '../../../../constants/strings';
+import theme from '../../../../../constants/theme';
+import commonImagePath from '../../../../../constants/images';
+import { strings } from '../../../../../constants/strings';
 
+import Spacer from '../../../../../components/Spacer';
 // Styles
 import { styles } from './styles';
-import commonImagePath from '../../../../constants/images';
-import Spacer from '../../../../components/Spacer';
 
 const PastConsultaionScreen = ({ route, navigation }) => {
   const { selectedTab } = route.params || { selectedTab: 'Upcoming' };

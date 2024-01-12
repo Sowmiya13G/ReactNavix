@@ -12,8 +12,6 @@ const Stack = createStackNavigator();
 
 // App navigator
 const ConsultationStack = () => {
-
-
     return (
         <NavigationContainer >
             <Stack.Navigator>

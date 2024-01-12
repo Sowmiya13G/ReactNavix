@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 // import {valuePacker} from 'react-native-reanimated';
 import 'react-native-reanimated';
 import 'react-native-gesture-handler';
@@ -17,19 +16,10 @@ import notifee from '@notifee/react-native';
 import theme from '../constants/theme';
 
 // Screens
-import InitialScreen from '../screens/meraDoc/OnboardingScreens/InitialScreen';
-import WelcomeScreen from '../screens/meraDoc/OnboardingScreens/WelcomeScreen';
-import OtpScreen from '../screens/meraDoc/OnboardingScreens/OtpScreen';
-import WebinarScreen from '../screens/meraDoc/OnboardingScreens/WebinarScreen';
-import BlogScreen from '../screens/meraDoc/BottomTabScreens/BlogScreen';
-import UserProfileScreen from '../screens/meraDoc/BottomTabScreens/ProfileScreens/UserProfileScreen';
-import CompleteProfileScreen from '../screens/meraDoc/BottomTabScreens/ProfileScreens/CompleteProfileScreen';
-import DashboardScreen from '../screens/meraDoc/OnboardingScreens/DashboardScreen';
-import PastConsultaionScreen from '../screens/meraDoc/BottomTabScreens/ConsultationScreens/PastConsultation';
-import BookConsultaionScreen from '../screens/meraDoc/BottomTabScreens/ConsultationScreens/BookConsultation';
-import ProfileDetailsScreen from '../screens/meraDoc/BottomTabScreens/ProfileScreens/ProfileDetailsScreen';
-import SettingsScreen from '../screens/meraDoc/BottomTabScreens/ProfileScreens/SettingsScreen';
+import ScreenNames from './Screens/ScreenNames';
+import SCREENS from './Screens';
 import BottomTabNavigator from './BottomTab/BottomTabNavigator';
+
 
 const Stack = createStackNavigator();
 
@@ -91,7 +81,6 @@ const AppNavigator = () => {
       await requestUserPermission();
       await setupFCMListener();
     };
-
     initializeFirebaseMessaging();
   }, []);
 
@@ -99,73 +88,73 @@ const AppNavigator = () => {
     <NavigationContainer >
       <StatusBar backgroundColor={theme.backgroundColor.blueTheme} barStyle="light-content" />
 
-     <Stack.Navigator initialRouteName='HomeScreen'>
-     <Stack.Screen
+      <Stack.Navigator initialRouteName='HomeScreen'>
+        {/* <Stack.Screen
+          name={SCREENS.INITIALSCREEN}
+          component={ScreenNames.InitialScreen}
+          options={{ title: '', headerShown: false }}
+        />
+        <Stack.Screen
+          name={SCREENS.WELCOMESCREEN}
+          component={ScreenNames.WelcomeScreen}
+          options={{ title: '', headerShown: false }}
+        />
+        <Stack.Screen
+          name={SCREENS.OTPSCREEN}
+          component={ScreenNames.OtpScreen}
+          options={{ title: '', headerShown: false }}
+        /> */}
+        <Stack.Screen
           name="HomeScreen"
           component={BottomTabNavigator}
           options={{ title: '', headerShown: false }}
         />
         <Stack.Screen
-          name="BookConsultaionScreen"
-          component={BookConsultaionScreen}
+          name={SCREENS.BOOKCONSULTATIONSCREEN}
+          component={ScreenNames.BookConsultaionScreen}
           options={{ title: '', headerShown: false }}
         />
         <Stack.Screen
-          name="PastConsultaionScreen"
-          component={PastConsultaionScreen}
-          options={{ title: '', headerShown: false }}
-        />
-         <Stack.Screen
-          name="ProfileDetailsScreen"
-          component={ProfileDetailsScreen}
-          options={{ title: '', headerShown: false }}
-        />
-            <Stack.Screen
-          name="SettingsScreen"
-          component={SettingsScreen}
-          options={{ title: '', headerShown: false }}
-        />
-            {/*   <Stack.Screen
-          name="InitialScreen"
-          component={InitialScreen}
+          name={SCREENS.PASTCONSULTATIONSCREEN}
+          component={ScreenNames.PastConsultaionScreen}
           options={{ title: '', headerShown: false }}
         />
         <Stack.Screen
-          name="WelcomeScreen"
-          component={WelcomeScreen}
+          name={SCREENS.PROFILEDETAILSSCREEN}
+          component={ScreenNames.ProfileDetailsScreen}
           options={{ title: '', headerShown: false }}
         />
         <Stack.Screen
-          name="OtpScreen"
-          component={OtpScreen}
+          name={SCREENS.SETTINGSCREEN}
+          component={ScreenNames.SettingsScreen}
+          options={{ title: '', headerShown: false }}
+        />
+
+        <Stack.Screen
+          name={SCREENS.WEBINARSCREEN}
+          component={ScreenNames.WebinarScreen}
           options={{ title: '', headerShown: false }}
         />
         <Stack.Screen
-          name="WebinarScreen"
-          component={WebinarScreen}
-          options={{ title: '', headerShown: false }}
-        /> */}
-     
-         {/*  <Stack.Screen
-          name="BlogScreen"
-          component={BlogScreen}
+          name={SCREENS.BLOGSCREEN}
+          component={ScreenNames.BlogScreen}
           options={{ title: '', headerShown: false }}
         />
         <Stack.Screen
-          name="UserProfileScreen"
-          component={UserProfileScreen}
+          name={SCREENS.USERPROFILESCREEN}
+          component={ScreenNames.UserProfileScreen}
           options={{ title: '', headerShown: false }}
         />
         <Stack.Screen
-          name="CompleteProfileScreen"
-          component={CompleteProfileScreen}
+          name={SCREENS.COMPLETEPROFILESCREEN}
+          component={ScreenNames.CompleteProfileScreen}
           options={{ title: '', headerShown: false }}
         />
-         <Stack.Screen
-          name="DashboardScreen"
-          component={DashboardScreen}
+        <Stack.Screen
+          name={SCREENS.DASHBOARDSCREEN}
+          component={ScreenNames.DashboardScreen}
           options={{ title: '', headerShown: false }}
-        /> */}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

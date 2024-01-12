@@ -17,15 +17,16 @@ import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsi
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 // Constants
-import theme from '../../../../constants/theme';
-import { strings } from '../../../../constants/strings';
+import theme from '../../../../../constants/theme';
+import { strings } from '../../../../../constants/strings';
+import commonImagePath from '../../../../../constants/images';
+import CustomButton from '../../../../../components/CustomButton/CustomButton';
+import CustomInput from '../../../../../components/CustomInput/CustomInput';
 
+import Spacer from '../../../../../components/Spacer';
 // Styles
 import { styles } from './styles';
-import commonImagePath from '../../../../constants/images';
-import Spacer from '../../../../components/Spacer';
-import CustomButton from '../../../../components/CustomButton/CustomButton';
-import CustomInput from '../../../../components/CustomInput/CustomInput';
+
 
 const SettingsScreen = () => {
     //Usestate

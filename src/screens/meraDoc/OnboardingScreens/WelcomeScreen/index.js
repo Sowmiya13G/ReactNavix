@@ -14,15 +14,15 @@ import { useNavigation } from '@react-navigation/native';
 import { heightPercentageToDP } from 'react-native-responsive-screen';
 
 // Constants
-import theme from '../../../constants/theme';
-import { strings } from '../../../constants/strings';
+import theme from '../../../../constants/theme';
+import { strings } from '../../../../constants/strings';
 
 // Styles
 import { styles } from './styles';
-import commonImagePath from '../../../constants/images';
-import Spacer from '../../../components/Spacer';
-import CustomButton from '../../../components/CustomButton/CustomButton';
-import CustomInput from '../../../components/CustomInput/CustomInput';
+import commonImagePath from '../../../../constants/images';
+import Spacer from '../../../../components/Spacer';
+import CustomButton from '../../../../components/CustomButton/CustomButton';
+import CustomInput from '../../../../components/CustomInput/CustomInput';
 
 
 const WelcomeScreen = () => {
