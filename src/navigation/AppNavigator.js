@@ -17,19 +17,19 @@ import notifee from '@notifee/react-native';
 import theme from '../constants/theme';
 
 // Screens
-import InitialScreen from '../screens/OnBoardingscreens/InitialScreen';
-import WelcomeScreen from '../screens/OnBoardingscreens/WelcomeScreen';
-import OtpScreen from '../screens/OnBoardingscreens/OtpScreen';
-import { WebinarScreen } from '../screens/OnBoardingscreens/WebinarScreen';
-import { BlogScreen } from '../screens/BottomTabScreens/BlogScreen';
-import { UserProfileScreen } from '../screens/BottomTabScreens/ProfileScreens/UserProfileScreen';
-import { CompleteProfileScreen } from '../screens/BottomTabScreens/ProfileScreens/CompleteProfileScreen';
+import InitialScreen from '../screens/meraDoc/OnboardingScreens/InitialScreen';
+import WelcomeScreen from '../screens/meraDoc/OnboardingScreens/WelcomeScreen';
+import OtpScreen from '../screens/meraDoc/OnboardingScreens/OtpScreen';
+import WebinarScreen from '../screens/meraDoc/OnboardingScreens/WebinarScreen';
+import BlogScreen from '../screens/meraDoc/BottomTabScreens/BlogScreen';
+import UserProfileScreen from '../screens/meraDoc/BottomTabScreens/ProfileScreens/UserProfileScreen';
+import CompleteProfileScreen from '../screens/meraDoc/BottomTabScreens/ProfileScreens/CompleteProfileScreen';
+import DashboardScreen from '../screens/meraDoc/OnboardingScreens/DashboardScreen';
+import PastConsultaionScreen from '../screens/meraDoc/BottomTabScreens/ConsultationScreens/PastConsultation';
+import BookConsultaionScreen from '../screens/meraDoc/BottomTabScreens/ConsultationScreens/BookConsultation';
+import ProfileDetailsScreen from '../screens/meraDoc/BottomTabScreens/ProfileScreens/ProfileDetailsScreen';
+import SettingsScreen from '../screens/meraDoc/BottomTabScreens/ProfileScreens/SettingsScreen';
 import BottomTabNavigator from './BottomTab/BottomTabNavigator';
-import { DashboardScreen } from '../screens/OnBoardingscreens/DashboardScreen';
-import PastConsultaionScreen from '../screens/BottomTabScreens/ConsultationScreens/PastConsultation';
-import BookConsultaionScreen from '../screens/BottomTabScreens/ConsultationScreens/BookConsultation';
-import { ProfileDetailsScreen } from '../screens/BottomTabScreens/ProfileScreens/ProfileDetailsScreen';
-import SettingsScreen from '../screens/BottomTabScreens/ProfileScreens/SettingsScreen';
 
 const Stack = createStackNavigator();
 

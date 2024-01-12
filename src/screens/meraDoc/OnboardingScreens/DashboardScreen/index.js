@@ -30,7 +30,7 @@ import { styles } from './styles';
 import Spacer from '../../../components/Spacer';
 import CustomButton from '../../../components/CustomButton/CustomButton';
 
-export const DashboardScreen = () => {
+ const DashboardScreen = () => {
     const [testimonialIndex, setTestimonialIndex] = useState(0);
     const [partnerIndex, setPartnerIndex] = useState(0);
     const [trustIndex, setTrustIndex] = useState(0);
@@ -380,3 +380,4 @@ export const DashboardScreen = () => {
         </SafeAreaView>
     );
 };
+export default DashboardScreen

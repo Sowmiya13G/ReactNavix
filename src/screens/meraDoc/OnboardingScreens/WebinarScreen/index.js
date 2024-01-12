@@ -24,7 +24,7 @@ import Spacer from '../../../components/Spacer';
 import CustomButton from '../../../components/CustomButton/CustomButton';
 
 
-export const WebinarScreen = () => {
+ const WebinarScreen = () => {
     const videoPlayer = React.useRef();
     const navigation = useNavigation()
     const [open, setOpen] = useState(false)
@@ -145,3 +145,4 @@ export const WebinarScreen = () => {
     );
 
 };
+export default WebinarScreen

@@ -38,7 +38,7 @@ import GenderPicker from '../../../../components/GenderPicker';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFormData, addUserProfile, initialState, updateUserProfile } from '../../../../redux/features/FormDataSlice';
 
-export const CompleteProfileScreen = ({ route }) => {
+ const CompleteProfileScreen = ({ route }) => {
     // Selectors
     const formData = useSelector(selectFormData);
     console.log(formData);
@@ -405,3 +405,4 @@ export const CompleteProfileScreen = ({ route }) => {
     );
 
 };
+export default CompleteProfileScreen

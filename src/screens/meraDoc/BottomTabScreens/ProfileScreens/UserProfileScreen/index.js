@@ -28,7 +28,7 @@ import { styles } from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFormData, deleteUserProfile } from '../../../../redux/features/FormDataSlice';
 
-export const UserProfileScreen = () => {
+ const UserProfileScreen = () => {
   // Selectors
   const formData = useSelector(selectFormData);
   console.log('formData', formData)
@@ -134,3 +134,4 @@ export const UserProfileScreen = () => {
     </SafeAreaView>
   );
 };
+export default UserProfileScreen

@@ -30,7 +30,7 @@ import { selectFormData } from '../../../../redux/features/FormDataSlice';
 import { Background } from '../../../../components/Background/background';
 import PastConsultaionScreen from '../../ConsultationScreens/PastConsultation';
 
-export const ProfileDetailsScreen = ({ route }) => {
+ const ProfileDetailsScreen = ({ route }) => {
     const profileData = route.params?.profileData || {};
     console.log('profileData', profileData)
     // Selectors
@@ -148,3 +148,4 @@ export const ProfileDetailsScreen = ({ route }) => {
         </SafeAreaView>
     );
 };
+export default ProfileDetailsScreen

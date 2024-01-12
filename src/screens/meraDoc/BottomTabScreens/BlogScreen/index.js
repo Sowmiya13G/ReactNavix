@@ -25,7 +25,7 @@ import { styles } from './styles';
 import Spacer from '../../../components/Spacer';
 
 
-export const BlogScreen = () => {
+ const BlogScreen = () => {
     const navigation = useNavigation()
     const [searchText, setSearchText] = useState('');
     const [filteredBlogs, setFilteredBlogs] = useState(blogsJSON.blogPost);
@@ -119,3 +119,4 @@ export const BlogScreen = () => {
     );
 
 };
+export default BlogScreen
