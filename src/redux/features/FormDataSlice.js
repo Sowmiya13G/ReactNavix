@@ -41,10 +41,8 @@ export const formDataSlice = createSlice({
       const indexToUpdate = state.profiles.findIndex(profile => profile.id === updatedProfile.id);
 
       if (indexToUpdate !== -1) {
-        // Update the existing profile
         state.profiles[indexToUpdate] = updatedProfile;
       } else {
-        // Handle the case where the profile to update is not found (optional)
         console.error('Profile to update not found.');
       }
     },

@@ -24,9 +24,10 @@ import { strings } from '../../../../constants/strings';
 import { styles } from './styles';
 import commonImagePath from '../../../../constants/images';
 import Spacer from '../../../../components/Spacer';
+import { Background } from '../../../../components/Background/background';
 
 
-const BookConsultaionScreen = ({route}) => {
+const BookConsultaionScreen = ({ route }) => {
     // const { selectedTab } = route.params || { selectedTab: 'Upcoming' };
     const [selectedTab, setSelectedTab] = useState(selectedTab);
 
@@ -118,7 +119,9 @@ const BookConsultaionScreen = ({route}) => {
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar backgroundColor={theme.backgroundColor.blueTheme} barStyle="light-content" />
-
+            <Background
+                backgroundImageStyle={styles.backgroundCurve}
+            />
             <FlatList
                 data={['BOOK_CONSULTATION']}
                 renderItem={renderBody}

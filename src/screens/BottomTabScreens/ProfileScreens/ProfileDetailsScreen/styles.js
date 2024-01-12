@@ -17,6 +17,10 @@ export const styles = StyleSheet.create({
     marginTop: 10,
     padding: '5%',
   },
+  backgroundCurve: {
+    height: hp('60%'),
+    top: '-18%',
+},
   contentView: {
     flex: 1,
     padding: '5%',
@@ -102,7 +106,11 @@ export const styles = StyleSheet.create({
 
   userName: {
     fontSize: theme.fontSizes.mediumFontText,
-    color: theme.fontColors.black
+    color: theme.fontColors.white
+  },
+  userNum: {
+    fontSize: theme.fontSizes.mediumFont,
+    color: theme.fontColors.white
   },
   userRelation: {
     fontSize: theme.fontSizes.mediumFont,
@@ -113,17 +121,24 @@ export const styles = StyleSheet.create({
     color: theme.fontColors.black
   },
   progressContainer: {
-    position: 'absolute',
-    bottom: '10%',
-    right: '8%'
+   backgroundColor: theme.backgroundColor.white,
+   padding: '5%',
+   margin: '3%',
+   borderRadius: wp('5%'),
   },
   progressText: {
-    fontSize: theme.fontSizes.smallFont,
+    fontSize: theme.fontSizes.smallFontText,
     color: theme.fontColors.black,
-    fontWeight: 'bold',
-    position: 'absolute',
-    bottom: '10%',
-    right: '8%',
-    top: '33%',
-  }
+   
+  },
+  medicalHistory: {
+    fontSize: theme.fontSizes.mediumFont,
+    color: theme.fontColors.secondaryBlack,
+    fontWeight: 'bold'
+  },
+  completeNow: {
+    fontSize: theme.fontSizes.mediumFont,
+    color: theme.fontColors.blueTheme,
+    fontWeight: 'bold'
+  },
 });

@@ -27,6 +27,8 @@ import { styles } from './styles';
 // redux
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFormData } from '../../../../redux/features/FormDataSlice';
+import { Background } from '../../../../components/Background/background';
+import PastConsultaionScreen from '../../ConsultationScreens/PastConsultation';
 
 export const ProfileDetailsScreen = ({ route }) => {
     const profileData = route.params?.profileData || {};
@@ -47,11 +49,73 @@ export const ProfileDetailsScreen = ({ route }) => {
     }
 
     // REnder UI............
-    const renderBody = () => {
-        <View style={styles.contentView}>
-            <Text style={styles.heading}>Name: {profileData.name}</Text>
-            <Text style={styles.heading}>Email: {profileData.email}</Text>
-        </View>
+    const renderBody = ({ item, index }) => {
+        const imageUri = item.photo && item.photo.trim() !== '' ? item.photo : null;
+
+        return (
+            <>
+                <View style={{ alignSelf: 'center' }}>
+                    {imageUri ? (
+                        <Image source={{ uri: imageUri }} style={styles.userPhoto} />
+                    ) : (
+                        <View style={styles.userPhotoPlaceholder}>
+                        </View>
+                    )}
+
+                    <Text style={styles.userName}>{item.name}</Text>
+                    <Spacer height={heightPercentageToDP('1%')} />
+                    <Text style={styles.userNum}>{strings.age}: {item.mobileNumber}</Text>
+                </View>
+                <Spacer height={heightPercentageToDP('5%')} />
+
+                <View key={item.name} style={styles.contentView}>
+
+                    <View style={{ flexDirection: 'column' }} >
+                        <Spacer height={heightPercentageToDP('1%')} />
+                        <Text style={styles.userRelation}>{strings.relation}:{item.relation}</Text>
+                        <Spacer height={heightPercentageToDP('1%')} />
+                        <Text style={styles.userAge}>{strings.age}: {item.age}</Text>
+                        <Spacer height={heightPercentageToDP('2%')} />
+
+                    </View>
+
+                </View>
+                <View style={styles.progressContainer}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <Text style={styles.medicalHistory}>Medical history</Text>
+                        <TouchableOpacity onPress={() => goBack()} style={styles.icon}>
+                            <Icon name="angle-up" size={20} color={theme.fontColors.black} style={styles.backIcon} />
+                        </TouchableOpacity>
+                    </View>
+                    <Spacer height={heightPercentageToDP('3%')} />
+
+                    <Progress.Bar
+                        progress={completedProgress / 100}
+                        size={widthPercentageToDP('15%')}
+                        thickness={5}
+                        borderWidth={0}
+                        color={theme.backgroundColor.blueTheme}
+                        unfilledColor={theme.backgroundColor.gray}
+                    />
+                    <Spacer height={heightPercentageToDP('1%')} />
+                    <Text style={styles.progressText}>{`${completedProgress.toFixed(2)}%`} only completed</Text>
+                    <Spacer height={heightPercentageToDP('2%')} />
+                    <Text style={styles.completeNow}>Completed now</Text>
+
+
+                </View>
+                <View style={styles.progressContainer}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+                        <Text style={styles.medicalHistory}>Health Records</Text>
+                        <TouchableOpacity onPress={() => goBack()} style={styles.icon}>
+                            <Icon name="angle-right" size={20} color={theme.fontColors.blueTheme} style={styles.backIcon} />
+                        </TouchableOpacity>
+                    </View>
+
+                </View>
+            </>
+
+        );
     };
 
     // Render Header
@@ -74,7 +138,7 @@ export const ProfileDetailsScreen = ({ route }) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <StatusBar backgroundColor={theme.backgroundColor.blueTheme} barStyle="light-content" />
+            <Background backgroundImageStyle={styles.backgroundCurve} />
             <FlatList
                 data={formData.profiles}
                 renderItem={renderBody}

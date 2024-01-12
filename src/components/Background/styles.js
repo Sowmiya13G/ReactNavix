@@ -16,6 +16,7 @@ export const styles = StyleSheet.create({
   },
   backgroundImage: {
     width: wp('100%'),
-    height: hp('60%'),
+    bottom: '5%',
+    height: hp('50%'),
   },
 });

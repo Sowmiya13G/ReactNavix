@@ -77,35 +77,22 @@ export const styles = StyleSheet.create({
         borderBottomRightRadius: wp('4%'),
         bottom: 0
     },
-    background: {
-        position: 'absolute',
-        bottom: '40%',
-        left: 0,
-        right: 0,
-        width: wp('100%'),
-        height: hp('65%')
-    },
     backgroundCurve: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        width: wp('100%'),
-        height: hp('25%'),
-        bottom: '60%',
+        top: '-20%'
     },
-    options:{
-        backgroundColor:theme.backgroundColor.white,
+    options: {
+        backgroundColor: theme.backgroundColor.white,
         borderRadius: wp('4%'),
-       
+
         padding: '5%',
         width: wp('90%'),
         alignSelf: 'center',
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
-    optionText:{
+    optionText: {
         color: theme.fontColors.black,
-        fontSize:theme.fontSizes.mediumFont,
+        fontSize: theme.fontSizes.mediumFont,
         fontWeight: 'bold'
     },
     header: {
@@ -135,7 +122,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingLeft: '3%'
-   
+
     },
     heading: {
         color: theme.fontColors.white,
