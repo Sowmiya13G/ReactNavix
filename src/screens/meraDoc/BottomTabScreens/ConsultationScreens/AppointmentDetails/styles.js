@@ -11,11 +11,18 @@ export const styles = StyleSheet.create({
     },
     image: {
         width: wp('20%'),
-        height: hp('20%'),
         resizeMode: 'contain',
-        alignSelf: 'flex-start',
+        // alignSelf: 'flex-start',
+        // alignSelf:"center",
         bottom: '5%',
         margin: '2%',
+        padding: '5%',
+        borderRadius: wp('10%'),
+        top: '3%'
+    },
+    input:{
+width: wp('90%'),
+backgroundColor:'black'
     },
     content: {
         marginLeft: '5%',
@@ -25,26 +32,39 @@ export const styles = StyleSheet.create({
         paddingLeft: '5%',
         paddingRight: '8%',
         paddingBottom: '5%',
+        // flexDirection: 'row',
+        // alignItems: 'center'
+    },
+    docDetails: {
+        marginLeft: '5%',
+        marginRight: '5%',
+        backgroundColor: theme.backgroundColor.white,
+        borderRadius: wp('4%'),
+        paddingLeft: '5%',
+        paddingRight: '8%',
+        paddingBottom: '5%',
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        // justifyContent: 'space-around'
     },
     title: {
         fontSize: theme.fontSizes.mediumFontText,
         fontWeight: 'bold',
-        color: '#EB996E',
+        color: theme.fontColors.royalBlue,
     },
     data: {
         fontSize: theme.fontSizes.smallFontText,
-        color: '#EB996E',
+        color: theme.fontColors.black,
     },
     title2: {
+        left: '7%',
         fontSize: theme.fontSizes.mediumFontText,
-        fontWeight: 'bold',
-        color: '#A31361',
+        color: theme.fontColors.black,
     },
     data2: {
         fontSize: theme.fontSizes.smallFontText,
-        color: '#BB6D97',
+        color: theme.fontColors.black,
+        fontWeight: 'bold',
 
     },
     option: {
@@ -78,12 +98,11 @@ export const styles = StyleSheet.create({
         bottom: 0
     },
     backgroundCurve: {
-        top: '-20%'
+        top: '-30%'
     },
     options: {
         backgroundColor: theme.backgroundColor.white,
         borderRadius: wp('4%'),
-
         padding: '5%',
         width: wp('90%'),
         alignSelf: 'center',
@@ -114,21 +133,74 @@ export const styles = StyleSheet.create({
     },
     callIcon: {
         fontWeight: 'bold',
-        transform: [{ rotate: '-30deg' }],
+        paddingLeft: '4%',
+        color: theme.fontColors.blueTheme
+    },
+    button: {
+        padding: '5%',
+        width: wp('90%'),
+        alignSelf: 'center',
+        fontWeight: 'bold',
+    },
+    buttonTxt: {
+        textTransform: 'uppercase',
+        fontWeight: 'bold',
+    },
+    icon: {
+        fontWeight: 'bold',
         paddingLeft: '4%'
     },
-    bellIcon: {
-        fontWeight: 'bold',
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingLeft: '3%'
-
+    texts: {
+        textAlign: 'center',
+        color: theme.fontColors.black,
+        fontSize: theme.fontSizes.mediumFont,
     },
+    textView: {
+        padding: '3%',
+        margin: '2%',
+        backgroundColor: theme.backgroundColor.white,
+        borderRadius: wp('4%'),
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+
     heading: {
         color: theme.fontColors.white,
         fontSize: theme.fontSizes.bigFont,
         fontWeight: 'bold',
         paddingLeft: '5%',
 
+    },
+    upload: {
+        alignItems: 'center',
+        padding: '3%',
+        borderColor: 'grey',
+        borderWidth: 1,
+        margin: '6%',
+        borderStyle: 'dashed',
+        flexDirection: 'row',
+        justifyContent: 'center'
+    },
+    uploadIcon: {
+        width: 50,
+        height: 50,
+        resizeMode: 'contain',
+    },
+
+    uploadedDocumentContainer: {
+        alignItems: 'center',
+        marginTop: 10,
+    },
+
+    uploadedDocumentName: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginBottom: 5,
+    },
+
+    documentTypeIcon: {
+        width: 30,
+        height: 30,
+        resizeMode: 'contain',
     },
 });

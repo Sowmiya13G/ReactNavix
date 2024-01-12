@@ -11,9 +11,11 @@ const commonImagePath = {
 
   //MeraDoc Image
   backgroundCurve: require('../assets/images/union.png'),
+  unionBg: require('../assets/images/unionBg.png'),
   healthCare: require('../assets/images/healthCare.png'),
   schedule: require('../assets/images/rafiki.png'),
   bookTest: require('../assets/images/lab.png'),
+  upload: require('../assets/images/upload.png'),
   doc: require('../assets/images/doc.png'),
   mobile: require('../assets/images/mobile.png'),
   doct1: require('../assets/images/doct1.png'),
@@ -41,6 +43,8 @@ const commonImagePath = {
   corporate:require('../assets/images/corporate.png'),
   wellness:require('../assets/images/wellness.png'),
   call:require('../assets/images/call.png'),
+  phoneCall:require('../assets/images/phone-call.png'),
+
   family:require('../assets/images/family.png'),
   content:require('../assets/images/content.png'),
   consults:require('../assets/images/consult.png'),

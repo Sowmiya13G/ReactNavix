@@ -32,7 +32,7 @@ import DropdownPicker from '../../../../../components/DropDownPicker';
 import CustomInput from '../../../../../components/CustomInput/CustomInput';
 import Spacer from '../../../../../components/Spacer';
 import CustomButton from '../../../../../components/CustomButton/CustomButton';
-import GenderPicker from '../../../../../components/GenderPicker';
+import ChoicePicker from '../../../../../components/ChoicePicker';
 
 // redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -70,6 +70,7 @@ const CompleteProfileScreen = ({ route }) => {
         photo: '',
         unit: 'cm',
     });
+    const options = ['male', 'female', 'others'];
 
     //Fucntions
     const handleFormDataChange = (fieldName, value) => {
@@ -304,7 +305,7 @@ const CompleteProfileScreen = ({ route }) => {
                     <Text style={styles.text}>{strings.gender}</Text>
                     <Spacer height={heightPercentageToDP('1.5%')} />
 
-                    <GenderPicker onOptionPress={handleGenderChange} />
+                    <ChoicePicker onOptionPress={handleGenderChange} options={options}/>
                     <Spacer height={heightPercentageToDP('2%')} />
                     <CustomInput
                         label={strings.occupation}

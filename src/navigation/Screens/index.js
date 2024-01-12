@@ -10,7 +10,8 @@ const SCREENS = {
     PASTCONSULTATIONSCREEN: 'PastConsultaionScreen',
     BOOKCONSULTATIONSCREEN: 'BookConsultaionScreen',
     PROFILEDETAILSSCREEN: 'ProfileDetailsScreen',
-    SETTINGSCREEN: 'SettingsScreen'
-
+    SETTINGSCREEN: 'SettingsScreen',
+    CONSULTATIONDETAILSSCREEN: 'ConsultationDetailsScreen',
+    APPOINTMENTDETAILS: 'AppointmentDetails'
 }
 export default SCREENS

@@ -11,15 +11,11 @@ import FloatingButton from './FloatingButton';
 import { styles } from './styles';
 
 // Screens
-import ConsultationStack from './BottomTabStacks';
-import CompleteProfileScreen from '../../screens/meraDoc/BottomTabScreens/ProfileScreens/CompleteProfileScreen';
-import BookConsultaionScreen from '../../screens/meraDoc/BottomTabScreens/ConsultationScreens/BookConsultation';
-import HomeScreen from '../../screens/BottomTabScreens/HomeScreen';
-import ItemScreen from '../../screens/BottomTabScreens/ItemsScreen';
-import DashboardScreen from '../../screens/meraDoc/OnboardingScreens/DashboardScreen';
-import WebinarScreen from '../../screens/meraDoc/OnboardingScreens/WebinarScreen';
+import ConsultationStack from './BottomTabStacks/ConsultationStack';
+import ProfileStack from './BottomTabStacks/ProfileStack';
 import UserProfileScreen from '../../screens/meraDoc/BottomTabScreens/ProfileScreens/UserProfileScreen';
 import BlogScreen from '../../screens/meraDoc/BottomTabScreens/BlogScreen';
+
 const BottomTabNavigator = () => {
   // Variables
   const Tab = createBottomTabNavigator();
@@ -27,7 +23,7 @@ const BottomTabNavigator = () => {
   const tabs = [
     {
       name: 'HomeTab',
-      component: BookConsultaionScreen,
+      component: ConsultationStack,
       iconName: 'home',
       label:'Home'
     },
@@ -45,7 +41,7 @@ const BottomTabNavigator = () => {
     },
     {
       name: 'DashboardTab',
-      component: CompleteProfileScreen,
+      component: ProfileStack,
       iconName: 'user',
       label: 'Profile'
 

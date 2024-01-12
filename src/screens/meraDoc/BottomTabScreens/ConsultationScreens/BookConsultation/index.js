@@ -30,6 +30,10 @@ const BookConsultaionScreen = ({ route }) => {
 
     // Variales
     const navigation = useNavigation();
+
+    const goToNext=()=>{
+        navigation.navigate('ConsultationDetailsScreen')
+    }
     // Render UI .........................
     // Render Body
     const renderBody = () => {
@@ -49,10 +53,11 @@ const BookConsultaionScreen = ({ route }) => {
                             <Text style={styles.data}>{strings.consultHours}</Text>
                             <Spacer height={heightPercentageToDP('2%')} />
                         </View>
+                        <TouchableOpacity style={styles.option} onPress={goToNext()}>
                         <Text style={styles.option}>{strings.bookNowBtn}</Text>
+                        </TouchableOpacity>
                     </View>
                     <Spacer height={heightPercentageToDP('3%')} />
-
                     <View style={styles.content}>
                         <Image source={commonImagePath.specialistImg} style={styles.image} />
                         <View style={{ flexDirection: 'column', left: '5%', width: '80%' }}>
@@ -61,7 +66,10 @@ const BookConsultaionScreen = ({ route }) => {
                             <Text style={styles.data2}>{strings.consultHours}</Text>
                             <Spacer height={heightPercentageToDP('2%')} />
                         </View>
+                        <TouchableOpacity style={styles.option2} onPress={goToNext()}>
+
                         <Text style={styles.option2}>{strings.bookNowBtn}</Text>
+                        </TouchableOpacity>
                     </View>
                     <Spacer height={heightPercentageToDP('3%')} />
                     <TouchableOpacity

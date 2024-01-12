@@ -26,7 +26,7 @@ import { styles } from './styles';
 
 // redux
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFormData, deleteUserProfile } from '../../../../redux/features/FormDataSlice';
+import { selectFormData, deleteUserProfile } from '../../../../../redux/features/FormDataSlice';
 
  const UserProfileScreen = () => {
   // Selectors
@@ -44,7 +44,7 @@ import { selectFormData, deleteUserProfile } from '../../../../redux/features/Fo
     navigation.navigate('OtpScreen');
   }
   const goToProfile = () => {
-    navigation.navigate('DashboardTab');
+    navigation.navigate('CompleteProfileScreen');
   }
   const navigateToEditProfile = (profileData) => {
     navigation.navigate('DashboardTab', { formData: profileData });

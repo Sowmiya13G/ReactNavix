@@ -6,11 +6,11 @@ import {styles} from './styles';
 // Constants
 import commonImagePath from '../../constants/images';
 
-export const Background = ({ backgroundImageStyle }) => {
+export const Background = ({ backgroundImageStyle , union}) => {
   return (
     <View style={[styles.container]}>
       <Image
-        source={commonImagePath.backgroundCurve}
+        source={union?commonImagePath.backgroundCurve: commonImagePath.unionBg}
         style={[styles.backgroundImage,backgroundImageStyle]}
         resizeMode="cover"
       />

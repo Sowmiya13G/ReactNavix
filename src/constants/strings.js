@@ -98,6 +98,7 @@ const strings = {
 
   // Consultation  Screen
   bookConsult: 'Book a Consultation',
+  bookCons: 'Book Consultation',
   consultHours: '24*7 consultation with General Physician for any health concern',
   bookNowBtn: 'Book Now',
   bookSpl: 'Book a Specialist',
@@ -122,6 +123,34 @@ const strings = {
   newPassword: 'New password',
   confirmPassword: 'Confirm password',
   changePassword: 'Change password',
+
+  // book consultation
+  genPhy: 'General Physician',
+  language: 'Language',
+  speakToDoc: 'Speak to a Doctor Now',
+  speakCont: 'Get access to personalized healthcare services anytime, anywhere from our in-house doctors for you and your family',
+  speakNow: 'Speak Now',
+  selectDate: 'Select Convenient Date & Slot',
+  date: '01/06/2021',
+  prefferedSlot: 'Preffered slot',
+
+  // Appointment Details
+  appointmentDetails: 'Appointment Details',
+  onlineCons: 'Online Consultation',
+  dateCons: '6th Nov, 2020   2:30PM',
+  docDetails: 'Doctor Details',
+  exp: '5 years Exp',
+  patientDetails: 'Patient Details',
+  changePatient: 'CHANGE PATIENT',
+  addFam: 'Add your family members to this Consult',
+  resonForCons: 'Reason for Consultation',
+  uploadReport: 'Upload Report',
+  otherDetails: 'Order Details',
+  consulCharge: 'Consultation Charges',
+  bookingCharges: 'Booking Charges',
+  tax: 'Tax',
+  totalAmt: 'Total Amount',
+applyCoupon:'apply Coupon',
   // WelcomeScreen
   welcomeTo: 'Welcome to MeraDoc',
   enterNumber: 'Enter your Mobile Number',

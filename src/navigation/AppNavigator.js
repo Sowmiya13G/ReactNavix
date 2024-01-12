@@ -110,49 +110,8 @@ const AppNavigator = () => {
           options={{ title: '', headerShown: false }}
         />
         <Stack.Screen
-          name={SCREENS.BOOKCONSULTATIONSCREEN}
-          component={ScreenNames.BookConsultaionScreen}
-          options={{ title: '', headerShown: false }}
-        />
-        <Stack.Screen
-          name={SCREENS.PASTCONSULTATIONSCREEN}
-          component={ScreenNames.PastConsultaionScreen}
-          options={{ title: '', headerShown: false }}
-        />
-        <Stack.Screen
-          name={SCREENS.PROFILEDETAILSSCREEN}
-          component={ScreenNames.ProfileDetailsScreen}
-          options={{ title: '', headerShown: false }}
-        />
-        <Stack.Screen
           name={SCREENS.SETTINGSCREEN}
           component={ScreenNames.SettingsScreen}
-          options={{ title: '', headerShown: false }}
-        />
-
-        <Stack.Screen
-          name={SCREENS.WEBINARSCREEN}
-          component={ScreenNames.WebinarScreen}
-          options={{ title: '', headerShown: false }}
-        />
-        <Stack.Screen
-          name={SCREENS.BLOGSCREEN}
-          component={ScreenNames.BlogScreen}
-          options={{ title: '', headerShown: false }}
-        />
-        <Stack.Screen
-          name={SCREENS.USERPROFILESCREEN}
-          component={ScreenNames.UserProfileScreen}
-          options={{ title: '', headerShown: false }}
-        />
-        <Stack.Screen
-          name={SCREENS.COMPLETEPROFILESCREEN}
-          component={ScreenNames.CompleteProfileScreen}
-          options={{ title: '', headerShown: false }}
-        />
-        <Stack.Screen
-          name={SCREENS.DASHBOARDSCREEN}
-          component={ScreenNames.DashboardScreen}
           options={{ title: '', headerShown: false }}
         />
       </Stack.Navigator>

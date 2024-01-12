@@ -47,7 +47,7 @@ import CustomButton from '../../../../components/CustomButton/CustomButton';
         // navigation.navigate('BlogScreen');
     };
     const goToNext = () => {
-        navigation.navigate('UserProfileScreen')
+        navigation.navigate('BookConsultaionScreen')
     }
     // Render UI .........................
     // Render Body

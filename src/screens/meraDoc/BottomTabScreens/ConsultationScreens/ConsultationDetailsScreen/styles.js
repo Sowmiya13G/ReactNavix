@@ -11,8 +11,11 @@ export const styles = StyleSheet.create({
     },
     image: {
         width: wp('20%'),
-        height: hp('10%'),
+        height: hp('20%'),
         resizeMode: 'contain',
+        alignSelf: 'flex-start',
+        bottom: '5%',
+        margin: '2%',
     },
     content: {
         marginLeft: '5%',
@@ -22,26 +25,26 @@ export const styles = StyleSheet.create({
         paddingLeft: '5%',
         paddingRight: '8%',
         paddingBottom: '5%',
-        flexDirection: 'row',
-        alignItems: 'center'
+        // flexDirection: 'row',
+        // alignItems: 'center'
     },
     title: {
         fontSize: theme.fontSizes.mediumFontText,
         fontWeight: 'bold',
-        color: theme.fontColors.blueTheme,
+        color: theme.fontColors.royalBlue,
     },
     data: {
         fontSize: theme.fontSizes.smallFontText,
-        color: theme.fontColors.inkLight,
+        color:theme.fontColors.black,
     },
     title2: {
         fontSize: theme.fontSizes.mediumFontText,
-        fontWeight: 'bold',
         color: '#A31361',
     },
     data2: {
         fontSize: theme.fontSizes.smallFontText,
-        color: '#BB6D97',
+        color:theme.fontColors.black,
+        fontWeight: 'bold',
 
     },
     option: {
@@ -59,51 +62,37 @@ export const styles = StyleSheet.create({
         borderBottomRightRadius: wp('4%'),
         bottom: 0
     },
-    completed: {
-        fontSize: theme.fontSizes.smallFont,
+    option2: {
+        fontSize: theme.fontSizes.bigFont,
         textAlign: 'center',
-        color:'#05BB64',
-        backgroundColor: theme.backgroundColor.gradientGreen,
-        padding: '3%',
-        borderRadius: wp('4%'),
-        width:wp('25%'),
-    },
-    singleUser:{
-        fontSize: theme.fontSizes.smallFont,
-        textAlign: 'center',
-        color:'#EB996E',
+        fontWeight: 'bold',
+        color: '#A31361',
+        position: 'absolute',
         alignSelf: 'center',
         justifyContent: 'center',
-    },
-    background: {
-        position: 'absolute',
-        bottom: '40%',
-        left: 0,
-        right: 0,
-        width: wp('100%'),
-        height: hp('65%')
+        backgroundColor: '#BB6D97',
+        width: wp('90%'),
+        padding: '3%',
+        borderBottomLeftRadius: wp('4%'),
+        borderBottomRightRadius: wp('4%'),
+        bottom: 0
     },
     backgroundCurve: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        width: wp('100%'),
-        height: hp('25%'),
-        bottom: '60%',
+        top: '-20%'
     },
-    options:{
-        backgroundColor:theme.backgroundColor.white,
+    options: {
+        backgroundColor: theme.backgroundColor.white,
         borderRadius: wp('4%'),
-       
+
         padding: '5%',
         width: wp('90%'),
         alignSelf: 'center',
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
-    optionText:{
+    optionText: {
         color: theme.fontColors.black,
-        fontSize:theme.fontSizes.mediumFont,
+        fontSize: theme.fontSizes.mediumFont,
         fontWeight: 'bold'
     },
     header: {
@@ -125,16 +114,37 @@ export const styles = StyleSheet.create({
     },
     callIcon: {
         fontWeight: 'bold',
-        transform: [{ rotate: '-30deg' }],
+        paddingLeft: '4%',
+        color: theme.fontColors.blueTheme
+    },
+    button: {
+        padding: '5%',
+        width: wp('90%'),
+        alignSelf: 'center',
+        fontWeight: 'bold',
+      },
+      buttonTxt: {
+        textTransform:'uppercase',
+        fontWeight: 'bold',
+      },
+    icon: {
+        fontWeight: 'bold',
         paddingLeft: '4%'
     },
-    bellIcon: {
-        fontWeight: 'bold',
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingLeft: '3%'
-   
+    texts: {
+        textAlign: 'center',
+        color: theme.fontColors.black,
+        fontSize: theme.fontSizes.mediumFont,
     },
+    textView: {
+        padding: '3%',
+        margin: '2%',
+        backgroundColor: theme.backgroundColor.white,
+        borderRadius: wp('4%'),
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+
     heading: {
         color: theme.fontColors.white,
         fontSize: theme.fontSizes.bigFont,
@@ -142,20 +152,4 @@ export const styles = StyleSheet.create({
         paddingLeft: '5%',
 
     },
-    tab: {
-        padding: 10,
-        borderBottomWidth: 2,
-        borderBottomColor: 'transparent',
-        width: wp('43%'),
-      },
-      selectedTab: {
-        backgroundColor: theme.backgroundColor.blueTheme,
-        borderRadius: wp('4%'),
-      },
-      tabText: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: 'black', // Adjust the color as needed
-        textAlign: 'center'
-      },
 });

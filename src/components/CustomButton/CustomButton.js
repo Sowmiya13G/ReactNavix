@@ -7,6 +7,7 @@ const CustomButton = ({
   primaryButton,
   label = '',
   logInButton,
+  textStyle,
   handlePress = () => { },
 }) => {
   return (
@@ -22,11 +23,11 @@ const CustomButton = ({
         onPress={handlePress}>
         <Text
           style={
-            primaryButton
+           [ primaryButton
               ? styles.primaryButtonText
               : logInButton
                 ? styles.logInButtonText
-                : ''
+                : '', textStyle]
           }>
           {label}
         </Text>

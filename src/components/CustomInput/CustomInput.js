@@ -1,25 +1,25 @@
 import React from 'react';
 import { View, TextInput, StyleSheet, Image, Text } from 'react-native';
-
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import theme from '../../constants/theme';
 import Spacer from '../Spacer';
-const CustomInput = ({ placeholder, value, icon,suffixIcon, onChangeText, secureTextEntry, keyboardType, label, multiline }) => {
+
+const CustomInput = ({ placeholder, value, icon,suffixIcon, onChangeText, secureTextEntry, keyboardType, label, multiline=false,style }) => {
   return (
     <>
       <Text style={styles.text}>{label}</Text>
       <Spacer height={hp('1.5%')} />
-      <View style={styles.inputContainer}>
+      <View style={[styles.inputContainer]}>
         {Boolean(icon) && <Image source={icon} style={styles.icon} />}
         <TextInput
-          style={styles.input}
+          style={[styles.input,  style && style.input]}
           placeholder={placeholder}
           value={value}
           onChangeText={onChangeText}
           secureTextEntry={secureTextEntry}
           placeholderTextColor="#8692A6"
           keyboardType={keyboardType}
-          multiline={true}
+          multiline={false}
         />
         {Boolean(suffixIcon) && <Image source={suffixIcon} style={styles.icon} />}
       </View>

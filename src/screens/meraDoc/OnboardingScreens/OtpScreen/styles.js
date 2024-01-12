@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import theme from '../../../constants/theme';
+import theme from '../../../../constants/theme';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 export const styles = StyleSheet.create({
     container: {

@@ -4,11 +4,10 @@ import { widthPercentageToDP } from 'react-native-responsive-screen';
 import Icon from 'react-native-vector-icons/FontAwesome'; 
 import theme from '../../constants/theme';
 import Spacer from '../Spacer';
-const GenderPicker = ({onOptionPress}) => {
+const ChoicePicker = ({onOptionPress, options, showIcon = true}) => {
 
   const [selectedOption, setSelectedOption] = useState(null);
 
-  const options = ['male', 'female', 'others'];
 
   const handleOptionPressInternal = option => {
     setSelectedOption(option);
@@ -35,6 +34,7 @@ const GenderPicker = ({onOptionPress}) => {
           width: widthPercentageToDP('22%'),
           flexDirection: 'row'
         }}>
+        {showIcon &&
           <Icon
           name={option === 'male' ? 'mars' : option === 'female' ? 'venus' : 'transgender'}
           size={18}
@@ -44,6 +44,7 @@ const GenderPicker = ({onOptionPress}) => {
               : theme.fontColors.inkLight
           }
         />
+        }
         <Spacer width={widthPercentageToDP('1%')}/>
         <Text
           style={{
@@ -73,4 +74,4 @@ const GenderPicker = ({onOptionPress}) => {
   );
 };
 
-export default GenderPicker;
+export default ChoicePicker;

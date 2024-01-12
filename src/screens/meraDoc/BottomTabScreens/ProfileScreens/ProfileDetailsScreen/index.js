@@ -14,7 +14,7 @@ import { useNavigation } from '@react-navigation/native';
 import * as Progress from 'react-native-progress';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
-import Spacer from '../../../../components/Spacer';
+import Spacer from '../../../../../components/Spacer';
 
 // Constants
 import theme from '../../../../../constants/theme';
