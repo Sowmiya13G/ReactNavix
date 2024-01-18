@@ -89,7 +89,6 @@ const CompleteProfileScreen = ({ route }) => {
         } else {
             dispatch(addUserProfile(localFormData));
         }
-        // dispatch(addUserProfile(localFormData));
         navigation.navigate('UserTab');
         setLocalFormData(
             {

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
 import {
     StatusBar,
@@ -10,7 +9,7 @@ import {
     FlatList,
     ImageBackground,
 } from 'react-native';
-import Video from 'react-native-video';
+// import Video from 'react-native-video';
 // Packages
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -34,7 +33,7 @@ import CustomButton from '../../../../components/CustomButton/CustomButton';
     const [testimonialIndex, setTestimonialIndex] = useState(0);
     const [partnerIndex, setPartnerIndex] = useState(0);
     const [trustIndex, setTrustIndex] = useState(0);
-    const videoPlayer = React.useRef();
+    // const videoPlayer = React.useRef();
     const navigation = useNavigation();
     const [open, setOpen] = useState(false);
     const openView = () => {
@@ -149,7 +148,7 @@ import CustomButton from '../../../../components/CustomButton/CustomButton';
                     <Spacer width={widthPercentageToDP('13%')} />
                     <Text style={styles.knowMore}>View all</Text>
                 </View>
-                <View style={styles.videoPlayer}>
+                {/* <View style={styles.videoPlayer}>
                     <Video
                         ref={ref => (videoPlayer.current = ref)}
                         source={{
@@ -160,7 +159,7 @@ import CustomButton from '../../../../components/CustomButton/CustomButton';
                         thumbnail={{ uri: 'https://i.picsum.photos/id/866/1600/900.jpg' }}
                         repeat={true}
                     />
-                </View>
+                </View> */}
                 {renderPaginationDots(10, partnerIndex)}
                 <View style={styles.contentView}>
                     <View style={{ flexDirection: 'row' , justifyContent: 'center'}}>

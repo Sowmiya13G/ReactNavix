@@ -90,7 +90,7 @@ export const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     margin: '4%'
   },
-  userPhotoPlaceholder:{
+  userPhotoPlaceholder: {
     width: wp('25%'),
     height: wp('25%'),
     borderRadius: wp('15%'),
@@ -124,5 +124,57 @@ export const styles = StyleSheet.create({
     bottom: '10%',
     right: '8%',
     top: '33%',
-  }
+  },
+  tab: {
+    padding: 10,
+    borderBottomWidth: 2,
+    borderBottomColor: 'transparent',
+    width: wp('43%'),
+  },
+  selectedTab: {
+    backgroundColor: theme.backgroundColor.blueTheme,
+    borderRadius: wp('4%'),
+  },
+  tabText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'black',
+    textAlign: 'center'
+  },
+  nodeContainer: {
+    flexDirection: 'column',
+    alignItems: 'center',
+     
+  },
+  rectangle: {
+    width: 100, 
+    height: 150, 
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'lightblue',
+    borderColor: 'blue', 
+    borderWidth: 1, 
+    marginBottom: 10,
+  },
+  nodeTitle: {
+    color: 'black',
+    fontSize: 14,
+  },
+  childrenContainer: {
+    flex: 1,
+    marginLeft: 20,
+  },
+  branchContainer: {
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  relationshipContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  connectionLine: {
+    width: 2,
+    height: 20,
+    backgroundColor: 'gray',
+  },
 });

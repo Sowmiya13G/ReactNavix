@@ -40,7 +40,7 @@ const ChoicePicker = ({onOptionPress, options, showIcon = true}) => {
           size={18}
           color={
             selectedOption === option
-              ? theme.backgroundColor.white
+              ? theme.backgroundColor.bgBlue
               : theme.fontColors.inkLight
           }
         />

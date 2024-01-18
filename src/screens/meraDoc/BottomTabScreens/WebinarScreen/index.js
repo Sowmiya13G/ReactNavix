@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
 import {
     StatusBar,
@@ -9,7 +8,7 @@ import {
     TouchableOpacity,
     FlatList
 } from 'react-native';
-import Video from 'react-native-video';
+// import Video from 'react-native-video';
 // Packages
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -25,7 +24,7 @@ import CustomButton from '../../../../components/CustomButton/CustomButton';
 
 
  const WebinarScreen = () => {
-    const videoPlayer = React.useRef();
+    // const videoPlayer = React.useRef();
     const navigation = useNavigation()
     const [open, setOpen] = useState(false)
     const openView = () => {
@@ -65,7 +64,7 @@ import CustomButton from '../../../../components/CustomButton/CustomButton';
                     <Text style={styles.text}>{strings.content}</Text>
 
                 </View>
-                <View style={styles.videoPlayer}>
+                {/* <View style={styles.videoPlayer}>
                     <Video
                         ref={(ref) => (videoPlayer.current = ref)}
                         source={{ uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' }}
@@ -74,7 +73,7 @@ import CustomButton from '../../../../components/CustomButton/CustomButton';
                         thumbnail={{ uri: 'https://i.picsum.photos/id/866/1600/900.jpg' }}
                         repeat={true}
                     />
-                </View>
+                </View> */}
                 <TouchableOpacity onPress={openView} style={{ flexDirection: 'row', alignSelf: 'center' }}>
                     <Text style={styles.title}>{strings.view}</Text>
                     <Spacer width={widthPercentageToDP('3%')}/>
