@@ -1,6 +1,10 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+
+// Custom tab bar
 import TabBar from './TabBar';
+
+// Screens
 import HomeScreen from '../screens/BottomTabScreens/HomeScreen';
 import PriceScreen from '../screens/BottomTabScreens/PriceScreen';
 import ItemScreen from '../screens/BottomTabScreens/ItemsScreen';

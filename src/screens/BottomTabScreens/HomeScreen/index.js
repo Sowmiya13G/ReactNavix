@@ -5,19 +5,61 @@ import {styles} from './styles';
 import axios from 'axios';
 import {
   setProducts,
-  fetchProducts,
   addItem,
 } from '../../../redux/features/ProductSlice';
+import { useNavigation } from '@react-navigation/native';
+import messaging from '@react-native-firebase/messaging';
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
   const dispatch = useDispatch();
   const products = useSelector(state => state.products.data);
+
+
   const handleAddToCart = useCallback(
     item => {
-      dispatch(addItem(item));
+      if (item) {
+        dispatch(addItem(item));
+      } else {
+        console.error('Invalid item:', item);
+      }
     },
-    [dispatch],
+    [dispatch]
   );
+
+
+  useEffect(() => {
+    const unsubscribe = messaging().onMessage(async remoteMessage => {
+      console.log('Notification in foreground:', remoteMessage);
+    });
+
+    messaging()
+      .getInitialNotification()
+      .then(remoteMessage => {
+        if (remoteMessage) {
+          console.log('Notification caused app to open:', remoteMessage);
+          const deepLink = remoteMessage.data.deepLink; 
+          if (deepLink) {
+            navigation.navigate(deepLink);
+          }
+        }
+      });
+
+    return unsubscribe;
+  }, [navigation]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get('https://fakestoreapi.com/products');
+        dispatch(setProducts(response.data));
+      } catch (err) {
+        console.log('err', err);
+        dispatch(setError(err.message));
+      } finally {
+      }
+    };
+    fetchProducts();
+  }, [dispatch]);
 
   const renderBody = useCallback(({item}) => {
     return (
@@ -35,12 +77,8 @@ const HomeScreen = () => {
     );
   }, []);
 
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
-
   if (!products || products.length === 0) {
-    return <Text>No products available.</Text>;
+    return <Text style={styles.title}>No products available.</Text>;
   }
   return (
     <View style={styles.container}>
@@ -57,18 +95,4 @@ const HomeScreen = () => {
 
 export default HomeScreen;
 
-// useEffect(() => {
-//   const fetchProducts = async () => {
-//     try {
-//       const response = await axios.get('https://fakestoreapi.com/products');
-//       // console.log('response', response);
-//       dispatch(setProducts(response.data));
-//     } catch (err) {
-//       console.log('err', err);
-//       dispatch(setError(err.message));
-//     } finally {
-//     }
-//   };
 
-//   fetchProducts();
-// }, [dispatch]);

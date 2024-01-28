@@ -6,6 +6,7 @@ import CustomButton from '../../../components/CustomButton/CustomButton';
 import CustomInput from '../../../components/CustomInput/CustomInput';
 import {styles} from './styles';
 import {placeholders, strings} from '../../../constants/strings';
+import theme from '../../../constants/theme';
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
@@ -27,7 +28,7 @@ const LoginScreen = () => {
 
   return (
     <CommonGradient>
-      <StatusBar backgroundColor="#37ECBA" barStyle="dark-content" />
+      <StatusBar backgroundColor={theme.backgroundColor.status} barStyle="dark-content" />
       <View style={styles.container}>
         <View style={styles.head}>
           <Text style={styles.logIn}>{strings.loginTitle}</Text>

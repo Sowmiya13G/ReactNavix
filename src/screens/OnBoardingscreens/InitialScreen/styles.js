@@ -1,9 +1,11 @@
 import {StyleSheet} from 'react-native';
+import theme from '../../../constants/theme';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor:theme.backgroundColor.saddleBrown
   },
 
   imageStyle: {
@@ -16,6 +18,7 @@ export const styles = StyleSheet.create({
   },
 
   wrapper: {
+    top:0,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -33,7 +36,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20,
+    // marginTop: 20,
   },
   paginationDots: {
     width: 10,
@@ -53,10 +56,18 @@ export const styles = StyleSheet.create({
     right: 5,
     // alignSelf: 'flex-end',
   },
+  notification: {
+   alignSelf:'flex-end',
+    padding:'3%',
+    backgroundColor:theme.backgroundColor.saddleBrown2,
+    color: theme.fontColors.white,
+    marginTop:'15%'
+  },
   completeButtonText: {
     color: '#fff',
     right: 5,
     fontSize: 15,
+    textAlign:'center'
   },
   icon: {
     fontSize: 15,

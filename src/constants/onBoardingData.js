@@ -38,3 +38,32 @@ export const onboardingData = [
   //     'Now tracking and viewing your clients segment wise turnover, your revenue and many more reports is easy and at your finger tips',
   // },
 ];
+
+
+export const data = [
+  {
+    image: require('../assets/images/online.png'),
+    title: 'Nature Imitates Art',
+    description: '....something like that',
+  },
+  {
+    image: require('../assets/images/checkout.png'),
+    title: 'Nature Imitates Art',
+    description: '....something like that',
+  },
+  {
+    image: require('../assets/images/ads.png'),
+    title: 'Nature Imitates Art',
+    description: '....something like that',
+  },
+  {
+    image: require('../assets/images/bag.png'),
+    title: 'Nature Imitates Art',
+    description: '....something like that',
+  },
+  // {
+  //   image: require('../../../assets/images/web.png'),
+  //   title: 'Nature Imitates Art',
+  //   description: '....something like that',
+  // },
+];

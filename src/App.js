@@ -15,4 +15,10 @@ const App = () => {
   );
 };
 
+// import React from "react";
+// import MyForm from "./screens/MyForm";
+
+// const App = () => {
+//   return(<MyForm/>)
+// }
 export default App;

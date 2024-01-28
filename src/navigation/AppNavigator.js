@@ -10,7 +10,7 @@ import InitialScreen from '../screens/OnBoardingscreens/InitialScreen/InitialScr
 import TabNavigator from './TabNavigator';
 import messaging from '@react-native-firebase/messaging';
 import notifee from '@notifee/react-native';
-import SignUpScreen from '../screens/OnBoardingscreens/SignupScreen/SignupScreen';
+// import SignUpScreen from '../screens/OnBoardingscreens/SignupScreen/SignupScreen';
 import theme from '../constants/theme';
 
 const Stack = createStackNavigator();
