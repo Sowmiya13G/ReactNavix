@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   TextInput,
@@ -7,25 +7,55 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView,
 } from 'react-native';
+
+// Packages
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {useDispatch, useSelector} from 'react-redux';
-import {addItem, editItem, deleteItem} from '../../../redux/features/ItemSlice';
-import {styles} from './styles';
+import Sound from 'react-native-sound';
+
+// Redux
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem, editItem, deleteItem } from '../../../redux/features/ItemSlice';
+
+// Styles
+import { styles } from './styles';
+
+// Constants
+import theme from '../../../constants/theme';
+import commonSoundPath from '../../../constants/sounds';
+
 const ItemScreen = () => {
+
+  // Redux 
   const dispatch = useDispatch();
   const items = useSelector(state => state.items);
+
+  // Use State
   const [newItem, setNewItem] = useState('');
   const [editedItem, setEditedItem] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editableIndex, setEditableIndex] = useState(-1);
+  const [sound, setSound] = useState();
+  console.log('sound', sound)
+
+  // functions
   const handleAddItem = () => {
     if (newItem.trim() !== '') {
       if (editedItem) {
-        dispatch(editItem({id: editedItem.id, text: newItem}));
+        dispatch(editItem({ id: editedItem.id, text: newItem }));
         setEditedItem(null);
         setIsEditing(false);
       } else {
+        console.log('added')
         dispatch(addItem(newItem));
+        if (sound) {
+          sound.play((success) => {
+            if (success) {
+              console.log('Sound played successfully!');
+            } else {
+              console.log('Sound playback failed!');
+            }
+          });
+        }
       }
       setNewItem('');
     }
@@ -35,12 +65,12 @@ const ItemScreen = () => {
     setEditableIndex(-1);
   };
   const handleEditItem = (id, text, index) => {
-    setEditedItem({id, text});
+    setEditedItem({ id, text });
     setNewItem(text);
     setEditableIndex(index);
   };
   const handleEdit = (id, text) => {
-    dispatch(editItem({id, text}));
+    dispatch(editItem({ id, text }));
     setEditedItem(null);
     setIsEditing(false);
   };
@@ -48,6 +78,36 @@ const ItemScreen = () => {
     dispatch(deleteItem(id));
   };
 
+// UseEffect
+useEffect(() => {
+  const loadSound = async () => {
+    try {
+      const notificationSound = new Sound(commonSoundPath.notification, Sound.MAIN_BUNDLE, (error) => {
+        if (error) {
+          console.log('Error loading sound:', error);
+          return;
+        }
+        console.log('Sound loaded successfully!');
+        setSound(notificationSound);
+      });
+    } catch (error) {
+      console.error('Error loading sound:', error);
+    }
+  };
+
+  loadSound();
+
+  return () => {
+    if (sound) {
+      sound.release();
+    }
+  };
+}, []);
+
+
+
+  // render UI ............
+  // render Input 
   const renderInput = () => {
     return (
       <KeyboardAvoidingView
@@ -68,7 +128,9 @@ const ItemScreen = () => {
       </KeyboardAvoidingView>
     );
   };
-  const renderBody = ({index, item}) => {
+
+  // render Body 
+  const renderBody = ({ index, item }) => {
     return (
       <View style={styles.itemContainer}>
         <View style={styles.indexContainer}>
@@ -80,31 +142,32 @@ const ItemScreen = () => {
             onChangeText={text => handleEdit(item.id, text)}
             style={[
               styles.taskContainer,
-              {color: editableIndex === index ? '#000' : '#FFF'},
+              { color: editableIndex === index ? theme.fontColors.black : theme.fontColors.white },
             ]}
             editable={editableIndex === index}
           />
           <View style={styles.buttonsContainer}>
             {editableIndex === index ? (
               <TouchableOpacity onPress={() => handleSave()}>
-                <Icon name="save" size={20} color="#000" />
+                <Icon name="save" size={20} color={theme.fontColors.black} />
               </TouchableOpacity>
             ) : (
               <TouchableOpacity
                 onPress={() => handleEditItem(item.id, item.text, index)}>
-                <Icon name="edit" size={20} color="#000" />
+                <Icon name="edit" size={20} color={theme.fontColors.black} />
               </TouchableOpacity>
             )}
             <TouchableOpacity
               onPress={() => handleDeleteItem(item.id)}
               style={styles.deleteButton}>
-              <Icon name="trash-o" size={20} color="#FFF" />
+              <Icon name="trash-o" size={20} color={theme.fontColors.white} />
             </TouchableOpacity>
           </View>
         </View>
       </View>
     );
   };
+
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>TODAY'S ITEM LIST</Text>

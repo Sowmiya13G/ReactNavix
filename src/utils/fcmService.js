@@ -1,5 +1,5 @@
 import messaging from '@react-native-firebase/messaging';
-import notifee from '@notifee/react-native';
+
 export async function getFCMToken() {
   try {
     const token = await messaging().getToken();
@@ -40,27 +40,31 @@ export async function initializeFirebaseMessaging() {
   }
 }
 
-export async function setupFCMListener() {
-    await notifee.requestPermission();
-    const channelId = await notifee.createChannel({
-      id: 'default',
-      name: 'Default Channel',
-      screen: 'home', 
-    });
+
+
+
+
+// export async function setupFCMListener() {
+//     await notifee.requestPermission();
+//     const channelId = await notifee.createChannel({
+//       id: 'default',
+//       name: 'Default Channel',
+//       screen: 'home', 
+//     });
   
-    messaging().onMessage(async remoteMessage => {
-      console.log('NOTIFICATION IN FOREGROUND STATE', remoteMessage.data.screen);
-      const {title, body} = remoteMessage.notification;
-      await notifee.displayNotification({
-        title,
-        body,
-        android: {
-          channelId,
-          smallIcon: 'ic_launcher',
-          pressAction: {
-            id: 'default',
-          },
-        },
-      });
-    });
-  }
+//     messaging().onMessage(async remoteMessage => {
+//       console.log('NOTIFICATION IN FOREGROUND STATE', remoteMessage.data.screen);
+//       const {title, body} = remoteMessage.notification;
+//       await notifee.displayNotification({
+//         title,
+//         body,
+//         android: {
+//           channelId,
+//           smallIcon: 'ic_launcher',
+//           pressAction: {
+//             id: 'default',
+//           },
+//         },
+//       });
+//     });
+//   }

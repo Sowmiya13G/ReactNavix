@@ -6,7 +6,6 @@ import TabBar from './TabBar';
 
 // Screens
 import HomeScreen from '../screens/BottomTabScreens/HomeScreen';
-import PriceScreen from '../screens/BottomTabScreens/PriceScreen';
 import ItemScreen from '../screens/BottomTabScreens/ItemsScreen';
 import CartScreen from '../screens/BottomTabScreens/CartScreen';
 

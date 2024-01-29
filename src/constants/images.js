@@ -8,6 +8,7 @@ const commonImagePath = {
   wishList: require('../assets/images/wishList.png'),
   web: require('../assets/images/web.png'),
   online: require('../assets/images/online.png'),
+  arrow: require('../assets/images/arrow.png')
 };
 export default commonImagePath;
 

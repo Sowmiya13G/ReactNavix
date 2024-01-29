@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: Platform.OS === 'android' ? 0 : 0,
-    backgroundColor: theme.backgroundColor.white,
+    backgroundColor: theme.backgroundColor.saddleBrown,
     padding: '2%',
   },
   heading: {
@@ -70,7 +70,7 @@ export const styles = StyleSheet.create({
     fontSize: 20,
   },
   taskContainer: {
-    backgroundColor: theme.backgroundColor.saddleBrown,
+    backgroundColor: theme.backgroundColor.saddleBrown2,
     borderRadius: 12,
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -99,7 +99,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: theme.backgroundColor.saddleBrown,
+    backgroundColor: theme.backgroundColor.saddleBrown2,
     borderRadius: 12,
     flexDirection: 'row',
     justifyContent: 'space-around',

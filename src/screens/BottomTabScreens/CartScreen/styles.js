@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
     paddingTop: Platform.OS === 'android' ? 0 : 0,
-    backgroundColor: theme.backgroundColor.white,
+    backgroundColor: theme.backgroundColor.saddleBrown,
   },
   cartToggle: {
     flexDirection: 'row',
