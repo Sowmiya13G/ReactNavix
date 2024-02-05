@@ -1,10 +1,36 @@
 import {StyleSheet} from 'react-native';
 import theme from '../../../constants/theme';
+import { widthPercentageToDP as wp , heightPercentageToDP as hp} from 'react-native-responsive-screen';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: theme.backgroundColor.saddleBrown
+    backgroundColor: theme.backgroundColor.saddleBrown,
+    display: 'flex',
+  },
+  listContainer: {
+    padding: '5%',
+  },
+  listItem: {
+    display: 'flex',
+    marginHorizontal: 3,
+    marginVertical: 2,
+    padding: '1%',
+    alignSelf: 'center'
+  },
+  listHeader: {
+    color: theme.fontColors.black,
+    fontSize: theme.fontSizes.mediumFont,
+    fontWeight: 'bold',
+  },
+  listTitle: {
+    fontSize: 24,
+  },
+  listImage: {
+    resizeMode: 'cover',
+    borderRadius: wp('5%'),
+    height: hp('10%'),
+    width: wp('20%'),
   },
   header: {
     flexDirection: 'row',

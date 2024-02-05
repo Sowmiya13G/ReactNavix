@@ -5,8 +5,7 @@ import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 import messaging from '@react-native-firebase/messaging';
 import { useNavigation } from '@react-navigation/native';
-import WalkthroughTooltip from 'react-native-walkthrough-tooltip';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 // redux
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -19,17 +18,13 @@ import { styles } from './styles';
 
 // Component
 import InstructionOverlay from '../../../components/Modal/instructionOverlay';
-import commonImagePath from '../../../constants/images';
+import { instructions } from '../../../constants/onBoardingData';
 
 const HomeScreen = () => {
 
   // Use State 
-  const [showInstructions, setShowInstructions] = useState(true);
+  const [showInstructions, setShowInstructions] = useState(false);
   const [instructionStep, setInstructionStep] = useState(0);
-  console.log('instructionStep', instructionStep)
-  const [tooltipVisible, setTooltipVisible] = useState(false);
-  const [tooltipTarget, setTooltipTarget] = useState(null);
-  const [targetMeasurements, setTargetMeasurements] = useState({});
 
   // Variables
   const navigation = useNavigation();
@@ -38,71 +33,22 @@ const HomeScreen = () => {
   const dispatch = useDispatch();
   const products = useSelector(state => state.products.data);
 
-  // Use Ref
-  const homeTabRef = useRef();
-  const cartTabRef = useRef();
-  const listTabRef = useRef();
-  const addToCartButtonRef = useRef();
 
-  // Constants
-  const instructions = [
-    {
-      title: 'Home',
-      text: 'Tap to see the available products',
-      targetRef: homeTabRef,
-      image: commonImagePath.arrow
-    },
-    {
-      title: 'Cart',
-      text: 'Tap to see the cart products',
-      targetRef: cartTabRef,
-      image: commonImagePath.arrow
-    },
-    {
-      title: 'Add Items',
-      text: 'Tap to Add items',
-      targetRef: listTabRef,
-      image: commonImagePath.arrow
-    },
-    {
-      title: 'Add to cart',
-      text: 'Click to add items to your cart',
-      targetRef: addToCartButtonRef,
-      image: commonImagePath.arrow
-    },
-  ];
-  console.log('showInstructions:', showInstructions);
-  console.log('instructionStep:', instructionStep);
-
-  // Functions
   const onNextInstruction = () => {
-    if (instructionStep < instructions.length - 1) {
-      setInstructionStep(step => step + 1);
-      setTooltipVisible(false);
-      setTooltipTarget(null);
+    const nextStep = instructionStep + 1;
+
+    if (nextStep < instructions.length) {
+      setInstructionStep(nextStep);
     } else {
       setShowInstructions(false);
+      setInstructionAsShown();
     }
   };
 
   const closeInstructions = () => {
     setShowInstructions(false);
+    setInstructionAsShown()
   };
-
-
-  const showTooltip = useCallback(
-    (targetRef) => {
-      setTooltipTarget(targetRef);
-      setTooltipVisible(true);
-    },
-    [setTooltipTarget, setTooltipVisible]
-  );
-
-  const hideTooltip = useCallback(() => {
-    setTooltipVisible(false);
-    setTooltipTarget(null);
-  }, [setTooltipVisible, setTooltipTarget]);
-
 
   const handleAddToCart = useCallback(
     item => {
@@ -114,40 +60,23 @@ const HomeScreen = () => {
     },
     [dispatch]
   );
-  // Use Effects
+  const hasInstructionBeenShown = async () => {
+    try {
+      const value = await AsyncStorage.getItem('@instructionShown');
+      return value !== null;
+    } catch (error) {
+      console.error('Error checking instruction shown:', error);
+      return false;
+    }
+  };
 
-  // Tooltip...
-  useEffect(() => {
-    const measureTargets = () => {
-      const measurements = {};
-
-      if (homeTabRef.current) {
-        homeTabRef.current.measureInWindow((x, y, width, height) => {
-          measurements[0] = { x, y, width, height };
-        });
-      }
-      if (cartTabRef.current) {
-        cartTabRef.current.measureInWindow((x, y, width, height) => {
-          measurements[1] = { x, y, width, height };
-        });
-      }
-      if (listTabRef.current) {
-        listTabRef.current.measureInWindow((x, y, width, height) => {
-          measurements[2] = { x, y, width, height };
-        });
-      }
-      if (addToCartButtonRef.current) {
-        addToCartButtonRef.current.measureInWindow((x, y, width, height) => {
-          measurements[3] = { x, y, width, height };
-        });
-      }
-
-      setTargetMeasurements(measurements);
-    };
-
-    requestAnimationFrame(measureTargets);
-  }, [homeTabRef, cartTabRef, listTabRef, addToCartButtonRef]);
-
+  const setInstructionAsShown = async () => {
+    try {
+      await AsyncStorage.setItem('@instructionShown', 'true');
+    } catch (error) {
+      console.error('Error setting instruction as shown:', error);
+    }
+  };
   // Message...
   useEffect(() => {
     const unsubscribe = messaging().onMessage(async remoteMessage => {
@@ -184,6 +113,20 @@ const HomeScreen = () => {
     fetchProducts();
   }, [dispatch]);
 
+  useEffect(() => {
+    const checkInstructionStatus = async () => {
+      const hasBeenShown = await hasInstructionBeenShown();
+      if (!hasBeenShown) {
+        console.log("Instructions: Not shown yet");
+      } else {
+        console.log("Instructions: Already shown");
+      }
+
+      setShowInstructions(!hasBeenShown);
+    };
+    checkInstructionStatus();
+  }, []);
+
   // Render Body
   const renderBody = useCallback(({ item }) => {
     const addToCartButtonRef = React.createRef();
@@ -195,16 +138,13 @@ const HomeScreen = () => {
           <TouchableOpacity
             style={styles.addToCartButton}
             onPress={() => handleAddToCart(item)}
-            ref={addToCartButtonRef}
-            onLongPress={() => showTooltip(addToCartButtonRef.current)}
-            onPressOut={hideTooltip}
           >
             <Text style={styles.addToCartButtonText}>Add to Cart</Text>
           </TouchableOpacity>
         </View>
       </View>
     );
-  }, [handleAddToCart, showTooltip, hideTooltip]);
+  }, [handleAddToCart]);
 
   // No product...
   if (!products || products.length === 0) {
@@ -221,28 +161,34 @@ const HomeScreen = () => {
         renderItem={renderBody}
         showsVerticalScrollIndicator={false}
       />
-
-<WalkthroughTooltip
-        isVisible={tooltipVisible && instructionStep === 3} 
-        content={<Text>{instructions[3].text}</Text>}
-        placement="bottom"
-        onClose={() => setTooltipVisible(false)}
-        targetArea={addToCartButtonRef}
-      />
-
-      {/* Bottom Tab Icons */}
-      {instructions.slice(0, 3).map((instruction, index) => (
-        <WalkthroughTooltip
-          key={index}
-          isVisible={tooltipVisible && instructionStep === index}
-          content={<Text>{instruction.text}</Text>}
-          placement="top"
-          onClose={() => setTooltipVisible(false)}
-          targetArea={instruction.targetRef}
+      {showInstructions &&
+        <InstructionOverlay
+          isVisible={showInstructions}
+          text={instructions[instructionStep].text}
+          title={instructions[instructionStep].title}
+          onNext={onNextInstruction}
+          onClose={closeInstructions}
+          instructions={instructions}
+          indexValue={instructionStep}
+          position="absolute"
+          align="center"
+          top={instructions[instructionStep]?.top}
+          bottom={instructions[instructionStep]?.bottom}
+          left={instructions[instructionStep]?.left}
+          right={instructions[instructionStep]?.right}
+          marginLeft={instructions[instructionStep]?.marginLeft}
         />
-      ))}
+      }
 
-      <InstructionOverlay
+    </View>
+  );
+};
+
+export default HomeScreen;
+
+
+
+{/* <InstructionOverlay
   isVisible={showInstructions}
   text={instructions[instructionStep].text}
   title={instructions[instructionStep].title}
@@ -254,10 +200,4 @@ const HomeScreen = () => {
   arrow={instructionStep}
   position="absolute"
   align="center"
-/>
-
-    </View>
-  );
-};
-
-export default HomeScreen;
+/> */}

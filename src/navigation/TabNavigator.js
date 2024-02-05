@@ -8,6 +8,8 @@ import TabBar from './TabBar';
 import HomeScreen from '../screens/BottomTabScreens/HomeScreen';
 import ItemScreen from '../screens/BottomTabScreens/ItemsScreen';
 import CartScreen from '../screens/BottomTabScreens/CartScreen';
+import PriceScreen from '../screens/BottomTabScreens/PriceScreen';
+import MileStone from '../screens/BottomTabScreens/Milestone';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,7 +21,7 @@ const TabNavigator = () => {
     },
     {
       name: 'CartTab',
-      component: CartScreen,
+      component: MileStone,
     },
     {
       name: 'ItemTab',

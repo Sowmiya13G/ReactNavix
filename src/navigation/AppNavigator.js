@@ -36,7 +36,7 @@ const AppNavigator = () => {
       />
       <NavigationContainer linking={linking}>
         <Stack.Navigator >
-          <Stack.Screen
+          {/* <Stack.Screen
             name="InitialScreen"
             component={InitialScreen}
             options={{title: '', headerShown: false}}
@@ -45,7 +45,7 @@ const AppNavigator = () => {
             name="SignUpScreen"
             component={SignUpScreen}
             options={{title: '', headerShown: false}}
-          />
+          /> */}
           <Stack.Screen
             name="HomeScreen"
             component={TabNavigator}

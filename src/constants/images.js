@@ -8,7 +8,25 @@ const commonImagePath = {
   wishList: require('../assets/images/wishList.png'),
   web: require('../assets/images/web.png'),
   online: require('../assets/images/online.png'),
-  arrow: require('../assets/images/arrow.png')
+  arrow: require('../assets/images/arrow.png'),
+  percentage: require('../assets/images/percentage.png'),
+  count: require('../assets/images/count.png'),
+  location: require('../assets/images/Location.png'),
+  count1: require('../assets/images/count1.png'),
+  pawIcon: require('../assets/images/pawIcon.png'),
+  heart: require('../assets/images/heart.png'),
+  calender: require('../assets/images/calendar.png'),
+  search:require('../assets/images/search.png'),
+  pawImage: require('../assets/images/pawImage.png'),
+  birthDay: require('../assets/images/birthDay.png'),
+  dogImage: require('../assets/images/dogImage.png'),
+  sitting: require('../assets/images/sitting.png'),
+  sittingWith: require('../assets/images/sittingWith.png'),
+  gallery1: require('../assets/images/gellery1.png'),
+  gallery2: require('../assets/images/gallery2.png'),
+  gallery3: require('../assets/images/gallery3.png'),
+  gallery4: require('../assets/images/gallery4.png'),
+  gallery5: require('../assets/images/gallery5.png'),
 };
 export default commonImagePath;
 

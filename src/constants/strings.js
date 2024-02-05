@@ -19,6 +19,7 @@ const strings = {
   googleLogin: 'Continue with Google',
   or: 'or',
   authLogin: 'Authorized Login',
+  mileStone: 'Milestone',
 };
 
 const placeholders = {
