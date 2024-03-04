@@ -16,6 +16,7 @@ import SignUpScreen from '../screens/OnBoardingscreens/SignUpScreen';
 
 // Constants
 import theme from '../constants/theme';
+import MyForm from '../screens/Form';
 
 const Stack = createStackNavigator();
 
@@ -40,17 +41,17 @@ const AppNavigator = () => {
             name="InitialScreen"
             component={InitialScreen}
             options={{title: '', headerShown: false}}
-          />
+          />*/}
           <Stack.Screen
-            name="SignUpScreen"
-            component={SignUpScreen}
+            name="MyForm"
+            component={MyForm}
             options={{title: '', headerShown: false}}
-          /> */}
-          <Stack.Screen
+          /> 
+          {/* <Stack.Screen
             name="HomeScreen"
             component={TabNavigator}
             options={{title: '', headerShown: false}}
-          />
+          /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </View>
