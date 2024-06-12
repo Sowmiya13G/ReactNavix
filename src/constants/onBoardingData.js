@@ -13,13 +13,6 @@ export const onboardingData = [
     description:
       'Now tracking and viewing your clients segment wise turnover, your revenue and many more reports is easy and at your finger tips',
   },
-  // {
-  //   title: 'Customer Service',
-  //   image: require('../assets/images/checkout.png'),
-  //   description:
-  //     "Provide an exceptional customer service experience with our app's streamlined features, designed to prioritize your client’s needs and satisfaction",
-  // },
-
   {
     title: 'Real-Time Analytics & Reports',
     image: require('../assets/images/wishList.png'),
@@ -32,12 +25,6 @@ export const onboardingData = [
     description:
       'Now tracking and viewing your clients segment wise turnover, your revenue and many more reports is easy and at your finger tips',
   },
-  // {
-  //   title: 'Real-Time Analytics & Reports',
-  //   image: require('../assets/images/online.png'),
-  //   description:
-  //     'Now tracking and viewing your clients segment wise turnover, your revenue and many more reports is easy and at your finger tips',
-  // },
 ];
 
 

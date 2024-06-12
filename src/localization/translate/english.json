@@ -20,5 +20,27 @@
                 "forgotPassword": "Forgotten password?"
             }
         }
-    }
+    },
+    "onboardingData": [
+        {
+            "title": "Ease of Cross-sell / Upsell",
+            "image": "require('../assets/images/ecommerce.png')",
+            "description": "Ease of cross-selling & upselling with access to bouquet of products and personalized recommendations tailored to your clients' needs"
+        },
+        {
+            "title": "Real-Time Analytics & Reports",
+            "image": "require('../assets/images/web.png')",
+            "description": "Now tracking and viewing your clients segment wise turnover, your revenue and many more reports is easy and at your finger tips"
+        },
+        {
+            "title": "Wishlist Management",
+            "image": "require('../assets/images/wishList.png')",
+            "description": "Easily manage your clients’ wishlists and provide them with timely reminders and notifications to enhance their shopping experience"
+        },
+        {
+            "title": "Order Management",
+            "image": "require('../assets/images/bag.png')",
+            "description": "Simplify the order management process with real-time updates and notifications to ensure timely deliveries and client satisfaction"
+        }
+    ]
 }

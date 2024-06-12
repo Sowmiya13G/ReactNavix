@@ -20,5 +20,27 @@
                 "forgotPassword": "Mot de passe oublié?"
             }
         }
-    }
+    },
+    "onboardingData": [
+        {
+            "title": "Facilité de vente croisée / montée en gamme",
+            "image": "require('../assets/images/ecommerce.png')",
+            "description": "Facilité de vente croisée et montée en gamme avec accès à un bouquet de produits et des recommandations personnalisées adaptées aux besoins de vos clients"
+        },
+        {
+            "title": "Analyses et rapports en temps réel",
+            "image": "require('../assets/images/web.png')",
+            "description": "Maintenant, le suivi et la visualisation du chiffre d'affaires par segment de vos clients, de vos revenus et de nombreux autres rapports sont faciles et à portée de main"
+        },
+        {
+            "title": "Gestion des listes de souhaits",
+            "image": "require('../assets/images/wishList.png')",
+            "description": "Gérez facilement les listes de souhaits de vos clients et fournissez-leur des rappels et des notifications en temps opportun pour améliorer leur expérience d'achat"
+        },
+        {
+            "title": "Gestion des commandes",
+            "image": "require('../assets/images/bag.png')",
+            "description": "Simplifiez le processus de gestion des commandes avec des mises à jour et des notifications en temps réel pour garantir des livraisons rapides et la satisfaction des clients"
+        }
+    ]
 }
